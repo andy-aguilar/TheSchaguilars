@@ -1,14 +1,35 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import MainBody from "./components/MainBody/MainBody";
+import { HomePage } from "./components/HomePage/HomePage";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 export const App: FunctionComponent = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
   return (
     <div className="App">
-      <h1>Kristin and Andy's Wedding Website</h1>
+      <header>
+        {/* Menu Icon: */}
+        {!isMenuOpen && (
+          <MenuIcon
+            fontSize="large"
+            className="header-icon"
+            onClick={() => setIsMenuOpen(true)}
+          />
+        )}
+        {/* Close Icon: */}
+        {isMenuOpen && (
+          <CloseIcon
+            fontSize="large"
+            className="header-icon"
+            onClick={() => setIsMenuOpen(false)}
+          />
+        )}
+      </header>
       <Routes>
-        <Route path="/" element={<MainBody />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="testroute" element={<h1>It worked</h1>} />
       </Routes>
     </div>

@@ -9,6 +9,6 @@ test("renders the wedding website h1", () => {
       <App />
     </BrowserRouter>
   );
-  const heading = screen.getByText(/Kristin and Andy/i);
+  const heading = screen.getByText(/Kristin/i);
   expect(heading).toBeInTheDocument();
 });
