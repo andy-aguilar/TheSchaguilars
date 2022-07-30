@@ -35,7 +35,12 @@ export const App: FunctionComponent = () => {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="testroute" element={<h1>It worked</h1>} />
+        <Route path="wedding" element={<h1>Wedding</h1>} />
+        <Route path={'/travel-information'} element={<h1>Travel Information</h1>} />
+        <Route path={'/about-antigua'} element={<h1>About Antigua</h1>} />
+        <Route path={'/registry'} element={<h1>Registry</h1>} /> 
+        <Route path={'/rsvp'} element={<h1>RSVP</h1>} />
+        <Route path={'/faqs'} element={<h1>FAQs</h1>} />
       </Routes>
     </div>
   );

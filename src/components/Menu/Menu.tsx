@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import "./menu.css";
 import { CSSTransition } from "react-transition-group";
+import { NavMenu } from "../NavMenu/NavMenu";
 
 export interface Props {
   setIsMenuOpen: (isMenuOpen: boolean) => void;
@@ -40,9 +41,7 @@ export const Menu: FunctionComponent<Props> = ({ setIsMenuOpen }) => {
           unmountOnExit
           onExited={closeMenu}
         >
-          <div>
-            <button onClick={() => setShouldShowDivs(false)}></button>
-          </div>
+          <NavMenu onNavigate={() => setShouldShowDivs(false)}/>
         </CSSTransition>
       </div>
     </div>
