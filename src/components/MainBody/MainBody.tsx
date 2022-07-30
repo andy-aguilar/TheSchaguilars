@@ -1,12 +1,7 @@
 import React from "react";
 
 const MainBody = () => {
-  return <div>
-
-
-
-      
-  </div>;
+  return <div></div>;
 };
 
 export default MainBody;
