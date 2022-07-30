@@ -1,7 +1,117 @@
-#menu-container{
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    z-index: 2;
-    background-color: transparent;
+/* Menu sits above the entire app and has a transparent background */
+
+#menu-container {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 2;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+}
+
+.image-container {
+  width: 50%;
+  height: 100vh;
+  background-color: transparent;
+}
+
+.image {
+  position: relative;
+  top: 100vh;
+  height: 0%;
+}
+
+.image-enter {
+  position: relative;
+  height: 100%;
+  top: 100vh;
+}
+
+.image-enter-active {
+  position: relative;
+  top: 0;
+  height: 100%;
+  transition: top 600ms;
+}
+
+.image-enter-done {
+  top: 0;
+  height: 100%;
+}
+
+.image-exit {
+  opacity: 1;
+  top: 100vh;
+  height: 100%;
+}
+
+.image-exit-active {
+  opacity: 0;
+  height: 100%;
+  top: 0;
+  transition: opacity 600ms;
+}
+.image-exit-done {
+  opacity: 0;
+}
+
+.nav-menu-container {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+.nav-menu {
+  position: relative;
+  top: -100vh;
+  height: 100%;
+  background-color: rgb(235, 231, 220);
+}
+
+.nav-menu-enter {
+  position: relative;
+  top: -100vh;
+  height: 100%;
+  background-color: rgb(235, 231, 220);
+}
+
+.nav-menu-enter-active {
+  position: relative;
+  top: 0;
+  height: 100%;
+  background-color: rgb(235, 231, 220);
+  transition: top 600ms;
+}
+
+.nav-menu-enter-done {
+  position: relative;
+  top: 0;
+  height: 100%;
+  background-color: rgb(235, 231, 220);
+}
+
+.nav-menu-exit {
+  position: relative;
+  top: 0;
+  height: 100%;
+  background-color: rgb(235, 231, 220);
+  opacity: 1;
+}
+
+.nav-menu-exit-active {
+  position: relative;
+  top: 0;
+  height: 100%;
+  background-color: rgb(235, 231, 220);
+  opacity: 0;
+  transition: opacity 600ms;
+}
+
+.nav-menu-exit-active-done {
+  position: relative;
+  top: 0;
+  height: 100%;
+  background-color: rgb(235, 231, 220);
+  opacity: 0;
 }
