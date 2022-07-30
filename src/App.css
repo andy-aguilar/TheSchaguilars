@@ -23,6 +23,7 @@ header {
   transition: color 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   margin-right: 32px;
   cursor: pointer;
+  z-index: 3;
 }
 
 .header-icon:hover {

@@ -4,6 +4,7 @@ import "./App.css";
 import { HomePage } from "./components/HomePage/HomePage";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { Menu } from './components/Menu/Menu'
 
 export const App: FunctionComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -28,6 +29,10 @@ export const App: FunctionComponent = () => {
           />
         )}
       </header>
+      
+      {/* Menu */}
+      {isMenuOpen && <Menu setIsMenuOpen={setIsMenuOpen} />}
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="testroute" element={<h1>It worked</h1>} />

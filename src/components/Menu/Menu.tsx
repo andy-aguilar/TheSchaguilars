@@ -1,5 +1,10 @@
 import React, { FunctionComponent } from "react";
+import './menu.css'
 
-export const Menu: FunctionComponent = () => {
-  return <div>Menu</div>;
+export interface Props {
+    setIsMenuOpen:(isMenuOpen: boolean) => void
+}
+
+export const Menu: FunctionComponent<Props> = ({setIsMenuOpen}) => {
+  return <div id='menu-container' onClick={() => setIsMenuOpen(false)}>Menu</div>;
 };
