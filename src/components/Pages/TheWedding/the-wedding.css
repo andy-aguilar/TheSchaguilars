@@ -1,0 +1,29 @@
+.wedding-event-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 110vh;
+  top: 69px;
+  position: relative;
+  z-index: 1;
+}
+
+.date {
+  height: 60vh;
+  width: 100%;
+  background-color: #fefbf7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wedding-event {
+  min-width: 800px;
+  max-width: 1000px;
+  height: 20vh;
+  border-bottom: solid 1px #d2c8b8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

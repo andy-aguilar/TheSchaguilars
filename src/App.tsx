@@ -5,6 +5,7 @@ import { HomePage } from "./components/Pages/HomePage/HomePage";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Menu } from "./components/Menu/Menu";
+import { TheWedding } from "./components/Pages/TheWedding/TheWedding";
 
 export const App: FunctionComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -35,7 +36,7 @@ export const App: FunctionComponent = () => {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/wedding" element={<h1>Wedding</h1>} />
+        <Route path="/wedding" element={<TheWedding />} />
         <Route path="/events" element={<h1>Events</h1>} />
         <Route
           path={"/travel-information"}

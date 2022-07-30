@@ -8,7 +8,7 @@
 }
 
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   display: flex;
   flex-direction: column;
@@ -16,6 +16,21 @@ header {
   justify-content: center;
   width: 100%;
   height: 64px;
+  z-index: 5;
+}
+
+header#app-header {
+  position: fixed;
+  top: 0;
+  height: 68px;
+  border-bottom: solid 1px #d2c8b8;
+  z-index: 2;
+  background-color: white;
+}
+
+.page-container {
+  width: 100%;
+  height: 100%;
 }
 
 .header-icon {
@@ -23,9 +38,17 @@ header {
   transition: color 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   margin-right: 32px;
   cursor: pointer;
-  z-index: 3;
 }
 
 .header-icon:hover {
   color: #9a9490 !important;
+}
+
+footer#app-footer {
+  height: 68px;
+  border-top: solid 1px #d2c8b8;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
