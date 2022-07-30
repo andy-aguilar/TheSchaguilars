@@ -34,7 +34,7 @@ header#app-header {
 }
 
 .header-icon {
-  color: #224339;
+  color: #185945;
   transition: color 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   margin-right: 32px;
   cursor: pointer;
@@ -61,4 +61,65 @@ footer#app-footer {
   top: 69px;
   position: relative;
   z-index: 1;
+}
+
+.page-body-large {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  top: 69px;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 69px;
+}
+
+h1 {
+  font-family: "Playfair Display";
+  color: #185945;
+  margin: 0.4em auto 0.4em;
+  font-size: 2.6em;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  text-transform: lowercase;
+  font-size: 2.6em;
+  font-weight: 600;
+  color: #185945;
+  margin: 0 auto 0.4em;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #185945;
+  margin-bottom: 3px;
+}
+
+h4 {
+  font-family: "Montserrat", sans-serif;
+  text-transform: lowercase;
+  font-size: 18px;
+  font-weight: 600;
+  color: #185945;
+  margin-bottom: 3px;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #717171;
+}
+
+a {
+  font-family: "Montserrat";
+}
+
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  color: #717171;
 }

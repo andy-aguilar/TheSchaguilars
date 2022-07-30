@@ -9,8 +9,11 @@ export const TheWedding: FunctionComponent = () => {
       <Header />
 
       <div className="page-body">
-        <div className="date">
-          <h2>{"03 11 23"}</h2>
+        <div
+          className="date"
+          style={{ backgroundImage: "url('/backgroundImage.jpeg')" }}
+        >
+          <h2>03&nbsp;&nbsp;11&nbsp;&nbsp;23</h2>
         </div>
         <div className="wedding-event">
           <h3>THE WEDDING</h3>

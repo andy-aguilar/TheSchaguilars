@@ -41,7 +41,7 @@ export const App: FunctionComponent = () => {
       {isMenuOpen && <Menu setIsMenuOpen={setIsMenuOpen} />}
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage setIsMenuOpen={setIsMenuOpen} />} />
         <Route path="/wedding" element={<TheWedding />} />
         <Route path="/events" element={<Events />} />
         <Route path={"/travel-information"} element={<TravelInformation />} />
