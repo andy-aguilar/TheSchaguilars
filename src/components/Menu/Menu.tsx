@@ -41,7 +41,7 @@ export const Menu: FunctionComponent<Props> = ({ setIsMenuOpen }) => {
           unmountOnExit
           onExited={closeMenu}
         >
-          <NavMenu onNavigate={() => setShouldShowDivs(false)}/>
+          <NavMenu onNavigate={() => setShouldShowDivs(false)} />
         </CSSTransition>
       </div>
     </div>

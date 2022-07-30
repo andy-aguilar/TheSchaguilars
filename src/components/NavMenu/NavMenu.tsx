@@ -1,23 +1,39 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactNode } from "react";
 import { NavLink } from "react-router-dom";
-import './nav-menu.css'
+import "./nav-menu.css";
 
+const links: { displayName: string; url: string }[] = [
+  { displayName: "Home Page", url: "/" },
+  { displayName: "The Wedding", url: "/wedding" },
+  { displayName: "Events", url: "/events" },
+  { displayName: "Travel Information", url: "/travel-information" },
+  { displayName: "About Antigua", url: "/about-antigua" },
+  { displayName: "Registry", url: "/registry" },
+  { displayName: "RSVP", url: "/rsvp" },
+  { displayName: "FAQs", url: "/faqs" },
+];
 export interface Props {
-  onNavigate: () => void
+  onNavigate: () => void;
 }
 
-export const NavMenu: FunctionComponent<Props> = ({onNavigate}) => {
+export const NavMenu: FunctionComponent<Props> = ({ onNavigate }) => {
+  function generateNavLinks(): ReactNode[] {
+    return links.map((link) => (
+      <li key={link.url}>
+        <NavLink
+          className={({ isActive }) => (isActive ? "selected" : undefined)}
+          onClick={onNavigate}
+          to={link.url}
+        >
+          <span>{link.displayName}</span>
+        </NavLink>
+      </li>
+    ));
+  }
 
-  return <div id='nav-menu'>
-    <ul>
-      <li><NavLink onClick={onNavigate} to={'/'}>Home Page</NavLink></li>
-      <li><NavLink onClick={onNavigate} to={'/wedding'} >The Wedding</NavLink></li>
-      <li><NavLink onClick={onNavigate} to={'/travel-information'} >Travel Information</NavLink></li>
-      <li><NavLink onClick={onNavigate} to={'/about-antigua'} >About Antigua</NavLink></li>
-      <li><NavLink onClick={onNavigate} to={'/registry'} >Registry</NavLink></li>
-      <li><NavLink onClick={onNavigate} to={'/rsvp'} >RSVP</NavLink></li>
-      <li><NavLink onClick={onNavigate} to={'/faqs'} >FAQs</NavLink></li>
-    </ul>
-
-  </div>;
+  return (
+    <div id="nav-menu">
+      <ul>{generateNavLinks()}</ul>
+    </div>
+  );
 };
