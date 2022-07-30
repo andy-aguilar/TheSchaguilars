@@ -8,7 +8,7 @@ export const TheWedding: FunctionComponent = () => {
     <div className={"page-container"}>
       <Header />
 
-      <div className="wedding-event-container">
+      <div className="page-body">
         <div className="date">
           <h2>{"03 11 23"}</h2>
         </div>
