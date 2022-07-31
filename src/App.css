@@ -67,8 +67,6 @@ footer#app-footer.small {
   align-items: center;
   flex-direction: column;
   height: 110vh;
-  top: 69px;
-  position: relative;
   z-index: 1;
   margin: 40px auto;
   max-width: 700px;
@@ -117,6 +115,7 @@ h3 {
   color: #185945;
   margin-bottom: 3px;
   text-transform: uppercase;
+  line-height: 45px;
 }
 
 h4 {
@@ -133,9 +132,10 @@ p {
   font-size: 20px;
   font-weight: 300;
   color: #717171;
-  margin: 0.4em 0;
+  margin-bottom: 30px;
   font-size: 17px;
   text-align: left;
+  line-height: 33px;
 }
 
 a {
@@ -184,6 +184,19 @@ a.directions-link {
 
 #faq-page p {
   text-align: center;
+}
+
+.sub-header {
+  height: 23em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.real-page-body {
+  top: 69px;
+  position: relative;
 }
 
 /* Mobile */

@@ -29,7 +29,8 @@
     "test:nowatch": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "prettier": "npx prettier --write *",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "kristin": "git add . && git commit -m \"kristin commit\""
   },
   "eslintConfig": {
     "extends": [

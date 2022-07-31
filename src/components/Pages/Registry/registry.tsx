@@ -9,10 +9,9 @@ export const Registry: FunctionComponent = () => {
       <div className={"page-body small"}>
         <h1>Registry</h1>
         <p>Your presence is present enough, but if you must...</p>
-        {/* TODO: Add correct link for registry */}
         <a
           className={"directions-link"}
-          href="/"
+          href="https://www.zola.com/registry/theschaguilars"
           target="_blank"
           rel="noreferrer"
         >
