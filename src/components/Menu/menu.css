@@ -139,7 +139,7 @@
   transition: opacity 800ms, top 600ms;
 }
 
-.nav-menu-exit-active-done {
+.nav-menu-exit-done {
   position: fixed;
   top: -100vw;
   height: 100%;
@@ -147,4 +147,20 @@
   right: 0;
   background-color: #f0efed;
   opacity: 0;
+}
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+  .image-container {
+    display: none;
+  }
+  .nav-menu,
+  .nav-menu-enter,
+  .nav-menu-enter-active,
+  .nav-menu-enter-done,
+  .nav-menu-exit,
+  .nav-menu-exit-active,
+  .nav-menu-exit-done {
+    left: 0;
+  }
 }
