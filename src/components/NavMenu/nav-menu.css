@@ -11,16 +11,49 @@ li {
   margin: 30px;
 }
 
-a {
+#nav-menu a {
   color: #224339;
   font-weight: 300;
   text-decoration: none;
   padding-bottom: 10px;
   margin-bottom: 20px;
   max-width: 152px;
+  opacity: 0;
+  animation: fadeIn 2000ms 1;
+  animation-fill-mode: forwards;
 }
 
-a.selected {
+/* TODO: Find a way to not hard-code this */
+
+#nav-menu a.nav-rsvp {
+  animation-delay: 80ms;
+}
+#nav-menu a.nav-wedding {
+  animation-delay: 160ms;
+}
+#nav-menu a.nav-events {
+  animation-delay: 240ms;
+}
+#nav-menu a.nav-travel {
+  animation-delay: 320ms;
+}
+#nav-menu a.nav-hotels {
+  animation-delay: 400ms;
+}
+#nav-menu a.nav-antigua {
+  animation-delay: 480ms;
+}
+#nav-menu a.nav-registry {
+  animation-delay: 560ms;
+}
+#nav-menu a.nav-faqs {
+  animation-delay: 640ms;
+}
+#nav-menu a.nav-things {
+  animation-delay: 720ms;
+}
+
+#nav-menu a.selected {
   font-weight: 500;
 }
 
@@ -48,4 +81,13 @@ li:after {
 li:hover:after {
   width: 100%;
   background: #afa898;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
