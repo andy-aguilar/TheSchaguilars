@@ -1,13 +1,17 @@
+import { useMediaQuery } from "@mui/material";
 import React, { FunctionComponent } from "react";
 import { Footer } from "../../ReusableComponents/Footer";
 import { Header } from "../../ReusableComponents/Header";
 import "./travel-information.css";
 
 export const TravelInformation: FunctionComponent = () => {
+  // Media query used to determine footer location
+  const narrow = useMediaQuery("(max-width:768px)");
+
   return (
     <div className="page-container">
       <Header />
-      <div className={"page-body small"}>
+      <div className={narrow ? "page-body large" : "page-body small"}>
         <div className="travel-information-container">
           <h1>Travel Information</h1>
           <div className="flights">
@@ -50,7 +54,7 @@ export const TravelInformation: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <Footer size="small" />
+      <Footer pageSize={narrow ? "large" : "small"} />
     </div>
   );
 };

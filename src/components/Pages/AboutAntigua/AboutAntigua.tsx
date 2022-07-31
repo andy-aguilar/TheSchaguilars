@@ -78,7 +78,7 @@ export const AboutAntigua: FunctionComponent = () => {
           </p>
         </section>
       </div>
-      <Footer size="large" />
+      <Footer pageSize="large" />
     </div>
   );
 };

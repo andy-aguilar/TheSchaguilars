@@ -47,7 +47,7 @@ export const Hotels: FunctionComponent = () => {
       <div className={"page-body"}>
         <div className={"hotels-container"}>{renderHotels()}</div>
       </div>
-      <Footer size="small" />
+      <Footer pageSize="small" />
     </div>
   );
 };

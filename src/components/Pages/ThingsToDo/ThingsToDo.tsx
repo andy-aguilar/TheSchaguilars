@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { Header } from "../../ReusableComponents/Header";
+import { Footer } from "../../ReusableComponents/Footer";
 
 export const ThingsToDo: FunctionComponent = () => {
   return (
     <div className="page-container">
       <Header />
-      <div className={"page-body"}>
+      <div className={"page-body large"}>
         <h1>Things To Do</h1>
         <h3>In Antigua</h3>
         <p>
@@ -89,8 +90,8 @@ export const ThingsToDo: FunctionComponent = () => {
           <span>The Ultimate Guide to Visiting Semuc Champey</span>
         </a>
       </div>
-      {/* TODO : figure out what is up with the footer formatting */}
-      {/* <Footer size="small" /> */}
+
+      <Footer pageSize="large" />
     </div>
   );
 };

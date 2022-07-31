@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { Header } from "../../ReusableComponents/Header";
+import { Footer } from "../../ReusableComponents/Footer";
 
 export const Faqs: FunctionComponent = () => {
   return (
     <div className="page-container">
       <Header />
-      <div className={"page-body"} id={"faq-page"}>
+      <div className={"page-body large"} id={"faq-page"}>
         <h1>Frequently Asked Questions</h1>
         <h4>What timezone is Guatemala in?</h4>
         <p>
@@ -172,7 +173,7 @@ export const Faqs: FunctionComponent = () => {
         {/* TODO : add joint email address when setup */}
       </div>
       {/* TODO : figure out what's up with the footer formatting */}
-      {/* <Footer size={"large"}/> */}
+      <Footer pageSize={"large"} />
     </div>
   );
 };
