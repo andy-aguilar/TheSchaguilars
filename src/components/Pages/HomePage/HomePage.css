@@ -17,6 +17,26 @@
 }
 
 img {
-  height: 1000px;
   cursor: pointer;
+}
+
+/* Huge Screens */
+@media only screen and (min-width: 1500px) {
+  img {
+    height: 1000px;
+  }
+}
+
+/* Laptops and small monitors */
+@media only screen and (max-width: 1500px) {
+  img {
+    height: 700px;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+  img {
+    height: 400px;
+  }
 }
