@@ -2,6 +2,8 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import "./menu.css";
 import { CSSTransition } from "react-transition-group";
 import { NavMenu } from "../NavMenu/NavMenu";
+import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export interface Props {
   setIsMenuOpen: (isMenuOpen: boolean) => void;
@@ -20,8 +22,29 @@ export const Menu: FunctionComponent<Props> = ({ setIsMenuOpen }) => {
     setIsMenuOpen(false);
   }
 
+  function handleClose(e: React.MouseEvent): void {
+    console.log("HIT THE BUTTON");
+    e.stopPropagation();
+    setShouldShowDivs(false);
+  }
+
   return (
     <div id="menu-container">
+      {shouldShowDivs && (
+        <CloseIcon
+          fontSize="large"
+          className="header-icon header-overlay"
+          onClick={handleClose}
+        />
+      )}
+
+      {!shouldShowDivs && (
+        <MenuIcon
+          fontSize="large"
+          className="header-icon header-overlay"
+          onClick={() => setShouldShowDivs(true)}
+        />
+      )}
       <div className="image-container">
         <CSSTransition
           in={shouldShowDivs}

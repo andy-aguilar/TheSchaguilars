@@ -164,3 +164,12 @@
     left: 0;
   }
 }
+
+.header-icon.header-overlay {
+  opacity: 1;
+  position: fixed;
+  right: 0px;
+  z-index: 10;
+  top: 15px;
+  cursor: pointer;
+}

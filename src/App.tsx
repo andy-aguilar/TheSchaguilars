@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { HomePage } from "./components/Pages/HomePage/HomePage";
 import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+// import CloseIcon from "@mui/icons-material/Close";
 import { Menu } from "./components/Menu/Menu";
 import { TheWedding } from "./components/Pages/TheWedding/TheWedding";
 import { Events } from "./components/Pages/Events/Events";
@@ -20,24 +20,16 @@ export const App: FunctionComponent = () => {
 
   return (
     <div className="App">
-      <header>
-        {/* Menu Icon: */}
-        {!isMenuOpen && (
+      {!isMenuOpen && (
+        <header>
+          {/* Menu Icon: */}
           <MenuIcon
             fontSize="large"
             className="header-icon"
             onClick={() => setIsMenuOpen(true)}
           />
-        )}
-        {/* Close Icon: */}
-        {isMenuOpen && (
-          <CloseIcon
-            fontSize="large"
-            className="header-icon"
-            onClick={() => setIsMenuOpen(false)}
-          />
-        )}
-      </header>
+        </header>
+      )}
 
       {/* Menu */}
       {isMenuOpen && <Menu setIsMenuOpen={setIsMenuOpen} />}
