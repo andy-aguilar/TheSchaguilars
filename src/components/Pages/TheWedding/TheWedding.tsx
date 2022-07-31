@@ -8,7 +8,7 @@ export const TheWedding: FunctionComponent = () => {
     <div className={"page-container"}>
       <Header />
 
-      <div className="page-body">
+      <div className="page-body" id="wedding-page">
         <div
           className="date"
           style={{ backgroundImage: "url('/backgroundImage.jpeg')" }}

@@ -26,38 +26,6 @@ export const AboutAntigua: FunctionComponent = () => {
             average of 2 days.
           </p>
 
-          <h3>Notable Sights</h3>
-          <p>
-            Santa Catalina Arch - The Santa Catalina Arch is one of the
-            distinguishable landmarks in Antigua Guatemala, Guatemala, located
-            on 5th Avenue North. Built in the 17th century, it originally
-            connected the Santa Catalina convent to a school, allowing the
-            cloistered nuns to pass from one building to the other without going
-            out on the street.
-          </p>
-          <br />
-          <p>
-            Iglesia de la Merced - Destroyed twice by earthquakes, this 1548
-            church was rebuilt in the 1700s to withstand earthquakes and boasts
-            a lovely yellow facade and a huge stone fountain, reputed to be the
-            largest in Central America.
-          </p>
-          <br />
-          <p>
-            Central Market - You'll find textiles, jewelry, clothes and Mayan
-            crafts for reasonable prices at this permanent outdoor marketplace.
-          </p>
-          <br />
-          <p>
-            Central Park - Just one square block, it doesn't take much time to
-            see the park. But it's a nice place to sit and rest while walking
-            around the city.
-          </p>
-          <br />
-          <p>
-            Coffee Farms - There are several coffee plantations just outside
-            Antigua that are perfect for a day tour.
-          </p>
           <br />
           <h3>Getting Around</h3>
           <p>
@@ -74,6 +42,39 @@ export const AboutAntigua: FunctionComponent = () => {
             has the ideal climate for growing coffee and the beans produced here
             are some of the best in Latin America. A great way to spend an
             afternoon is by visiting one of the local coffee plantations.
+          </p>
+          <h3>Notable Sights</h3>
+          <p>
+            <b>Santa Catalina Arch</b> - The Santa Catalina Arch is one of the
+            distinguishable landmarks in Antigua Guatemala, Guatemala, located
+            on 5th Avenue North. Built in the 17th century, it originally
+            connected the Santa Catalina convent to a school, allowing the
+            cloistered nuns to pass from one building to the other without going
+            out on the street.
+          </p>
+          <br />
+          <p>
+            <b>Iglesia de la Merced</b> - Destroyed twice by earthquakes, this
+            1548 church was rebuilt in the 1700s to withstand earthquakes and
+            boasts a lovely yellow facade and a huge stone fountain, reputed to
+            be the largest in Central America.
+          </p>
+          <br />
+          <p>
+            <b>Central Market</b> - You'll find textiles, jewelry, clothes and
+            Mayan crafts for reasonable prices at this permanent outdoor
+            marketplace.
+          </p>
+          <br />
+          <p>
+            <b>Central Park</b> - Just one square block, it doesn't take much
+            time to see the park. But it's a nice place to sit and rest while
+            walking around the city.
+          </p>
+          <br />
+          <p>
+            <b>Coffee Farms</b> - There are several coffee plantations just
+            outside Antigua that are perfect for a day tour.
           </p>
         </section>
       </div>

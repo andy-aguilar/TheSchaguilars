@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -40px;
 }
 
 .wedding-event {
@@ -21,4 +22,8 @@
   font-family: "Playfair Display", serif;
   color: #185945;
   font-size: 5em;
+}
+
+#wedding-page {
+  max-width: none;
 }

@@ -34,7 +34,8 @@ export const TravelInformation: FunctionComponent = () => {
               guests from the Guatemala City airport to their hotels. Please
               visit the link below to provide the shuttle company with your
               flight information and arrange transportation.
-              <br />
+            </p>
+            <p>
               Guests will need to arrange their own transportation back to
               Guatemala City airport or onwards to their next destination. We
               recommend booking that travel through Antigua Tours as well.

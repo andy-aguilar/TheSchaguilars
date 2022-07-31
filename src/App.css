@@ -69,6 +69,8 @@ footer#app-footer.small {
   top: 69px;
   position: relative;
   z-index: 1;
+  margin: 40px auto;
+  max-width: 700px;
 }
 
 .page-body-large {
@@ -113,11 +115,11 @@ h3 {
 
 h4 {
   font-family: "Montserrat", sans-serif;
-  text-transform: lowercase;
   font-size: 18px;
   font-weight: 600;
   color: #185945;
   margin-bottom: 3px;
+  margin-top: 40px;
 }
 
 p {
@@ -127,6 +129,7 @@ p {
   color: #717171;
   margin: 0.4em 0;
   font-size: 17px;
+  text-align: left;
 }
 
 a {
@@ -170,4 +173,8 @@ a.directions-link {
   padding: 5px 10px;
   line-height: 1.5em;
   background-color: #ffffff;
+}
+
+#faq-page p {
+  text-align: center;
 }
