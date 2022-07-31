@@ -25,31 +25,31 @@ li {
 
 /* TODO: Find a way to not hard-code this */
 
-#nav-menu a.nav-rsvp {
+#nav-menu a.nav-wedding {
   animation-delay: 80ms;
 }
-#nav-menu a.nav-wedding {
+#nav-menu a.nav-events {
   animation-delay: 160ms;
 }
-#nav-menu a.nav-events {
+#nav-menu a.nav-travel {
   animation-delay: 240ms;
 }
-#nav-menu a.nav-travel {
+#nav-menu a.nav-hotels {
   animation-delay: 320ms;
 }
-#nav-menu a.nav-hotels {
+#nav-menu a.nav-antigua {
   animation-delay: 400ms;
 }
-#nav-menu a.nav-antigua {
+#nav-menu a.nav-things {
   animation-delay: 480ms;
 }
 #nav-menu a.nav-registry {
   animation-delay: 560ms;
 }
-#nav-menu a.nav-faqs {
+#nav-menu a.nav-rsvp {
   animation-delay: 640ms;
 }
-#nav-menu a.nav-things {
+#nav-menu a.nav-faqs {
   animation-delay: 720ms;
 }
 

@@ -10,7 +10,6 @@ interface Link {
 
 const links: Link[] = [
   { displayName: "Home Page", url: "/", class: "nav-home" },
-  { displayName: "RSVP", url: "/rsvp", class: "nav-rsvp" },
   { displayName: "The Wedding", url: "/wedding", class: "nav-wedding" },
   { displayName: "Events", url: "/events", class: "nav-events" },
   {
@@ -20,9 +19,10 @@ const links: Link[] = [
   },
   { displayName: "Hotels", url: "/hotels", class: "nav-hotels" },
   { displayName: "About Antigua", url: "/about-antigua", class: "nav-antigua" },
-  { displayName: "Registry", url: "/registry", class: "nav-registry" },
-  { displayName: "FAQs", url: "/faqs", class: "nav-faqs" },
   { displayName: "Things To Do", url: "/things-to-do", class: "nav-things" },
+  { displayName: "Registry", url: "/registry", class: "nav-registry" },
+  { displayName: "RSVP", url: "/rsvp", class: "nav-rsvp" },
+  { displayName: "FAQs", url: "/faqs", class: "nav-faqs" },
 ];
 export interface Props {
   onNavigate: () => void;
