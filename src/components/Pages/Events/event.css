@@ -51,6 +51,19 @@
   margin-bottom: 40px;
 }
 
+@media only screen and (max-width: 1500px) {
+  .event-card {
+    width: 64em;
+    height: 22em;
+    margin-left: 10em;
+  }
+  .event-card-right {
+    width: 64em;
+    height: 22em;
+    margin-right: 10em;
+  }
+}
+
 /* Mobile */
 @media only screen and (max-width: 768px) {
   .event-card {
