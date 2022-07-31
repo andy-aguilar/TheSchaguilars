@@ -1,0 +1,25 @@
+.hotels-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 60vw;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 40px;
+}
+
+.hotel-card {
+  height: 450px;
+  width: 375px;
+}
+
+.hotel-image {
+  width: 100%;
+  height: 70%;
+  background-color: #595141;
+}
+
+.hotel-card h2 {
+  text-transform: none;
+}

@@ -4,13 +4,15 @@ import "./nav-menu.css";
 
 const links: { displayName: string; url: string }[] = [
   { displayName: "Home Page", url: "/" },
+  { displayName: "RSVP", url: "/rsvp" },
   { displayName: "The Wedding", url: "/wedding" },
   { displayName: "Events", url: "/events" },
   { displayName: "Travel Information", url: "/travel-information" },
+  { displayName: "Hotels", url: "/hotels" },
   { displayName: "About Antigua", url: "/about-antigua" },
   { displayName: "Registry", url: "/registry" },
-  { displayName: "RSVP", url: "/rsvp" },
   { displayName: "FAQs", url: "/faqs" },
+  { displayName: "Things To Do", url: "/things-to-do" },
 ];
 export interface Props {
   onNavigate: () => void;

@@ -49,7 +49,7 @@ export const TravelInformation: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer size="small" />
     </div>
   );
 };

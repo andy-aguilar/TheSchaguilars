@@ -51,6 +51,12 @@ footer#app-footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+footer#app-footer.large {
+  position: relative;
+}
+footer#app-footer.small {
   position: absolute;
   bottom: 0;
 }
