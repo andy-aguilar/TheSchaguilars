@@ -1,8 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { Footer } from "../../ReusableComponents/Footer";
 import { Header } from "../../ReusableComponents/Header";
+import { useMediaQuery } from "@mui/material";
 
 export const Registry: FunctionComponent = () => {
+  const short = useMediaQuery("(max-height:720px)");
+
   return (
     <div className="page-container">
       <Header />
@@ -26,8 +29,8 @@ export const Registry: FunctionComponent = () => {
             <span>Our Registry</span>
           </a>
         </div>
+        <Footer pageSize={short ? "large" : "small"} />
       </div>
-      <Footer pageSize="small" />
     </div>
   );
 };
