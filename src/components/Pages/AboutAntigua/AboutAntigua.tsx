@@ -7,7 +7,7 @@ export const AboutAntigua: FunctionComponent = () => {
   return (
     <div className="page-container">
       <Header />
-      <div className={"page-body-large"}>
+      <div className={"page-body large"}>
         <section className="about-antigua">
           <h1>About Antigua</h1>
           <p>

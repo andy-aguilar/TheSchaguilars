@@ -68,7 +68,7 @@ export const Events: FunctionComponent = () => {
     <div className="page-container">
       <Header />
 
-      <div className={"page-body-large"}>
+      <div className={"page-body large"}>
         <div className="event-container">{renderEvents()}</div>
       </div>
       <Footer />

@@ -55,6 +55,7 @@ footer#app-footer {
 
 footer#app-footer.large {
   position: relative;
+  z-index: 2;
 }
 footer#app-footer.small {
   position: absolute;
@@ -73,8 +74,9 @@ footer#app-footer.small {
   max-width: 700px;
 }
 
-.page-body-large {
+.page-body.large {
   display: flex;
+  height: fit-content;
   align-items: center;
   flex-direction: column;
   top: 69px;
@@ -178,4 +180,12 @@ a.directions-link {
 
 #faq-page p {
   text-align: center;
+}
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+  .page-body {
+    max-width: 80vw;
+    margin: 15px auto;
+  }
 }
