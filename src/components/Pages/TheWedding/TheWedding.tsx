@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import { Header } from "../../ReusableComponents/Header";
 import { Footer } from "../../ReusableComponents/Footer";
 import "./the-wedding.css";
-import backgroundImage from "../../../assets/images/backgroundImage.jpeg";
 
 export const TheWedding: FunctionComponent = () => {
   return (
@@ -12,7 +11,9 @@ export const TheWedding: FunctionComponent = () => {
       <div className="page-body" id="wedding-page">
         <div
           className="date"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
+          style={{
+            backgroundImage: `url("https://the-schaguilars.s3.us-east-2.amazonaws.com/backgroundImage.jpeg")`,
+          }}
         >
           <h2>03&nbsp;&nbsp;11&nbsp;&nbsp;23</h2>
         </div>

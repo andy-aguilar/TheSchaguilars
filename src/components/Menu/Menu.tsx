@@ -2,7 +2,6 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import "./menu.css";
 import { CSSTransition } from "react-transition-group";
 import { NavMenu } from "../NavMenu/NavMenu";
-import backgroundImage from "../../assets/images/backgroundImage.jpeg";
 
 export interface Props {
   setIsMenuOpen: (isMenuOpen: boolean) => void;
@@ -31,7 +30,11 @@ export const Menu: FunctionComponent<Props> = ({ setIsMenuOpen }) => {
           unmountOnExit
           onExited={closeMenu}
         >
-          <div style={{ backgroundImage: `url(${backgroundImage})` }}></div>
+          <div
+            style={{
+              backgroundImage: `url("https://the-schaguilars.s3.us-east-2.amazonaws.com/backgroundImage.jpeg")`,
+            }}
+          ></div>
         </CSSTransition>
       </div>
       <div className={"nav-menu-container"}>
