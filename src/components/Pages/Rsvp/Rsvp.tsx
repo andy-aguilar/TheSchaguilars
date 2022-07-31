@@ -7,11 +7,18 @@ export const Rsvp: FunctionComponent = () => {
     <div className="page-container">
       <Header />
       <div className="real-page-body">
-        <div className={"page-body small"}>
+        <div
+          className="sub-header"
+          style={{
+            backgroundImage: `url("https://the-schaguilars.s3.us-east-2.amazonaws.com/backgroundImage.jpeg")`,
+          }}
+        >
           <h1>RSVP</h1>
+        </div>
+        <div className={"page-body small"}>
           <h1>COMING SOON</h1>
         </div>
-        <Footer pageSize="small" />
+        <Footer pageSize="large" />
       </div>
     </div>
   );
