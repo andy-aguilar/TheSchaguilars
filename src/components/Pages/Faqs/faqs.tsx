@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import { Footer } from "../../ReusableComponents/Footer";
 import { Header } from "../../ReusableComponents/Header";
 
 export const Faqs: FunctionComponent = () => {

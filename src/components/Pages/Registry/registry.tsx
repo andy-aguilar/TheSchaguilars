@@ -10,7 +10,12 @@ export const Registry: FunctionComponent = () => {
         <h1>Registry</h1>
         <p>Your presence is present enough, but if you must...</p>
         {/* TODO: Add correct link for registry */}
-        <a className={"directions-link"} href="#" target="_blank">
+        <a
+          className={"directions-link"}
+          href="/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <span>Our Registry</span>
         </a>
       </div>

@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import { Footer } from "../../ReusableComponents/Footer";
 import { Header } from "../../ReusableComponents/Header";
 
 export const ThingsToDo: FunctionComponent = () => {
@@ -58,6 +57,7 @@ export const ThingsToDo: FunctionComponent = () => {
           className={"directions-link"}
           href="https://routinelynomadic.com/a-complete-guide-to-lake-atitlan/"
           target="_blank"
+          rel="noreferrer"
         >
           <span>The Ultimate Guide to Visiting Lake Atitlán</span>
         </a>
@@ -69,6 +69,7 @@ export const ThingsToDo: FunctionComponent = () => {
           className={"directions-link"}
           href="https://www.roadaffair.com/visiting-tikal-guide/"
           target="_blank"
+          rel="noreferrer"
         >
           <span>The Ultimate Guide to Visiting Tikal</span>
         </a>
@@ -83,6 +84,7 @@ export const ThingsToDo: FunctionComponent = () => {
           className={"directions-link"}
           href="https://www.roadaffair.com/the-ultimate-guide-to-visiting-semuc-champey/"
           target="_blank"
+          rel="noreferrer"
         >
           <span>The Ultimate Guide to Visiting Semuc Champey</span>
         </a>
