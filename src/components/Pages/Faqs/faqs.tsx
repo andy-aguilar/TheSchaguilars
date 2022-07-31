@@ -107,7 +107,7 @@ export const Faqs: FunctionComponent = () => {
 
           <h4>Can I bring a +1 to the wedding?</h4>
           <p>
-            Oh la la. In order to stay within our venue's capacity we are only
+            Ooh la la. In order to stay within our venue's capacity we are only
             able to accommodate those guests formally invited on your wedding
             invitation. Please feel free to contact Kristin or Andy with any
             questions!
