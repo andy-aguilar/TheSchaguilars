@@ -18,7 +18,7 @@ export const Rsvp: FunctionComponent = () => {
         <div className={"page-body small"}>
           <h1>COMING SOON</h1>
         </div>
-        <Footer pageSize="large" />
+        <Footer pageSize="small" />
       </div>
     </div>
   );

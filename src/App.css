@@ -58,7 +58,7 @@ footer#app-footer.large {
   z-index: 2;
 }
 footer#app-footer.small {
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 
@@ -84,11 +84,7 @@ footer#app-footer.small {
 }
 
 .page-body.small {
-  height: auto;
-}
-
-.page-body.small {
-  height: auto;
+  height: fit-content;
 }
 
 h1 {
