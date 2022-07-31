@@ -3,6 +3,10 @@ import { Footer } from "../../ReusableComponents/Footer";
 import { Header } from "../../ReusableComponents/Header";
 import { EventCard } from "./EventCard";
 import "./event.css";
+import pensativo from "../../../assets/images/pensativo.jpeg";
+import santaClara from "../../../assets/images/santa-clara.jpeg";
+import welcomeParty from "../../../assets/images/welcome-party.jpeg";
+import brunch from "../../../assets/images/brunch.jpeg";
 
 export interface EventInterface {
   name: string;
@@ -21,7 +25,7 @@ const events: EventInterface[] = [
     location: "Porta Hotel Antigua",
     time: "Six o'clock",
     attire: "Festive Cocktail Attire",
-    imgUrl: "/welcome-party.jpeg",
+    imgUrl: welcomeParty,
     directionsUrl:
       "https://www.google.com/maps/place/Porta+Hotel+Antigua/@14.5531311,-90.7358909,17z/data=!3m1!4b1!4m8!3m7!1s0x85890e72a7e528ed:0x15ce28f4b679dde2!5m2!4m1!1i2!8m2!3d14.5531311!4d-90.7337022",
   },
@@ -31,7 +35,7 @@ const events: EventInterface[] = [
     location: "Convento Santa Clara",
     time: "Four o'clock",
     attire: "Formal Attire",
-    imgUrl: "/santa-clara.jpeg",
+    imgUrl: santaClara,
     directionsUrl:
       "https://www.google.com/maps/place/Convento+Santa+Clara/@14.5551021,-90.7306821,17z/data=!3m1!4b1!4m5!3m4!1s0x85890e72482b6c03:0x91577c31f02ecc05!8m2!3d14.5551021!4d-90.7306821",
   },
@@ -41,7 +45,7 @@ const events: EventInterface[] = [
     location: "Pensativo House Hotel",
     time: "Six o'clock",
     attire: "Formal Attire",
-    imgUrl: "/pensativo.jpeg",
+    imgUrl: pensativo,
     directionsUrl:
       "https://www.google.com/maps/place/Pensativo+House+Hotel/@14.5517165,-90.735557,17z/data=!3m1!4b1!4m8!3m7!1s0x85890e6d3d349ab5:0xaabaf4efdd3252f7!5m2!4m1!1i2!8m2!3d14.5517165!4d-90.7333683",
   },
@@ -51,7 +55,7 @@ const events: EventInterface[] = [
     location: "LOCATION TBD",
     time: "TIME TBD",
     attire: "Casual Attire",
-    imgUrl: "/brunch.jpeg",
+    imgUrl: brunch,
     directionsUrl: "",
   },
 ];
