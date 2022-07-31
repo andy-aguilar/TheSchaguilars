@@ -52,12 +52,9 @@ export const TravelInformation: FunctionComponent = () => {
                 Guatemala City airport or onwards to their next destination. We
                 recommend booking that travel through Antigua Tours as well.
               </p>
-
-              <a
-                className={"directions-link"}
-                href="https://www.google.com/maps/place/La+Aurora+(Guatemala+City)+International+Airport+(GUA)/@14.5882062,-90.5327427,17z/data=!3m1!4b1!4m5!3m4!1s0x8589a15f18a23e65:0xa8d9f9b1ae2d4eca!8m2!3d14.5882062!4d-90.5305487?shorturl=1"
-              >
-                <span>See Location</span>
+              {/* TODO: get transportation link */}
+              <a className={"directions-link"} href="/not-found">
+                <span>Book Transportation</span>
               </a>
             </div>
           </div>
