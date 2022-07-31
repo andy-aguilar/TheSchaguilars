@@ -17,101 +17,134 @@
 }
 
 .image {
-  position: relative;
+  position: fixed;
   top: 100vh;
+  left: 0;
+  right: 50vw;
   height: 0%;
 }
 
 .image-enter {
-  position: relative;
+  position: fixed;
+  left: 0;
+  right: 50vw;
   height: 100%;
   top: 100vh;
 }
 
 .image-enter-active {
-  position: relative;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 50vw;
   height: 100%;
   transition: top 600ms;
 }
 
 .image-enter-done {
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 50vw;
   height: 100%;
 }
 
 .image-exit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 50vw;
   opacity: 1;
-  top: 100vh;
   height: 100%;
 }
 
 .image-exit-active {
+  position: fixed;
+  top: 100vh;
+  left: 0;
+  right: 50vw;
   opacity: 0;
   height: 100%;
-  top: 0;
-  transition: opacity 600ms;
+  transition: opacity 600ms, top 600ms;
 }
 .image-exit-done {
+  position: fixed;
+  top: 100vh;
+  left: 0;
+  right: 50vw;
   opacity: 0;
+  height: 0%;
 }
 
 .nav-menu-container {
-  position: relative;
   width: 50%;
   height: 100%;
 }
 
 .nav-menu {
-  position: relative;
+  position: fixed;
   top: -100vh;
-  height: 100%;
-  background-color: rgb(235, 231, 220);
+  left: 50vw;
+  right: 50vw;
+  height: 0%;
+  background-color: #f0efed;
 }
 
 .nav-menu-enter {
-  position: relative;
+  position: fixed;
   top: -100vh;
+  left: 50vw;
+  right: 0;
   height: 100%;
-  background-color: rgb(235, 231, 220);
+  background-color: #f0efed;
 }
 
 .nav-menu-enter-active {
-  position: relative;
+  position: fixed;
   top: 0;
+  left: 50vw;
+  right: 0;
   height: 100%;
-  background-color: rgb(235, 231, 220);
+  background-color: #f0efed;
   transition: top 600ms;
 }
 
 .nav-menu-enter-done {
-  position: relative;
+  position: fixed;
   top: 0;
+  left: 50vw;
+  right: 0;
   height: 100%;
-  background-color: rgb(235, 231, 220);
+  background-color: #f0efed;
 }
 
 .nav-menu-exit {
-  position: relative;
+  position: fixed;
   top: 0;
+  left: 50vw;
+  right: 50vw;
   height: 100%;
-  background-color: rgb(235, 231, 220);
+  background-color: #f0efed;
   opacity: 1;
 }
 
 .nav-menu-exit-active {
-  position: relative;
-  top: 0;
+  position: fixed;
+  top: -100vw;
   height: 100%;
-  background-color: rgb(235, 231, 220);
+  left: 50vw;
+  right: 0;
+  background-color: #f0efed;
   opacity: 0;
-  transition: opacity 600ms;
+  transition: opacity 800ms, top 600ms;
 }
 
 .nav-menu-exit-active-done {
-  position: relative;
-  top: 0;
+  position: fixed;
+  top: -100vw;
   height: 100%;
-  background-color: rgb(235, 231, 220);
+  left: 50vw;
+  right: 0;
+  background-color: #f0efed;
   opacity: 0;
 }

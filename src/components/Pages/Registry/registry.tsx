@@ -6,7 +6,7 @@ export const Registry: FunctionComponent = () => {
   return (
     <div className="page-container">
       <Header />
-      <div className={"page-body"}>Registry</div>
+      <div className={"page-body"}></div>
       <Footer />
     </div>
   );
