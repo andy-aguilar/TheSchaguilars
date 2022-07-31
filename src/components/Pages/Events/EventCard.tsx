@@ -16,6 +16,11 @@ export const EventCard: FunctionComponent<Props> = ({ event, index }) => {
         <p>{event.location}</p>
         <p>{event.time}</p>
         <p>{event.attire}</p>
+        {event.directionsUrl && (
+          <a className={"directions-link"} href={event.directionsUrl}>
+            <span>Directions</span>
+          </a>
+        )}
       </div>
     </div>
   );

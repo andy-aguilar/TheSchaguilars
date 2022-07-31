@@ -1,0 +1,10 @@
+.travel-information-container {
+  max-width: 700px;
+}
+.flights {
+  margin-bottom: 40px;
+}
+
+.travel-information-container a.directions-link {
+  margin: 20px auto;
+}

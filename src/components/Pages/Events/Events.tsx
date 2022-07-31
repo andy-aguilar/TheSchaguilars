@@ -11,6 +11,7 @@ export interface EventInterface {
   time: string;
   attire: string;
   imgUrl: string;
+  directionsUrl: string;
 }
 
 const events: EventInterface[] = [
@@ -21,6 +22,8 @@ const events: EventInterface[] = [
     time: "Six o'clock",
     attire: "Festive Cocktail Attire",
     imgUrl: "/welcome-party.jpeg",
+    directionsUrl:
+      "https://www.google.com/maps/place/Porta+Hotel+Antigua/@14.5531311,-90.7358909,17z/data=!3m1!4b1!4m8!3m7!1s0x85890e72a7e528ed:0x15ce28f4b679dde2!5m2!4m1!1i2!8m2!3d14.5531311!4d-90.7337022",
   },
   {
     name: "the ceremony",
@@ -29,6 +32,8 @@ const events: EventInterface[] = [
     time: "Four o'clock",
     attire: "Formal Attire",
     imgUrl: "/santa-clara.jpeg",
+    directionsUrl:
+      "https://www.google.com/maps/place/Convento+Santa+Clara/@14.5551021,-90.7306821,17z/data=!3m1!4b1!4m5!3m4!1s0x85890e72482b6c03:0x91577c31f02ecc05!8m2!3d14.5551021!4d-90.7306821",
   },
   {
     name: "the reception",
@@ -37,6 +42,8 @@ const events: EventInterface[] = [
     time: "Six o'clock",
     attire: "Formal Attire",
     imgUrl: "/pensativo.jpeg",
+    directionsUrl:
+      "https://www.google.com/maps/place/Pensativo+House+Hotel/@14.5517165,-90.735557,17z/data=!3m1!4b1!4m8!3m7!1s0x85890e6d3d349ab5:0xaabaf4efdd3252f7!5m2!4m1!1i2!8m2!3d14.5517165!4d-90.7333683",
   },
   {
     name: "farewell brunch",
@@ -45,6 +52,7 @@ const events: EventInterface[] = [
     time: "TIME TBD",
     attire: "Casual Attire",
     imgUrl: "/brunch.jpeg",
+    directionsUrl: "",
   },
 ];
 
