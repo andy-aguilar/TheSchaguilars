@@ -42,10 +42,10 @@ export const TravelInformation: FunctionComponent = () => {
             <div className="shuttles">
               <h3>Shuttles</h3>
               <p>
-                Andy and Kristin will be providing shuttle transportation for
-                all guests from the Guatemala City airport to their hotels.
-                Please visit the link below to provide the shuttle company with
-                your flight information and arrange transportation.
+                Shuttle transportation will be provided for all guests from the
+                Guatemala City airport to their hotels. Please visit the link
+                below to provide the shuttle company with your flight
+                information and arrange transportation.
               </p>
               <p>
                 Guests will need to arrange their own transportation back to
