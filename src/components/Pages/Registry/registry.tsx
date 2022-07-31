@@ -6,7 +6,7 @@ export const Registry: FunctionComponent = () => {
   return (
     <div className="page-container">
       <Header />
-      <div className={"page-body"}>
+      <div className={"page-body small"}>
         <h1>Registry</h1>
         <p>Your presence is present enough, but if you must...</p>
         {/* TODO: Add correct link for registry */}
@@ -19,7 +19,7 @@ export const Registry: FunctionComponent = () => {
           <span>Our Registry</span>
         </a>
       </div>
-      <Footer />
+      <Footer pageSize="small" />
     </div>
   );
 };

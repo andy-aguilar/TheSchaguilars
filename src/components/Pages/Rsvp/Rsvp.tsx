@@ -6,11 +6,11 @@ export const Rsvp: FunctionComponent = () => {
   return (
     <div className="page-container">
       <Header />
-      <div className={"page-body"}>
+      <div className={"page-body small"}>
         <h1>RSVP</h1>
         <h1>COMING SOON</h1>
       </div>
-      <Footer />
+      <Footer pageSize="small" />
     </div>
   );
 };

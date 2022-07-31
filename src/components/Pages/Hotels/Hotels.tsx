@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@mui/material";
 import React, { FunctionComponent, ReactNode } from "react";
 import { Footer } from "../../ReusableComponents/Footer";
 import { Header } from "../../ReusableComponents/Header";
@@ -10,6 +11,7 @@ interface Hotel {
 }
 
 export const Hotels: FunctionComponent = () => {
+  const narrow = useMediaQuery("(max-width:768px)");
   const hotels: Hotel[] = [
     {
       name: "Pensativo House",
@@ -44,10 +46,10 @@ export const Hotels: FunctionComponent = () => {
   return (
     <div className="page-container">
       <Header />
-      <div className={"page-body"}>
+      <div className={narrow ? "page-body large" : "page-body small"}>
         <div className={"hotels-container"}>{renderHotels()}</div>
       </div>
-      <Footer pageSize="small" />
+      <Footer pageSize={narrow ? "large" : "small"} />
     </div>
   );
 };

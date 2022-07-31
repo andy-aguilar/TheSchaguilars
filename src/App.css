@@ -89,6 +89,10 @@ footer#app-footer.small {
   height: auto;
 }
 
+.page-body.small {
+  height: auto;
+}
+
 h1 {
   font-family: "Playfair Display";
   color: #185945;
