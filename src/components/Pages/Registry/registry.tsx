@@ -7,8 +7,15 @@ export const Registry: FunctionComponent = () => {
     <div className="page-container">
       <Header />
       <div className="real-page-body">
-        <div className={"page-body small"}>
+        <div
+          className="sub-header"
+          style={{
+            backgroundImage: `url("https://the-schaguilars.s3.us-east-2.amazonaws.com/backgroundImage.jpeg")`,
+          }}
+        >
           <h1>Registry</h1>
+        </div>
+        <div className={"page-body small"}>
           <p>Your presence is present enough, but if you must...</p>
           <a
             className={"directions-link"}

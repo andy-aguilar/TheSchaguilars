@@ -8,9 +8,16 @@ export const AboutAntigua: FunctionComponent = () => {
     <div className="page-container">
       <Header />
       <div className="real-page-body">
+        <div
+          className="sub-header"
+          style={{
+            backgroundImage: `url("https://the-schaguilars.s3.us-east-2.amazonaws.com/backgroundImage.jpeg")`,
+          }}
+        >
+          <h1>About Antigua</h1>
+        </div>
         <div className={"page-body large"}>
           <section className="about-antigua">
-            <h1>About Antigua</h1>
             <p>
               Antigua is a small city surrounded by volcanoes in southern
               Guatemala. This colorful town is renowned for its Spanish colonial
