@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Header } from "../../ReusableComponents/Header";
 import { Footer } from "../../ReusableComponents/Footer";
+import "./faqs.css";
 
 export const Faqs: FunctionComponent = () => {
   return (
@@ -35,14 +36,15 @@ export const Faqs: FunctionComponent = () => {
           <h4>Is there a dress code for the wedding?</h4>
           <p>
             The dress code for the wedding is formal. The dress code for the
-            other events can be found on the events page.
+            other events can be found on the <a href="/events">events page</a>.
           </p>
 
           <h4>What in the world is 'festive cocktail' attire?</h4>
           <p>
             <i>
-              (For those of you that have checked out the events page, you will
-              see that the welcome party has a festive cocktail dress code.)
+              (For those of you that have checked out the{" "}
+              <a href="/events">events page</a>, you will see that the welcome
+              party has a festive cocktail dress code.)
             </i>
           </p>
           <p>
@@ -66,10 +68,10 @@ export const Faqs: FunctionComponent = () => {
 
           <h4>What is the best way to get from the airport to the hotel?</h4>
           <p>
-            Andy and Kristin will be providing shuttle transportation for all
-            guests from the Guatemala City airport to their hotels. Visit the
-            link here to provide your flight information to the shuttle company
-            and arrange transport.{" "}
+            Shuttle transportation will be provided for all guests from the
+            Guatemala City airport to their hotels. Visit the link here to
+            provide your flight information to the shuttle company and arrange
+            transport.{" "}
           </p>
           <p>
             Guests will need to arrange their own transportation back to
@@ -85,7 +87,10 @@ export const Faqs: FunctionComponent = () => {
           </p>
 
           <h4>Have you booked hotel room blocks for your guests?</h4>
-          <p>Yes! Please visit our hotels page for more information.</p>
+          <p>
+            Yes! Please visit our <a href={"/hotels"}>hotels page</a> for more
+            information.
+          </p>
 
           <h4>What is the best way to get around Antigua?</h4>
           <p>
@@ -174,7 +179,6 @@ export const Faqs: FunctionComponent = () => {
           </p>
           {/* TODO : add joint email address when setup */}
         </div>
-        {/* TODO : figure out what's up with the footer formatting */}
         <Footer pageSize={"large"} />
       </div>
     </div>
