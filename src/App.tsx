@@ -18,6 +18,8 @@ import { ThingsToDo } from "./components/Pages/ThingsToDo/ThingsToDo";
 export const App: FunctionComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
+  console.log(process.env);
+
   return (
     <div className="App">
       {!isMenuOpen && (

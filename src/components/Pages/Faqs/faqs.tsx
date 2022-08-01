@@ -1,9 +1,29 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import { Header } from "../../ReusableComponents/Header";
 import { Footer } from "../../ReusableComponents/Footer";
 import "./faqs.css";
 
 export const Faqs: FunctionComponent = () => {
+  const [guatemalaTime, setGuatemalaTime] = useState<string>("");
+
+  useEffect(() => {
+    getGuatemalaTime();
+    const interval = setInterval(getGuatemalaTime, 30000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  function getGuatemalaTime(): void {
+    const date = new Date();
+    const timeNow = new Intl.DateTimeFormat("en-US", {
+      dateStyle: "short",
+      timeStyle: "short",
+      timeZone: "America/Guatemala",
+    }).format(date);
+
+    setGuatemalaTime(timeNow.split(",")[1]);
+  }
+
   return (
     <div className="page-container">
       <Header />
@@ -13,7 +33,7 @@ export const Faqs: FunctionComponent = () => {
           <h4>What timezone is Guatemala in?</h4>
           <p>
             Guatemala is in the Central Standard time zone. The current time
-            there is time.
+            there is {guatemalaTime}.
           </p>
 
           <h4>What currency is used in Guatemala?</h4>
