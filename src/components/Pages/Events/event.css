@@ -23,11 +23,13 @@
 .event-card img {
   height: 100%;
   width: 33%;
+  object-fit: cover;
 }
 
 .event-card-right img {
   height: 100%;
   width: 33%;
+  object-fit: cover;
 }
 
 .event-card .event-details {
