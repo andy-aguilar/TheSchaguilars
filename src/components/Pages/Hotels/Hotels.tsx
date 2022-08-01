@@ -21,7 +21,7 @@ export const Hotels: FunctionComponent = () => {
         "Porta Hotel is just one block away from Pensativo House and is the location where the welcome event will be held. They have also set aside rooms for our guests, so be sure to use this unique link to book your room there.",
     },
     {
-      name: "Porta Hotel",
+      name: "Mesón Panza Verde",
       imageUrl:
         "https://the-schaguilars.s3.us-east-2.amazonaws.com/panza-verde.jpeg",
       reserveUrl: "/",
@@ -70,7 +70,7 @@ export const Hotels: FunctionComponent = () => {
               <h3>Pensativo House</h3>
               <p>
                 The wedding reception will be held at Pensativo House. This
-                hotel has set asside rooms for our guests at a special rate, so
+                hotel has set aside rooms for our guests at a special rate, so
                 please be sure to use this unique link to book your room.
               </p>
               <a className="directions-link" href="/">

@@ -57,3 +57,36 @@
   width: 100%;
   height: auto;
 }
+
+/* for mobile */
+@media only screen and (max-width: 768px) {
+  .page-body.large.wide {
+    width: 100vw;
+    margin-top: 0;
+  }
+
+  .event-hotel {
+    width: 100%;
+  }
+
+  .hotels-container p {
+    margin: 0 1em;
+  }
+
+  .hotel-card {
+    width: 100%;
+  }
+
+  .hotel-card img {
+    height: 20em;
+    object-fit: cover;
+  }
+
+  .hotels-container h3 {
+    line-height: 2em;
+  }
+}
+
+/* make all images stretch to 100vw */
+/* get rid of margin above event-hotel img */
+/* Make page body slightly wider */
