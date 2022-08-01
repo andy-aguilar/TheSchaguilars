@@ -42,12 +42,12 @@ export const Faqs: FunctionComponent = () => {
             currently about 8 quetzales to 1 USD.
           </p>
           <p>
-            It's a good idea to have some cash on you for tips, shopping, and
-            some places you might encounter that don't accept credit cards.
+            It's a good idea to have some cash on you. Most, but not all places
+            accept credit cards. And you may want some cash for tipping.
           </p>
           <p>
-            The easiest place to convert your dollars to quetzales is at the
-            airport.
+            Most US banks will be able to exchange your dollars for Quetzales.
+            There is also an ATM in the lobby of Porta Hotel.
           </p>
 
           <h4>What is the tipping etiquette in Guatemala?</h4>
@@ -69,7 +69,7 @@ export const Faqs: FunctionComponent = () => {
           </p>
           <p>
             Cocktail attire with some flair! Think fancy dinner on vacation.
-            This is the night to bust out the brighter colors.
+            This is the night to bust out the brighter colors and fun patterns.
           </p>
 
           <h4>Will the wedding take place indoors or outdoors?</h4>
@@ -81,9 +81,9 @@ export const Faqs: FunctionComponent = () => {
           <h4>What is the weather like in Antigua?</h4>
           <p>
             Riquísimo! The average maximum daytime temperature is around 80°F.
-            The average minimum temperature in Antigua Guatemala in March is
-            59°F. March is a dry month with an average of 0.3 inches of rain
-            across an average of 2 days.
+            The average minimum temperature in March is around 60°F. March is a
+            dry month with an average of 0.3 inches of rain across an average of
+            2 days.
           </p>
 
           <h4>What is the best way to get from the airport to the hotel?</h4>
@@ -127,7 +127,7 @@ export const Faqs: FunctionComponent = () => {
 
           <h4>Can I bring a +1 to the wedding?</h4>
           <p>
-            Ooh la la. In order to stay within our venue's capacity we are only
+            Ooh la la! In order to stay within our venue's capacity we are only
             able to accommodate those guests formally invited on your wedding
             invitation. Please feel free to contact Kristin or Andy with any
             questions!
@@ -146,10 +146,13 @@ export const Faqs: FunctionComponent = () => {
 
           <h4>Are there any COVID precautions that I should be aware of?</h4>
           <p>
-            To enter Guatemala, travelers aged 12 and over must have evidence of
-            receiving a complete two-dose COVID-19 vaccination course (or one
-            dose for Johnson {"&"} Johnson), with the final dose being
-            administered at least 2 weeks before your arrival.
+            <b>
+              To enter Guatemala, travelers aged 12 and over must have evidence
+              of receiving a complete two-dose COVID-19 vaccination course (or
+              one dose for Johnson {"&"} Johnson)
+            </b>
+            , with the final dose being administered at least 2 weeks before
+            your arrival.
           </p>
           <p>
             Travelers aged 10 and over require proof of a negative COVID-19 PCR
@@ -168,23 +171,46 @@ export const Faqs: FunctionComponent = () => {
           <h4>What is the emergency contact number in Guatemala?</h4>
           <p>
             110 is the emergency number for police. Other emergency numbers can
-            be found here.
+            be found{" "}
+            <a
+              href="https://help.unhcr.org/guatemala/en/donde-encontrar-ayuda/"
+              target="_blank"
+            >
+              here
+            </a>
+            .
           </p>
 
           <h4>What is the best way to RSVP?</h4>
           <p>
-            The best way to RSVP is on the of this website. You may also contact
-            Andy or Kristin and RSVP with them directly if you would prefer.{" "}
+            The best way to RSVP is on the <a href={"/rsvp"}>RSVP</a> page of
+            this website. You may also contact Andy or Kristin and RSVP with
+            them directly if you would prefer.
           </p>
 
           <h4>What is the deadline to RSVP?</h4>
-          <p>Please RSVP no later than January 11, 2023</p>
+          <p>Please RSVP no later than December 11, 2022</p>
 
           <h4>Will there be an open bar?</h4>
           <p>You know it! </p>
 
           <h4>Why did you pick Guatemala as your wedding destination? </h4>
-          <p>You'll see when you get there!</p>
+          <p>
+            Guatemala is the first country that we traveled to as a couple. We
+            fell in love with the country's beauty, hisotry, and culture. And we
+            know you will too. Just wait until you see it!
+          </p>
+
+          <h4>What is the typicl cuisine of Guatemala?</h4>
+          <p>
+            Corn, beans, rice, pork, beef, chicken, cheese and tortillas are the
+            primary indgredients of traditional Guatemalan cuisine.{" "}
+            <a href="https://theculturetrip.com/central-america/guatemala/articles/the-10-most-traditional-dishes-from-guatemala/">
+              Here
+            </a>{" "}
+            are a few typical dishes that you may want to try while you are
+            there.
+          </p>
 
           <h4>What's your wedding hashtag?</h4>
           <p>#theschaguilars -- start posting!</p>
