@@ -175,6 +175,7 @@ export const Faqs: FunctionComponent = () => {
             <a
               href="https://help.unhcr.org/guatemala/en/donde-encontrar-ayuda/"
               target="_blank"
+              rel="noreferrer"
             >
               here
             </a>
