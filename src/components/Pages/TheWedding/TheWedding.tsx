@@ -51,7 +51,7 @@ export const TheWedding: FunctionComponent = () => {
             </div>
           </div>
 
-          <Footer />
+          <Footer pageSize="large" />
         </div>
       </div>
     </div>
