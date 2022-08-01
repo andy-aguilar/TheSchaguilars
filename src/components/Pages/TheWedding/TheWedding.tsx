@@ -8,15 +8,15 @@ export const TheWedding: FunctionComponent = () => {
     <div className={"page-container"}>
       <Header />
       <div className="real-page-body">
+        <div
+          className="sub-header"
+          style={{
+            backgroundImage: `url("https://the-schaguilars.s3.us-east-2.amazonaws.com/backgroundImage.jpeg")`,
+          }}
+        >
+          <h1>03&nbsp;&nbsp;11&nbsp;&nbsp;23</h1>
+        </div>
         <div className="page-body" id="wedding-page">
-          <div
-            className="sub-header"
-            style={{
-              backgroundImage: `url("https://the-schaguilars.s3.us-east-2.amazonaws.com/backgroundImage.jpeg")`,
-            }}
-          >
-            <h1>03&nbsp;&nbsp;11&nbsp;&nbsp;23</h1>
-          </div>
           <div className="wedding-events">
             <div className="wedding-event">
               <h3>THE WEDDING</h3>

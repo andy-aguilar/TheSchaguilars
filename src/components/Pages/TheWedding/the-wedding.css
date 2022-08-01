@@ -32,6 +32,10 @@
   max-width: none;
 }
 
+#wedding-page.page-body {
+  margin: 20px auto;
+}
+
 .wedding-events {
   display: flex;
   flex-direction: column;
