@@ -22,6 +22,7 @@ const links: Link[] = [
   { displayName: "Registry", url: "/registry", class: "nav-registry" },
   { displayName: "RSVP", url: "/rsvp", class: "nav-rsvp" },
   { displayName: "FAQs", url: "/faqs", class: "nav-faqs" },
+  { displayName: "Kristin and Andy", url: "/about-us", class: "nav-about-us" },
 ];
 export interface Props {
   onNavigate: () => void;

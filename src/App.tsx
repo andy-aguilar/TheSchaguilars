@@ -14,6 +14,7 @@ import { AboutAntigua } from "./components/Pages/AboutAntigua/AboutAntigua";
 import { Registry } from "./components/Pages/Registry/registry";
 import { Hotels } from "./components/Pages/Hotels/Hotels";
 import { ThingsToDo } from "./components/Pages/ThingsToDo/ThingsToDo";
+import { AboutUs } from "./components/Pages/About Us/AboutUs";
 
 export const App: FunctionComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -47,6 +48,7 @@ export const App: FunctionComponent = () => {
         <Route path={"/rsvp"} element={<Rsvp />} />
         <Route path={"/faqs"} element={<Faqs />} />
         <Route path={"/things-to-do"} element={<ThingsToDo />} />
+        <Route path={"/about-us"} element={<AboutUs />} />
       </Routes>
     </div>
   );

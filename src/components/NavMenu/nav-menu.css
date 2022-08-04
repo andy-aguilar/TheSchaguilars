@@ -49,6 +49,9 @@ li {
 #nav-menu a.nav-faqs {
   animation-delay: 640ms;
 }
+#nav-menu a.nav-about-us {
+  animation-delay: 720ms;
+}
 
 #nav-menu a.selected {
   font-weight: 500;
