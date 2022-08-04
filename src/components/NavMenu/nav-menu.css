@@ -40,17 +40,14 @@ li {
 #nav-menu a.nav-antigua {
   animation-delay: 400ms;
 }
-#nav-menu a.nav-things {
+#nav-menu a.nav-registry {
   animation-delay: 480ms;
 }
-#nav-menu a.nav-registry {
+#nav-menu a.nav-rsvp {
   animation-delay: 560ms;
 }
-#nav-menu a.nav-rsvp {
-  animation-delay: 640ms;
-}
 #nav-menu a.nav-faqs {
-  animation-delay: 720ms;
+  animation-delay: 640ms;
 }
 
 #nav-menu a.selected {

@@ -68,10 +68,21 @@ export const Events: FunctionComponent = () => {
     <div className="page-container">
       <Header />
 
-      <div className={"page-body large"}>
-        <div className="event-container">{renderEvents()}</div>
+      <div className="real-page-body">
+        <div
+          className="sub-header"
+          style={{
+            backgroundImage: `url("https://the-schaguilars.s3.us-east-2.amazonaws.com/backgroundImage.jpeg")`,
+          }}
+        >
+          <h1>The Weekend</h1>
+        </div>
+
+        <div className={"page-body large"}>
+          <div className="event-container">{renderEvents()}</div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };

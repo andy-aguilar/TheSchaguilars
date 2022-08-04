@@ -19,10 +19,10 @@ export const AboutAntigua: FunctionComponent = () => {
         <div className={"page-body large"}>
           <section className="about-antigua">
             <p>
-              Antigua is a small city surrounded by volcanoes in southern
-              Guatemala. This colorful town is renowned for its Spanish colonial
-              buildings, and cobbled streets (arranged in an easy-to-navigate
-              grid). It has been designated a UNESCO World Heritage Site since
+              Antigua Guatemala (commonly referred to as just Antigua) means
+              "Old Guatemala". It is a small city surrounded by volcanoes and is
+              renowned for its Spanish colonial buildings, and cobbled streets.
+              Antigua has been designated a UNESCO World Heritage Site since
               1979.
             </p>
 
@@ -53,7 +53,7 @@ export const AboutAntigua: FunctionComponent = () => {
             </p>
             <h3>Notable Sights</h3>
             <p>
-              <b>Santa Catalina Arch</b> - The Santa Catalina Arch is one of the
+              Santa Catalina Arch - The Santa Catalina Arch is one of the
               distinguishable landmarks in Antigua Guatemala, Guatemala, located
               on 5th Avenue North. Built in the 17th century, it originally
               connected the Santa Catalina convent to a school, allowing the
@@ -62,27 +62,10 @@ export const AboutAntigua: FunctionComponent = () => {
             </p>
             <br />
             <p>
-              <b>Iglesia de la Merced</b> - Destroyed twice by earthquakes, this
-              1548 church was rebuilt in the 1700s to withstand earthquakes and
+              Iglesia de la Merced - Destroyed twice by earthquakes, this 1548
+              church was rebuilt in the 1700s to withstand earthquakes and
               boasts a lovely yellow facade and a huge stone fountain, reputed
               to be the largest in Central America.
-            </p>
-            <br />
-            <p>
-              <b>Central Market</b> - You'll find textiles, jewelry, clothes and
-              Mayan crafts for reasonable prices at this permanent outdoor
-              marketplace.
-            </p>
-            <br />
-            <p>
-              <b>Central Park</b> - Just one square block, it doesn't take much
-              time to see the park. But it's a nice place to sit and rest while
-              walking around the city.
-            </p>
-            <br />
-            <p>
-              <b>Coffee Farms</b> - There are several coffee plantations just
-              outside Antigua that are perfect for a day tour.
             </p>
           </section>
         </div>

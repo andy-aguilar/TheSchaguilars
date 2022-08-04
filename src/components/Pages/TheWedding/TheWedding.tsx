@@ -23,7 +23,7 @@ export const TheWedding: FunctionComponent = () => {
               <p>
                 Antigua, Guatemala
                 <br />
-                {"03 11 2023"}
+                March 11, 2023
                 <br />
                 Formal Attire
               </p>
@@ -33,11 +33,7 @@ export const TheWedding: FunctionComponent = () => {
               <p>
                 Convento Santa Clara
                 <br />
-                Av. Sur at 6 Calle Oriente 2, Antigua, Guatemala
-                <br />
                 Ceremony begins at four o'clock
-                <br />
-                Shuttle service will began at TBD
               </p>
             </div>
             <div className="wedding-event" style={{ borderBottom: "none" }}>
@@ -45,8 +41,7 @@ export const TheWedding: FunctionComponent = () => {
               <p>
                 Pensativo House Hotel
                 <br />
-                4 Avenida Sur, Antigua, Guatemala
-                <br />
+                Reception begins at six o'clock
               </p>
             </div>
           </div>

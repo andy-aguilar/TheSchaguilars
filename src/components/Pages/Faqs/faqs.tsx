@@ -56,15 +56,16 @@ export const Faqs: FunctionComponent = () => {
           <h4>Is there a dress code for the wedding?</h4>
           <p>
             The dress code for the wedding is formal. The dress code for the
-            other events can be found on the <a href="/events">events page</a>.
+            other events can be found on the{" "}
+            <a href="/the-weekend">events page</a>.
           </p>
 
           <h4>What in the world is 'festive cocktail' attire?</h4>
           <p>
             <i>
               (For those of you that have checked out the{" "}
-              <a href="/events">events page</a>, you will see that the welcome
-              party has a festive cocktail dress code.)
+              <a href="/the-weekend">events page</a>, you will see that the
+              welcome party has a festive cocktail dress code.)
             </i>
           </p>
           <p>
@@ -182,18 +183,18 @@ export const Faqs: FunctionComponent = () => {
             .
           </p>
 
-          <h4>What is the best way to RSVP?</h4>
-          <p>
-            The best way to RSVP is on the <a href={"/rsvp"}>RSVP</a> page of
-            this website. You may also contact Andy or Kristin and RSVP with
-            them directly if you would prefer.
-          </p>
-
           <h4>What is the deadline to RSVP?</h4>
           <p>Please RSVP no later than December 11, 2022</p>
 
           <h4>Will there be an open bar?</h4>
           <p>You know it! </p>
+
+          <h4>Will you accomodate dietary restrictions?</h4>
+          <p>
+            We will provide vegetarian and gluten free options at the wedding.
+            If you have other dietary restrictions please contact us and we will
+            try to accommodate.
+          </p>
 
           <h4>Why did you pick Guatemala as your wedding destination? </h4>
           <p>
@@ -202,7 +203,7 @@ export const Faqs: FunctionComponent = () => {
             know you will too. Just wait until you see it!
           </p>
 
-          <h4>What is the typicl cuisine of Guatemala?</h4>
+          <h4>What is the typical cuisine of Guatemala?</h4>
           <p>
             Corn, beans, rice, pork, beef, chicken, cheese and tortillas are the
             primary indgredients of traditional Guatemalan cuisine.{" "}
@@ -211,6 +212,12 @@ export const Faqs: FunctionComponent = () => {
             </a>{" "}
             are a few typical dishes that you may want to try while you are
             there.
+          </p>
+
+          <h4>What do you recommend doing in and around Antigua?</h4>
+          <p>
+            Check out our list of recommendations of things to do in Antigua and
+            other places in visit in Guatemala <a href="/things-to-do">here</a>.
           </p>
 
           <h4>What's your wedding hashtag?</h4>

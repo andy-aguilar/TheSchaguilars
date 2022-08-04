@@ -11,7 +11,7 @@ interface Link {
 const links: Link[] = [
   { displayName: "Home Page", url: "/", class: "nav-home" },
   { displayName: "The Wedding", url: "/wedding", class: "nav-wedding" },
-  { displayName: "Events", url: "/events", class: "nav-events" },
+  { displayName: "The Weekend", url: "/the-weekend", class: "nav-events" },
   {
     displayName: "Travel Information",
     url: "/travel-information",
@@ -19,7 +19,6 @@ const links: Link[] = [
   },
   { displayName: "Hotels", url: "/hotels", class: "nav-hotels" },
   { displayName: "About Antigua", url: "/about-antigua", class: "nav-antigua" },
-  { displayName: "Things To Do", url: "/things-to-do", class: "nav-things" },
   { displayName: "Registry", url: "/registry", class: "nav-registry" },
   { displayName: "RSVP", url: "/rsvp", class: "nav-rsvp" },
   { displayName: "FAQs", url: "/faqs", class: "nav-faqs" },
