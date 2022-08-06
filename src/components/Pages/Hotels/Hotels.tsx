@@ -16,7 +16,8 @@ export const Hotels: FunctionComponent = () => {
       name: "Porta Hotel",
       imageUrl:
         "https://the-schaguilars.s3.us-east-2.amazonaws.com/porta-hotel.jpeg",
-      reserveUrl: "/",
+      reserveUrl:
+        "https://reservations.portahotelantigua.com/85281?groupID=3605262#/guestsandrooms",
       description:
         "Porta Hotel is just one block away from Pensativo House and is the location where the welcome event will be held. They have also set aside rooms for our guests, so be sure to use this unique link to book your room there.",
     },
