@@ -52,8 +52,12 @@ export const TravelInformation: FunctionComponent = () => {
                 Guatemala City airport or onwards to their next destination. We
                 recommend booking that travel through Antigua Tours as well.
               </p>
-              {/* TODO: get transportation link */}
-              <a className={"directions-link"} href="/not-found">
+              <a
+                className={"directions-link"}
+                href="https://antiguatours.net/weddings/aguilar-schallhorn-wedding/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <span>Book Transportation</span>
               </a>
             </div>

@@ -49,7 +49,12 @@ export const Hotels: FunctionComponent = () => {
         ></img>
         <h3>{hotel.name}</h3>
         <p>{hotel.description}</p>
-        <a href={hotel.reserveUrl} className="directions-link">
+        <a
+          href={hotel.reserveUrl}
+          className="directions-link"
+          target="_blank"
+          rel="noreferrer"
+        >
           <span>Book Here</span>
         </a>
       </div>

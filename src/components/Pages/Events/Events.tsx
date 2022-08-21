@@ -47,15 +47,6 @@ const events: EventInterface[] = [
     directionsUrl:
       "https://www.google.com/maps/place/Pensativo+House+Hotel/@14.5517165,-90.735557,17z/data=!3m1!4b1!4m8!3m7!1s0x85890e6d3d349ab5:0xaabaf4efdd3252f7!5m2!4m1!1i2!8m2!3d14.5517165!4d-90.7333683",
   },
-  {
-    name: "farewell brunch",
-    date: "03 12 23",
-    location: "LOCATION TBD",
-    time: "TIME TBD",
-    attire: "Casual Attire",
-    imgUrl: "https://the-schaguilars.s3.us-east-2.amazonaws.com/brunch.jpeg",
-    directionsUrl: "",
-  },
 ];
 
 export const Events: FunctionComponent = () => {

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { HomePage } from "./components/Pages/HomePage/HomePage";
@@ -15,11 +15,15 @@ import { Registry } from "./components/Pages/Registry/registry";
 import { Hotels } from "./components/Pages/Hotels/Hotels";
 import { ThingsToDo } from "./components/Pages/ThingsToDo/ThingsToDo";
 import { AboutUs } from "./components/Pages/About Us/AboutUs";
+import { useLocation } from "react-router-dom";
 
 export const App: FunctionComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const location = useLocation();
 
-  console.log(process.env);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
     <div className="App">
