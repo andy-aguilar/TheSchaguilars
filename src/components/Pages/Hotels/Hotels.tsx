@@ -22,14 +22,6 @@ export const Hotels: FunctionComponent = () => {
         "Porta Hotel is just one block away from Pensativo House and is the location where the welcome event will be held. They have also set aside rooms for our guests, so be sure to use this unique link to book your room there.",
     },
     {
-      name: "Mesón Panza Verde",
-      imageUrl:
-        "https://the-schaguilars.s3.us-east-2.amazonaws.com/panza-verde.jpeg",
-      reserveUrl: "/",
-      description:
-        "Mesón Panza Verde is also just a block away from Pensativo House. There is currently not a room block at this hotel for our guests, but we have visited this hotel a few times recommend it as an option.",
-    },
-    {
       name: "Posada del Angel",
       imageUrl:
         "https://the-schaguilars.s3.us-east-2.amazonaws.com/posada-del-angel.jpeg",

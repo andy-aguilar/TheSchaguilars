@@ -102,6 +102,34 @@ export const AboutUs: FunctionComponent = () => {
     ));
   }
 
+  const ourVideos = [
+    { title: "Guatemala", url: "https://www.youtube.com/embed/TRTW7AhSUMg" },
+    { title: "Year 3", url: "https://www.youtube.com/embed/kMA7DVv2KRk" },
+    { title: "Africa", url: "https://www.youtube.com/embed/qE6IoQ2W9es" },
+    { title: "California", url: "https://www.youtube.com/embed/fOt2uuO5SYk" },
+    { title: "Shenandoa", url: "https://www.youtube.com/embed/RWQ6hPnNIi8" },
+    {
+      title: "Two birthdays and a boat",
+      url: "https://www.youtube.com/embed/XM2X3uD9j70",
+    },
+  ];
+
+  function renderVideoIFrames(): ReactNode {
+    return ourVideos.map((video) => (
+      <div className="video-card">
+        <iframe
+          width="560"
+          height="315"
+          src={video.url}
+          title={video.title}
+          frameBorder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+    ));
+  }
+
   return (
     <div className="page-container">
       <Header />
@@ -122,6 +150,7 @@ export const AboutUs: FunctionComponent = () => {
                 If you would like to see more, check out these videos of our
                 travels together:
               </h3>
+              <div className="vidoes-container">{renderVideoIFrames()}</div>
             </div>
           </div>
         </div>
