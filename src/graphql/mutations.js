@@ -9,9 +9,18 @@ export const createRsvp = /* GraphQL */ `
     createRsvp(input: $input, condition: $condition) {
       id
       emailAddress
-      guests
-      rsvpSubmitted
+      guests {
+        name
+        isAttending
+      }
+      hasRsvped
       dietaryRestrictions
+      addressLabel
+      streetAddress
+      streetAddressLineTwo
+      city
+      state
+      zipCode
       createdAt
       updatedAt
     }
@@ -25,9 +34,18 @@ export const updateRsvp = /* GraphQL */ `
     updateRsvp(input: $input, condition: $condition) {
       id
       emailAddress
-      guests
-      rsvpSubmitted
+      guests {
+        name
+        isAttending
+      }
+      hasRsvped
       dietaryRestrictions
+      addressLabel
+      streetAddress
+      streetAddressLineTwo
+      city
+      state
+      zipCode
       createdAt
       updatedAt
     }
@@ -41,9 +59,18 @@ export const deleteRsvp = /* GraphQL */ `
     deleteRsvp(input: $input, condition: $condition) {
       id
       emailAddress
-      guests
-      rsvpSubmitted
+      guests {
+        name
+        isAttending
+      }
+      hasRsvped
       dietaryRestrictions
+      addressLabel
+      streetAddress
+      streetAddressLineTwo
+      city
+      state
+      zipCode
       createdAt
       updatedAt
     }

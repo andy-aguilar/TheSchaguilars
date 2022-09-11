@@ -6,9 +6,18 @@ export const getRsvp = /* GraphQL */ `
     getRsvp(id: $id) {
       id
       emailAddress
-      guests
-      rsvpSubmitted
+      guests {
+        name
+        isAttending
+      }
+      hasRsvped
       dietaryRestrictions
+      addressLabel
+      streetAddress
+      streetAddressLineTwo
+      city
+      state
+      zipCode
       createdAt
       updatedAt
     }
@@ -24,9 +33,18 @@ export const listRsvps = /* GraphQL */ `
       items {
         id
         emailAddress
-        guests
-        rsvpSubmitted
+        guests {
+          name
+          isAttending
+        }
+        hasRsvped
         dietaryRestrictions
+        addressLabel
+        streetAddress
+        streetAddressLineTwo
+        city
+        state
+        zipCode
         createdAt
         updatedAt
       }

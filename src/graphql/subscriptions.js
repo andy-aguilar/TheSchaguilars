@@ -6,9 +6,18 @@ export const onCreateRsvp = /* GraphQL */ `
     onCreateRsvp {
       id
       emailAddress
-      guests
-      rsvpSubmitted
+      guests {
+        name
+        isAttending
+      }
+      hasRsvped
       dietaryRestrictions
+      addressLabel
+      streetAddress
+      streetAddressLineTwo
+      city
+      state
+      zipCode
       createdAt
       updatedAt
     }
@@ -19,9 +28,18 @@ export const onUpdateRsvp = /* GraphQL */ `
     onUpdateRsvp {
       id
       emailAddress
-      guests
-      rsvpSubmitted
+      guests {
+        name
+        isAttending
+      }
+      hasRsvped
       dietaryRestrictions
+      addressLabel
+      streetAddress
+      streetAddressLineTwo
+      city
+      state
+      zipCode
       createdAt
       updatedAt
     }
@@ -32,9 +50,18 @@ export const onDeleteRsvp = /* GraphQL */ `
     onDeleteRsvp {
       id
       emailAddress
-      guests
-      rsvpSubmitted
+      guests {
+        name
+        isAttending
+      }
+      hasRsvped
       dietaryRestrictions
+      addressLabel
+      streetAddress
+      streetAddressLineTwo
+      city
+      state
+      zipCode
       createdAt
       updatedAt
     }
