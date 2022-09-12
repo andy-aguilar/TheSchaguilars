@@ -14,5 +14,5 @@ export interface Rsvp {
 
 export interface Guest {
   name: string;
-  isAttending: boolean;
+  isAttending?: boolean;
 }
