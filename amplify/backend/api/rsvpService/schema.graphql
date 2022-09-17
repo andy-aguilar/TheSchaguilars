@@ -21,6 +21,8 @@ type Rsvp
 }
 
 type Guest {
-  name: String
+  firstName: String
+  lastName: String
+  middleName: String
   isAttending: Boolean
 }

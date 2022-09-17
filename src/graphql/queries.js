@@ -7,7 +7,9 @@ export const getRsvp = /* GraphQL */ `
       id
       emailAddress
       guests {
-        name
+        firstName
+        lastName
+        middleName
         isAttending
       }
       hasRsvped
@@ -35,7 +37,9 @@ export const listRsvps = /* GraphQL */ `
         id
         emailAddress
         guests {
-          name
+          firstName
+          lastName
+          middleName
           isAttending
         }
         hasRsvped

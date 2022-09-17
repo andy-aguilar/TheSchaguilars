@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Button, Snackbar, TextField } from "@mui/material";
 import React, {
   FormEvent,
   FunctionComponent,
@@ -10,7 +10,9 @@ import { Footer } from "../../ReusableComponents/Footer";
 import { Header } from "../../ReusableComponents/Header";
 import { API } from "aws-amplify";
 import { listRsvps } from "../../../graphql/queries";
+import { createRsvp } from "../../../graphql/mutations";
 import { useNavigate } from "react-router-dom";
+import { seedRsvps } from "../../Model/rsvpinitial.const";
 
 const initialFormState = {
   firstName: "",
@@ -26,6 +28,7 @@ export const RsvpSearchForm: FunctionComponent = () => {
   // State
   const [formData, setFormData] = useState(initialFormState);
   const [rsvps, setRsvps] = useState<Rsvp[]>([]);
+  const [shouldShowNotFound, setShouldShowNotFound] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -38,23 +41,50 @@ export const RsvpSearchForm: FunctionComponent = () => {
     setRsvps(apiData.data.listRsvps.items);
   }
 
+  // USED FOR SEEDING DATABASE, DO NOT DELETE
+  async function createRsvpFromList(rsvp: Rsvp) {
+    const rsvpResponse: any = await API.graphql({
+      query: createRsvp,
+      variables: { input: rsvp },
+    });
+    if (rsvpResponse) {
+      console.log(rsvpResponse);
+      //   fetchRsvps()
+    }
+  }
+
+  async function createRsvps() {
+    const result = await seedRsvps.forEach(createRsvpFromList);
+    console.log(result);
+    fetchRsvps();
+  }
+
   function handleSubmit(e: FormEvent): void {
     e.preventDefault();
 
     findCurrentRsvp(formData);
+    setFormData(initialFormState);
   }
 
   function findCurrentRsvp(formData: { firstName: string; lastName: string }) {
-    const foundRsvp = rsvps.find(
+    const foundRsvps = rsvps.filter(
       (rsvp) =>
         !!rsvp.guests.find(
           (guest: Guest) =>
-            guest.name.toLowerCase() ===
-            `${formData.firstName.toLowerCase()} ${formData.lastName.toLowerCase()}`
+            guest.firstName.toLowerCase() ===
+              formData.firstName.toLowerCase() &&
+            guest.lastName.toLowerCase() === formData.lastName.toLowerCase()
         )
     );
-    if (foundRsvp) {
+
+    if (foundRsvps.length > 1) {
+      console.log("multifound workflow");
+    } else if (foundRsvps.length === 1) {
+      const foundRsvp = foundRsvps[0];
+      setShouldShowNotFound(false);
       navigate(`/rsvp/${foundRsvp.id}`);
+    } else {
+      setShouldShowNotFound(true);
     }
   }
 
@@ -62,6 +92,7 @@ export const RsvpSearchForm: FunctionComponent = () => {
     <div className="page-container">
       <Header />
       <div className="real-page-body">
+        <Button onClick={createRsvps}>SeedRSVPs</Button>
         <div
           className="sub-header"
           style={{
@@ -72,10 +103,8 @@ export const RsvpSearchForm: FunctionComponent = () => {
         </div>
 
         <div className={"page-body small"}>
-          <h3>
-            Please enter your first and last name as they appear on your
-            invitation
-          </h3>
+          <h3>Please enter your first and last name</h3>
+
           <form
             onSubmit={handleSubmit}
             style={{ display: "flex", flexDirection: "column" }}
@@ -103,6 +132,24 @@ export const RsvpSearchForm: FunctionComponent = () => {
             </Button>
           </form>
         </div>
+        <Snackbar
+          open={shouldShowNotFound}
+          autoHideDuration={6000}
+          onClose={() => setShouldShowNotFound(false)}
+          message={
+            <>
+              <p>
+                No guests found. Did you enter your name as it appears on your
+                invitation?
+              </p>
+              <p>
+                If you have any questions, please reach out to Kristin and Andy.
+              </p>
+            </>
+          }
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        />
+
         <Footer pageSize="small" />
       </div>
     </div>

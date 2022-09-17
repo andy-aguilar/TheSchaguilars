@@ -7,7 +7,9 @@ export const onCreateRsvp = /* GraphQL */ `
       id
       emailAddress
       guests {
-        name
+        firstName
+        lastName
+        middleName
         isAttending
       }
       hasRsvped
@@ -30,7 +32,9 @@ export const onUpdateRsvp = /* GraphQL */ `
       id
       emailAddress
       guests {
-        name
+        firstName
+        lastName
+        middleName
         isAttending
       }
       hasRsvped
@@ -53,7 +57,9 @@ export const onDeleteRsvp = /* GraphQL */ `
       id
       emailAddress
       guests {
-        name
+        firstName
+        lastName
+        middleName
         isAttending
       }
       hasRsvped

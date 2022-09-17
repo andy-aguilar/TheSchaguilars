@@ -2,7 +2,10 @@ import { Rsvp } from "./Rsvp.interface";
 
 export const seedRsvps: Rsvp[] = [
   {
-    guests: [{ name: "Ann Murtha" }, { name: "Victor Piotrowski" }],
+    guests: [
+      { firstName: "Ann", lastName: "Murtha" },
+      { firstName: "Victor", lastName: "Piotrowski" },
+    ],
     addressLabel: "Ms. Ann Murtha & Mr. Victor Piotrowski",
     streetAddress: "1004 Decesaris Dr.",
     city: "Lothian",
@@ -13,7 +16,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Andres Aguilar" }, { name: "Kristin Schallhorn" }],
+    guests: [
+      { firstName: "Andres", lastName: "Aguilar" },
+      { firstName: "Kristin", lastName: "Schallhorn" },
+    ],
     addressLabel: "Mr. Andres Aguilar & Ms. Kristin Schallhorn",
     streetAddress: "603 Longfellow St. NW",
     city: "Washington",
@@ -25,10 +31,10 @@ export const seedRsvps: Rsvp[] = [
   },
   {
     guests: [
-      { name: "Karl Schallhorn" },
-      { name: "Helen Schallhorn" },
-      { name: "Nancy Schallhorn" },
-      { name: "Chris Schallhorn" },
+      { firstName: "Karl", lastName: "Schallhorn" },
+      { firstName: "Helen", lastName: "Schallhorn" },
+      { firstName: "Nancy", lastName: "Schallhorn" },
+      { firstName: "Chris", lastName: "Schallhorn" },
     ],
     addressLabel: "Mr. Karl, Mrs. Helen, Mrs. Nancy & Mr. Chris Schallhorn",
     streetAddress: "3330 Pfefferkorn Rd.",
@@ -40,7 +46,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Clare Murtha" }],
+    guests: [{ firstName: "Clare", lastName: "Murtha" }],
     addressLabel: "Mrs. Clare Murtha",
     streetAddress: "3144 Gracefield Rd.",
     streetAddressLineTwo: "Apt #228",
@@ -53,8 +59,8 @@ export const seedRsvps: Rsvp[] = [
   },
   {
     guests: [
-      { name: "Kelly Schallhorn", isAttending: false },
-      { name: "Bruce Horowitz", isAttending: false },
+      { firstName: "Kelly", lastName: "Schallhorn" },
+      { firstName: "Bruce", lastName: "Horowitz" },
     ],
     addressLabel: "Ms. Kelly Schallhorn & Mr. Bruce Horowitz",
     streetAddress: "5966 Westchester Park Dr.",
@@ -68,8 +74,8 @@ export const seedRsvps: Rsvp[] = [
   },
   {
     guests: [
-      { name: "Courtney Schallhorn", isAttending: false },
-      { name: "Darrin Wingard", isAttending: false },
+      { firstName: "Courtney", lastName: "Schallhorn" },
+      { firstName: "Darrin", lastName: "Wingard" },
     ],
     addressLabel: "Ms. Courtney Schallhorn & Mr. Darrin Wingard",
     streetAddress: "37 Norwood House Rd.",
@@ -82,8 +88,8 @@ export const seedRsvps: Rsvp[] = [
   },
   {
     guests: [
-      { name: "Stephen Murtha", isAttending: false },
-      { name: "Stephanie Murtha", isAttending: false },
+      { firstName: "Stephen", lastName: "Murtha" },
+      { firstName: "Stephanie", lastName: "Murtha" },
     ],
     addressLabel: "Mr. Stephen & Mrs. Stephanie Murtha",
     streetAddress: "616 E Sacramento St.",
@@ -95,7 +101,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Hunter Schallhorn", isAttending: false }],
+    guests: [{ firstName: "Hunter Schallhorn", lastName: "Schallhorn" }],
     addressLabel: "Ms. Hunter Schallhorn",
     streetAddress: "180 High Park Ln.",
     streetAddressLineTwo: "#1210",
@@ -108,8 +114,8 @@ export const seedRsvps: Rsvp[] = [
   },
   {
     guests: [
-      { name: "Kara Walsh", isAttending: false },
-      { name: "Mark Walsh", isAttending: false },
+      { firstName: "Kara", lastName: "Walsh" },
+      { firstName: "Mark", lastName: "Walsh" },
     ],
     addressLabel: "Mrs. Kara & Mr. Mark Walsh",
     streetAddress: "8237 S Syracuse Ct.",
@@ -122,8 +128,8 @@ export const seedRsvps: Rsvp[] = [
   },
   {
     guests: [
-      { name: "Bridget Trevillian", isAttending: false },
-      { name: "Tim Trevillian", isAttending: false },
+      { firstName: "Bridget", lastName: "Trevillian" },
+      { firstName: "Tim", lastName: "Trevillian" },
     ],
     addressLabel: "Mrs. Bridget & Mr. Tim Trevillian",
     streetAddress: "4716 NE 47th St.",
@@ -135,7 +141,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "James Murtha" }, { name: "Diane Murtha" }],
+    guests: [
+      { firstName: "James", lastName: "Murtha" },
+      { firstName: "Diane", lastName: "Murtha" },
+    ],
     addressLabel: "Mr. & Mrs. James Murtha",
     streetAddress: "2004 Potomac Ave.",
     city: "Alexandria",
@@ -146,7 +155,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Karen Crisp", isAttending: false }],
+    guests: [{ firstName: "Karen", lastName: "Crisp" }],
     addressLabel: "Mrs. Karen Crisp",
     streetAddress: "436 Coho Lane",
     city: "Mansfield",
@@ -157,7 +166,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Sean Murtha" }],
+    guests: [{ firstName: "Sean", lastName: "Murtha" }],
     addressLabel: "Mr. Sean Murtha",
     streetAddress: "529 Potomac View Parkway",
     city: "Brunswick",
@@ -169,9 +178,9 @@ export const seedRsvps: Rsvp[] = [
   },
   {
     guests: [
-      { name: "Maureen Dixon" },
-      { name: "Fred Dixon" },
-      { name: "Ally Dixon" },
+      { firstName: "Maureen", lastName: "Dixon" },
+      { firstName: "Fred", lastName: "Dixon" },
+      { firstName: "Ally", lastName: "Dixon" },
     ],
     addressLabel: "Mr. Fred, Mrs. Maureen & Ms. Ally Dixon",
     streetAddress: "6079 Douglas Ave.",
@@ -183,7 +192,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Brian Schallhorn", isAttending: false }],
+    guests: [{ firstName: "Brian", lastName: "Schallhorn" }],
     addressLabel: "Mr. Brian Schallhorn",
     streetAddress: "8490 Upper Sky Way",
     streetAddressLineTwo: "Apt 418",
@@ -195,7 +204,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Taylor Schallhorn", isAttending: false }],
+    guests: [{ firstName: "Taylor", lastName: "Schallhorn" }],
     addressLabel: "Mr. Taylor & Mrs. Jessica Schallhorn",
     streetAddress: "250 Dreamcatcher Trl.",
     city: "Youngsville",
@@ -207,8 +216,8 @@ export const seedRsvps: Rsvp[] = [
   },
   {
     guests: [
-      { name: "Megan Fitzgerald", isAttending: false },
-      { name: "Timothy Fitzgerald", isAttending: false },
+      { firstName: "Megan", lastName: "Fitzgerald" },
+      { firstName: "Timothy", lastName: "Fitzgerald" },
     ],
     addressLabel: "Mrs. Megan & Mr. Timothy Fitzgerald",
     streetAddress: "4909 Magnolia Street",
@@ -221,8 +230,8 @@ export const seedRsvps: Rsvp[] = [
   },
   {
     guests: [
-      { name: "Christine Papanicolas", isAttending: false },
-      { name: "Ron Reed", isAttending: false },
+      { firstName: "Christine", lastName: "Papanicolas" },
+      { firstName: "Ron", lastName: "Reed" },
     ],
     addressLabel: "Mr. & Mrs. Christine Papanicolas",
     streetAddress: "1105 Portner Road",
@@ -235,8 +244,8 @@ export const seedRsvps: Rsvp[] = [
   },
   {
     guests: [
-      { name: "Cristi Robinson", isAttending: false },
-      { name: "Scott Robinson", isAttending: false },
+      { firstName: "Cristi", lastName: "Robinson" },
+      { firstName: "Scott", lastName: "Robinson" },
     ],
     addressLabel: "Mrs. Cristi & Mr. Scott Robinson",
     streetAddress: "5421 Arnolds Court",
@@ -248,7 +257,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Eleni Papanicolas" }],
+    guests: [{ firstName: "Eleni", lastName: "Papanicolas" }],
     addressLabel: "Ms. Eleni Papanicolas",
     streetAddress: "22 M St NE",
     streetAddressLineTwo: "Apt 609",
@@ -260,7 +269,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Shane Culver" }, { name: "Elysia Culver" }],
+    guests: [
+      { firstName: "Shane", lastName: "Culver" },
+      { firstName: "Elysia", lastName: "Culver" },
+    ],
     addressLabel: "Mr. Shane & Mrs. Elysia Culver",
     streetAddress: "16276 Connors Way",
     city: "Rockville",
@@ -271,7 +283,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Andreas Papanicolas" }, { name: "Janet Papanicolas" }],
+    guests: [
+      { firstName: "Andreas", lastName: "Papanicolas" },
+      { firstName: "Janet", lastName: "Papanicolas" },
+    ],
     addressLabel: "Mr. Andreas & Mrs. Janet Papanicolas",
     streetAddress: "179 R Dillenbeck Road",
     city: "Fort Plain",
@@ -282,7 +297,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Jennifer Clark" }],
+    guests: [{ firstName: "Jennifer", lastName: "Clark" }],
     addressLabel: "Ms. Jennifer Clark",
     streetAddress: "605 Dalrymple Road",
     city: "Sunderland",
@@ -293,8 +308,11 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Ted Piotrowski" }, { name: "Cassondra Warme Prutsman" }],
-    addressLabel: "Ted Piotrowski & Ms. Cassondra Warme Prutsman",
+    guests: [
+      { firstName: "Ted", lastName: "Piotrowski" },
+      { firstName: "Cassondra", lastName: "Warme Prutsman" },
+    ],
+    addressLabel: "Mr. Ted Piotrowski & Ms. Cassondra Warme Prutsman",
     streetAddress: "9615 NE 195th Cir.",
     streetAddressLineTwo: "K12",
     city: "Bothell",
@@ -305,7 +323,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Ilona Piotrowski" }],
+    guests: [{ firstName: "Ilona", lastName: "Piotrowski" }],
     addressLabel: "Ilona Piotrowski",
     streetAddress: "1037 Hyperion Ave.",
     streetAddressLineTwo: "#108",
@@ -317,7 +335,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Monika Piotrowska" }, { name: "Matt Mosdell" }],
+    guests: [
+      { firstName: "Monika", lastName: "Piotrowski" },
+      { firstName: "Matt", lastName: "Mosdell" },
+    ],
     addressLabel: "Monika Piotrowska & Matt Mosdell",
     streetAddress: "117 Vaughn Drive",
     city: "Albany",
@@ -329,10 +350,10 @@ export const seedRsvps: Rsvp[] = [
   },
   {
     guests: [
-      { name: "Robert Jonsson" },
-      { name: "Maria Jonsson" },
-      { name: "Roderic Jonsson" },
-      { name: "Jennifer Jonsson" },
+      { firstName: "Robert", lastName: "Jonsson" },
+      { firstName: "Maria", lastName: "Jonsson" },
+      { firstName: "Roderic", lastName: "Jonsson" },
+      { firstName: "Jennifer", lastName: "Jonsson" },
     ],
     addressLabel: "Mr. & Mrs. Robert Jonsson and family",
     streetAddress: "Chamstrasse 62 Ch-8934",
@@ -344,7 +365,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Matt Ellisor" }, { name: "Ana Carolina Ellisor" }],
+    guests: [
+      { firstName: "Matt", lastName: "Ellisor" },
+      { firstName: "Ana", middleName: "Carolina", lastName: "Ellisor" },
+    ],
     addressLabel: "Mr. & Mrs. Matt Ellisor",
     streetAddress: "13711 Eldon Park Ct.",
     city: "Cypress",
@@ -355,7 +379,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Carlos Emilo Aguilar" }, { name: "Daniela Aguilar" }],
+    guests: [
+      { firstName: "Carlos", lastName: "Aguilar", middleName: "Emilio" },
+      { firstName: "Daniela", lastName: "Aguilar" },
+    ],
     addressLabel: "Dr. & Mrs. Carlos Emilio Aguilar",
     streetAddress: "2293 Devon Circle.",
     city: "Ann Arbor",
@@ -366,7 +393,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Carlos Pimentel" }, { name: "Maya Pimentel" }],
+    guests: [
+      { firstName: "Carlos", lastName: "Pimentel" },
+      { firstName: "Maya", lastName: "Pimentel" },
+    ],
     addressLabel: "Dr. & Mrs. Carlos Pimentel",
     streetAddress: "113 Bell Meadow Place",
     city: "Charlotte",
@@ -377,7 +407,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Javier Pere" }, { name: "Ana Pere" }],
+    guests: [
+      { firstName: "Javier", lastName: "Pere" },
+      { firstName: "Ana", lastName: "Pere" },
+    ],
     addressLabel: "Drs. Javier & Ana Pere",
     streetAddress: "3020 Lakeshore Dr.",
     city: "Lima",
@@ -388,7 +421,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Jorge Camacho" }, { name: "Glenda Camacho" }],
+    guests: [
+      { firstName: "Jorge", lastName: "Camacho" },
+      { firstName: "Glenda", lastName: "Camacho" },
+    ],
     addressLabel: "Dr. & Mrs. Jorge Camacho",
     streetAddress: "8204 SW 16th Place.",
     city: "Gainsville",
@@ -399,7 +435,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Edwin Schenmankewitz" }, { name: "Gigi Shemankewitz" }],
+    guests: [
+      { firstName: "Edwin", lastName: "Schenmankewitz" },
+      { firstName: "Gigi", lastName: "Shemankewitz" },
+    ],
     addressLabel: "Drs. Edwin & Gigi Schemankewitz",
     streetAddress: "5380 Redfield Dr.",
     city: "Dunwoody",
@@ -410,7 +449,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Luis Eduardo Fayad" }, { name: "Maria Delia Fayad" }],
+    guests: [
+      { firstName: "Luis", middleName: "Eduardo", lastName: "Fayad" },
+      { firstName: "Maria", middleName: "Delia", lastName: "Fayad" },
+    ],
     addressLabel: "Dr. & Mrs. Luis Eduardo Fayad",
     streetAddress: "3614 Bellefontaine St.",
     city: "Houston",
@@ -421,7 +463,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Danny Delgado" }],
+    guests: [{ firstName: "Danny", lastName: "Delgado" }],
     addressLabel: "Dr. Danny Delgado",
     streetAddress: "6383 Golden Eye Glen.",
     city: "Lakewood Ranch",
@@ -432,7 +474,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Fabian Ramos" }, { name: "" }],
+    guests: [
+      { firstName: "Fabian", lastName: "Ramos" },
+      { firstName: "Kathy", lastName: "Ramos" },
+    ],
     addressLabel: "Dr. & Mrs. Fabian Ramos",
     streetAddress: "66907 Westchester Circle.",
     city: "Braidington",
@@ -443,7 +488,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Jorge Gilbert" }, { name: "Fabyola Gilbert" }],
+    guests: [
+      { firstName: "Jorge", lastName: "Gilbert" },
+      { firstName: "Fabyola", lastName: "Gilbert" },
+    ],
     addressLabel: "Dr. & Mrs. Jorge Gilbert",
     streetAddress: "2905 W.Latigo Trail.",
     city: "Sioux Falls",
@@ -454,7 +502,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Mark Provenza" }, { name: "Rhonda Provenza" }],
+    guests: [
+      { firstName: "Mark", lastName: "Provenza" },
+      { firstName: "Rhonda", lastName: "Provenza" },
+    ],
     addressLabel: "Dr. & Mrs. Mark Provenza",
     streetAddress: "1932 Shaded Willow Lane",
     city: "Shreveport",
@@ -465,7 +516,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Fernando Quevedo" }, { name: "Lisa Quevedo" }],
+    guests: [
+      { firstName: "Fernando", lastName: "Quevedo" },
+      { firstName: "Lisa", lastName: "Quevedo" },
+    ],
     addressLabel: "Dr. & Mrs. Fernando Quevedo",
     streetAddress: "2106 Abigail Lane SW.",
     city: "Rochester",
@@ -476,7 +530,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Jorge Pietri" }, { name: "Jenny Pietri" }],
+    guests: [
+      { firstName: "Jorge", lastName: "Pietri" },
+      { firstName: "Jenny", lastName: "Pietri" },
+    ],
     addressLabel: "Mr. & Mrs. Jorge Pietri",
     streetAddress: "7559 Caprio Dr.",
     city: "Boynton Beach",
@@ -487,7 +544,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Jim McGee" }, { name: "Renee McGee" }],
+    guests: [
+      { firstName: "Jim", lastName: "McGee" },
+      { firstName: "Renee", lastName: "McGee" },
+    ],
     addressLabel: "Mr. & Mrs. Jim McGee",
     streetAddress: "4540 Cambridge Circle",
     city: "Shreveport",
@@ -498,7 +558,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "William Dorroh" }, { name: "Katherine Dorroh" }],
+    guests: [
+      { firstName: "William", lastName: "Dorroh" },
+      { firstName: "Katherine", lastName: "Dorroh" },
+    ],
     addressLabel: "Mr. & Mrs. William Dorroh",
     streetAddress: "11260 Heritage Oaks",
     city: "Shreveport",
@@ -509,7 +572,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Javier Pere" }, { name: "Megan Pere" }],
+    guests: [
+      { firstName: "Javier", lastName: "Pere" },
+      { firstName: "Megan", lastName: "Pere" },
+    ],
     addressLabel: "Mr. & Mrs. Javier A. Pere",
     streetAddress: "2195 Loudenslager Dr.",
     city: "Thompsons Station",
@@ -520,7 +586,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Christ Balich" }, { name: "Ana Balich" }],
+    guests: [
+      { firstName: "Christ", lastName: "Balich" },
+      { firstName: "Ana", lastName: "Balich" },
+    ],
     addressLabel: "Mr. & Mrs. Christ Balich",
     streetAddress: "3851 S Lowe Ave.",
     city: "Chicago",
@@ -531,7 +600,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Maria Pere" }],
+    guests: [{ firstName: "Maria", lastName: "Pere" }],
     addressLabel: "Dr. Maria Pere",
     streetAddress: "122 Reizenstein Way.",
     city: "Pittsburgh",
@@ -542,7 +611,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Ben Yeoman" }, { name: "Nathalie Yeoman" }],
+    guests: [
+      { firstName: "Ben", lastName: "Yeoman" },
+      { firstName: "Nathalie", lastName: "Yeoman" },
+    ],
     addressLabel: "Mr. & Mrs. Ben Yeoman",
     streetAddress: "906 Richland Drive",
     city: "Charlotte",
@@ -553,7 +625,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Jeffrey Cargill" }, { name: "Crystal Cargill" }],
+    guests: [
+      { firstName: "Jeffrey", lastName: "Cargill" },
+      { firstName: "Crystal", lastName: "Cargill" },
+    ],
     addressLabel: "Mr. Jeffrey & Mrs. Crystal Cargill",
     streetAddress: "316 2nd St. SE",
     city: "Washington",
@@ -564,7 +639,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Justin Brandt" }],
+    guests: [{ firstName: "Justin", lastName: "Brandt" }],
     addressLabel: "Mr. Justin Brandt",
     streetAddress: "101 N Croft Ave.",
     streetAddressLineTwo: "Apartment 206",
@@ -576,7 +651,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Chance Lee" }, { name: "Lily Castro" }],
+    guests: [
+      { firstName: "Chance", lastName: "Lee" },
+      { firstName: "Lily", lastName: "Castro" },
+    ],
     addressLabel: "Mr. Chance Lee & Mrs. Lily Castro",
     streetAddress: "320 N 18th St.",
     city: "Philadelphia",
@@ -587,7 +665,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Valerie Aguilar" }],
+    guests: [{ firstName: "Valerie", lastName: "Aguilar" }],
     addressLabel: "Ms. Valerie Aguilar",
     streetAddress: "3 Hanover Square",
     streetAddressLineTwo: "Apartment 4C",
@@ -599,7 +677,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Stephen Chandler" }, { name: "Hannah Chandler" }],
+    guests: [
+      { firstName: "Stephen", lastName: "Chandler" },
+      { firstName: "Hannah", lastName: "Chandler" },
+    ],
     addressLabel: "Mr. Stephen & Mrs. Hannah Chandler",
     streetAddress: "16407 Shefford Dr.",
     city: "Midlothian",
@@ -610,7 +691,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Jordan Stone" }, { name: "Jordan Yates" }],
+    guests: [
+      { firstName: "Jordan", lastName: "Stone" },
+      { firstName: "Jordan", lastName: "Yates" },
+    ],
     addressLabel: "Mr. Jordan Stone & Mrs. Jordan Yates",
     streetAddress: "5607B Louisiana Ave.",
     city: "Nashville",
@@ -621,7 +705,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Alexia Aguilar" }, { name: "Priscilla Canals" }],
+    guests: [
+      { firstName: "Alexia", lastName: "Aguilar" },
+      { firstName: "Priscilla", lastName: "Canals" },
+    ],
     addressLabel: "Ms. Alexia Aguilar & Ms. Priscilla Canals",
     streetAddress: "610 N Elmer Ave.",
     streetAddressLineTwo: "2nd Floor",
@@ -633,7 +720,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Kamal Fulani" }, { name: "Bina Fulani" }],
+    guests: [
+      { firstName: "Kamal", lastName: "Fulani" },
+      { firstName: "Bina", lastName: "Fulani" },
+    ],
     addressLabel: "Mr. Kamal & Mrs. Bina Fulani",
     streetAddress: "9783 Lanward Dr.",
     city: "Dallas",
@@ -644,7 +734,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Gregory Hill" }, { name: "Sicong Liang" }],
+    guests: [
+      { firstName: "Gregory", lastName: "Hill" },
+      { firstName: "Sicong", lastName: "Liang" },
+    ],
     addressLabel: "Mr. Gregory Hill & Ms. Sicong Liang",
     streetAddress: "1810 Cahill Ave.",
     city: "Nashville",
@@ -655,7 +748,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Evan Jacobs" }, { name: "Jessica Jacobs" }],
+    guests: [
+      { firstName: "Evan", lastName: "Jacobs" },
+      { firstName: "Jessica", lastName: "Jacobs" },
+    ],
     addressLabel: "Mr. Evan & Mrs. Jessica Jacobs",
     streetAddress: "745 South 7th St.",
     city: "Philadelphia",
@@ -666,7 +762,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Laurel Fedder" }],
+    guests: [{ firstName: "Laurel", lastName: "Fedder" }],
     addressLabel: "Ms. Laurel Fedder",
     streetAddress: "154 Beaver St.",
     city: "San Francisco",
@@ -677,7 +773,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Jonathan Fredi" }, { name: "Erin Fredi" }],
+    guests: [
+      { firstName: "Jonathan", lastName: "Fredi" },
+      { firstName: "Erin", lastName: "Fredi" },
+    ],
     addressLabel: "Mr. Jonathan & Mrs. Erin Fredi",
     streetAddress: "9015 Fringewood Dr.",
     city: "Dallas",
@@ -688,7 +787,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Ramon Bertucci" }, { name: "Stacie Bertucci" }],
+    guests: [
+      { firstName: "Ramon", lastName: "Bertucci" },
+      { firstName: "Stacie", lastName: "Bertucci" },
+    ],
     addressLabel: "Mr. Ramon & Mrs. Stacie Bertucci",
     streetAddress: "1006 Vista Bell Dr.",
     city: "Cave Springs",
@@ -699,7 +801,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Connor Mackenzie" }, { name: "Meaghan Conner" }],
+    guests: [
+      { firstName: "Connor", lastName: "Mackenzie" },
+      { firstName: "Meaghan", lastName: "Conner" },
+    ],
     addressLabel: "Mr. Connor Mackenzie & Ms. Meaghan Conner",
     streetAddress: "732 Lamont St. NW",
     streetAddressLineTwo: "Apartment 301",
@@ -711,7 +816,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Kyle Eason" }],
+    guests: [{ firstName: "Kyle", lastName: "Eason" }],
     addressLabel: "Mr. Kyle Eason",
     streetAddress: "5512 Oakmont Circle",
     city: "Nashville",
@@ -722,7 +827,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Andrew Patton" }, { name: "Suzanne Patton" }],
+    guests: [
+      { firstName: "Andrew", lastName: "Patton" },
+      { firstName: "Suzanne", lastName: "Patton" },
+    ],
     addressLabel: "Mr. Andrew & Mrs. Suzanne Patton",
     streetAddress: "1044 Saint Francis Way",
     city: "Shreveport",
@@ -733,7 +841,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Henry Hilario" }, { name: "Danielle Hilario" }],
+    guests: [
+      { firstName: "Henry", lastName: "Hilario" },
+      { firstName: "Danielle", lastName: "Hilario" },
+    ],
     addressLabel: "Mr. Henry & Mrs. Danielle Hilario",
     streetAddress: "2860 Covington Circle",
     city: "Shreveport",
@@ -744,7 +855,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Magali Cabezas" }],
+    guests: [{ firstName: "Magali", lastName: "Cabezas" }],
     addressLabel: "Srta. Magali Cabezas",
     streetAddress: "",
     city: "Guayaquil",
@@ -755,7 +866,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Raul Doria" }, { name: "Katy Doria" }],
+    guests: [
+      { firstName: "Raul", lastName: "Doria" },
+      { firstName: "Katy", lastName: "Doria" },
+    ],
     addressLabel: "Dr. & Mrs. Raul Doria",
     streetAddress: "2816 General Pershing Street",
     city: "New Orleans",
@@ -766,7 +880,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Maria Aguilar" }],
+    guests: [{ firstName: "Maria", lastName: "Aguilar" }],
     addressLabel: "Mrs. Maria Aguilar",
     streetAddress: "",
     city: "Guayaquil",
@@ -777,7 +891,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Carlos Aguilar" }, { name: "Gladys Maria Aguilar" }],
+    guests: [
+      { firstName: "Carlos", lastName: "Aguilar" },
+      { firstName: "Gladys", middleName: "Maria", lastName: "Aguilar" },
+    ],
     addressLabel: "Mr. & Mrs. Carlos Aguilar",
     streetAddress: "",
     city: "Guayaquil",
@@ -788,7 +905,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Agusto Aguirre" }, { name: "Graciella Aguirre" }],
+    guests: [
+      { firstName: "Agusto", lastName: "Aguirre" },
+      { firstName: "Graciella", lastName: "Aguirre" },
+    ],
     addressLabel: "Mr. & Mrs. Augusto Aguirre",
     streetAddress: "",
     city: "Guayaquil",
@@ -799,7 +919,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Monica Aguirre" }],
+    guests: [{ firstName: "Monica", lastName: "Aguirre" }],
     addressLabel: "Ms. Monica Aguirre",
     streetAddress: "",
     city: "Guayaquil",
@@ -811,10 +931,10 @@ export const seedRsvps: Rsvp[] = [
   },
   {
     guests: [
-      { name: "Lorena Aguirre" },
-      { name: "Guillermo Aguirre" },
-      { name: "Domenica Aguirre" },
-      { name: "" },
+      { firstName: "Lorena", lastName: "Aguirre" },
+      { firstName: "Guillermo", lastName: "Aguirre" },
+      { firstName: "Domenica", lastName: "Aguirre" },
+      { firstName: "Ricardo", lastName: "Aguilar" },
     ],
     addressLabel: "Ms. Lorena Aguirre and family",
     streetAddress: "",
@@ -826,7 +946,7 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Grace Aguirre" }],
+    guests: [{ firstName: "Grace", lastName: "Aguirre" }],
     addressLabel: "Ms. Grace Aguirre",
     streetAddress: "",
     city: "Guayaquil",
@@ -837,7 +957,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Eduardo Peña" }, { name: "Soledad Peña" }],
+    guests: [
+      { firstName: "Eduardo", lastName: "Peña" },
+      { firstName: "Soledad", lastName: "Peña" },
+    ],
     addressLabel: "Drs. Eduardo & Soledad Peña",
     streetAddress: "",
     city: "Guayaquil",
@@ -848,7 +971,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Alvaro Noboa" }, { name: "Annabella Noboa" }],
+    guests: [
+      { firstName: "Alvaro", lastName: "Noboa" },
+      { firstName: "Annabella", lastName: "Noboa" },
+    ],
     addressLabel: "Mr. & Dr. Alvaro Noboa",
     streetAddress: "",
     city: "Guayaquil",
@@ -859,7 +985,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Humberto Aguilar" }, { name: "Kattya Aguilar" }],
+    guests: [
+      { firstName: "Humberto", lastName: "Aguilar" },
+      { firstName: "Kattya", lastName: "Aguilar" },
+    ],
     addressLabel: "Dr. Humberto & Mrs. Kattya Aguilar",
     streetAddress: "1012 Bayberry Circle",
     city: "Shreveport",
@@ -869,10 +998,11 @@ export const seedRsvps: Rsvp[] = [
     hasRsvped: false,
     dietaryRestrictions: "",
   },
-  //   { guests: [{ name: "Kait" }] } as Rsvp,
-  //   { guests: [{ name: "Sean" }] } as Rsvp,
   {
-    guests: [{ name: "Christopher Ingram" }, { name: "Cathy Ingram" }],
+    guests: [
+      { firstName: "Christopher", lastName: "Ingram" },
+      { firstName: "Cathy", lastName: "Ingram" },
+    ],
     addressLabel: "Dr. and Mrs. Christopher Ingram",
     streetAddress: "1122 E. 5th Street",
     city: "Natchitoches",
@@ -883,7 +1013,10 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Martin Aviles" }, { name: "Carmen Aviles" }],
+    guests: [
+      { firstName: "Martin", lastName: "Aviles" },
+      { firstName: "Carmen", lastName: "Aviles" },
+    ],
     addressLabel: "Dr. and Mrs. Martin Aviles",
     streetAddress: "412 Williams Avenue",
     city: "Natchitoches",

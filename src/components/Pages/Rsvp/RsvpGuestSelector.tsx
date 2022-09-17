@@ -1,6 +1,6 @@
 import { Checkbox, FormControlLabel, FormLabel } from "@mui/material";
 import React, { FunctionComponent } from "react";
-import { Rsvp } from "../../Model/Rsvp.interface";
+import { Rsvp, Guest } from "../../Model/Rsvp.interface";
 
 export interface Props {
   currentRsvp: Rsvp;
@@ -23,13 +23,21 @@ export const RsvpGuestSelector: FunctionComponent<Props> = ({
     }
   }
 
+  function getGuestName(guest: Guest): string {
+    if (guest.middleName) {
+      return guest.firstName + guest.middleName + guest.lastName;
+    } else {
+      return guest.firstName + guest.lastName;
+    }
+  }
+
   return (
     <>
       <FormLabel>Who will be attending?</FormLabel>
       {currentRsvp?.guests?.map((guest, index) => (
         <FormControlLabel
-          key={guest.name}
-          label={guest.name}
+          key={guest.firstName}
+          label={getGuestName(guest)}
           control={
             <Checkbox
               color="primary"

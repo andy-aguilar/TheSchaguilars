@@ -35,15 +35,6 @@ export const Rsvp: FunctionComponent = () => {
     }
   }, [rsvpId]);
 
-  // USED FOR SEEDING DATABASE, DO NOT DELETE
-  // async function createRsvpFromList(rsvp: RsvpInterface){
-  //   const rsvpResponse: any =  await API.graphql({query: createRsvp, variables: {input: rsvp}})
-  //   if(rsvpResponse){
-  //     console.log(rsvpResponse)
-  //     fetchRsvps()
-  //   }
-  // }
-
   async function fetchRsvp(): Promise<void> {
     if (rsvpId) {
       const apiData = (await API.graphql(
