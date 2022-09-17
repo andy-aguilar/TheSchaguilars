@@ -28,6 +28,7 @@ export const RsvpGuestSelector: FunctionComponent<Props> = ({
       <FormLabel>Who will be attending?</FormLabel>
       {currentRsvp?.guests?.map((guest, index) => (
         <FormControlLabel
+          key={guest.name}
           label={guest.name}
           control={
             <Checkbox
