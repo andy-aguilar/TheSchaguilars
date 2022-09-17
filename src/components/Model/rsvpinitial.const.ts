@@ -168,8 +168,12 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Maureen Dixon" }, { name: "Fred Dixon" }],
-    addressLabel: "The Dixon Family",
+    guests: [
+      { name: "Maureen Dixon" },
+      { name: "Fred Dixon" },
+      { name: "Ally Dixon" },
+    ],
+    addressLabel: "Mr. Fred, Mrs. Maureen & Ms. Ally Dixon",
     streetAddress: "6079 Douglas Ave.",
     city: "New Market",
     state: "MD",
@@ -289,8 +293,8 @@ export const seedRsvps: Rsvp[] = [
     dietaryRestrictions: "",
   },
   {
-    guests: [{ name: "Ted Piotrowski" }],
-    addressLabel: "Ted Piotrowski",
+    guests: [{ name: "Ted Piotrowski" }, { name: "Cassondra Warme Prutsman" }],
+    addressLabel: "Ted Piotrowski & Ms. Cassondra Warme Prutsman",
     streetAddress: "9615 NE 195th Cir.",
     streetAddressLineTwo: "K12",
     city: "Bothell",
@@ -865,7 +869,6 @@ export const seedRsvps: Rsvp[] = [
     hasRsvped: false,
     dietaryRestrictions: "",
   },
-  //   { guests: [{ name: "Ally" }] } as Rsvp,
   //   { guests: [{ name: "Kait" }] } as Rsvp,
   //   { guests: [{ name: "Sean" }] } as Rsvp,
   {
@@ -893,5 +896,5 @@ export const seedRsvps: Rsvp[] = [
 ];
 
 /* TODO: 
-- Update entries for Ally, Kait, and Sean
+- Update entries for Kait, and Sean
 */

@@ -10,6 +10,7 @@ export interface Rsvp {
   city: string;
   state: string;
   zipCode: string;
+  isFamilyAttending?: boolean;
 }
 
 export interface Guest {

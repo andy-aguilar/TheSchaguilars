@@ -1,13 +1,5 @@
 import "./Rsvp.css";
-import {
-  Button,
-  Checkbox,
-  FormControlLabel,
-  FormGroup,
-  FormLabel,
-  Paper,
-  TextField,
-} from "@mui/material";
+import { Button, FormGroup } from "@mui/material";
 import React, {
   FormEvent,
   FunctionComponent,
@@ -18,7 +10,11 @@ import { Footer } from "../../ReusableComponents/Footer";
 import { Header } from "../../ReusableComponents/Header";
 import { API } from "aws-amplify";
 import { listRsvps } from "../../../graphql/queries";
-import { Rsvp as RsvpInterface, Guest } from "../../Model/Rsvp.interface";
+import { Rsvp as RsvpInterface } from "../../Model/Rsvp.interface";
+import { RsvpSearchForm } from "./RsvpSearchForm";
+import { RsvpIsAttendingTiles } from "./RsvpIsAttendingTiles";
+import { RsvpGuestSelector } from "./RsvpGuestSelector";
+import { RsvpAdditionalDetails } from "./RsvpAdditionalDetails";
 // import { createRsvp } from "../../../graphql/mutations";
 // import { seedRsvps } from "../../Model/rsvpinitial.const";
 
@@ -28,14 +24,9 @@ interface rsvpResponse {
   };
 }
 
-const initialFormState = {
-  firstName: "",
-  lastName: "",
-};
-
 export const Rsvp: FunctionComponent = () => {
   const [rsvps, setRsvps] = useState<RsvpInterface[]>([]);
-  const [formData, setFormData] = useState(initialFormState);
+
   const [currentRsvp, setCurrentRsvp] = useState<RsvpInterface | null>(null);
 
   useEffect(() => {
@@ -56,55 +47,23 @@ export const Rsvp: FunctionComponent = () => {
   //   }
   // }
 
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-
-    findCurrentRsvp(formData);
-    setFormData(initialFormState);
-  }
-
-  function findCurrentRsvp(formData: { firstName: string; lastName: string }) {
-    const foundRsvp = rsvps.find(
-      (rsvp) =>
-        !!rsvp.guests.find(
-          (guest: Guest) =>
-            guest.name === `${formData.firstName} ${formData.lastName}`
-        )
-    );
-    if (foundRsvp) {
-      setCurrentRsvp(foundRsvp);
-    }
-  }
-
-  function handleRsvpYes() {
-    if (currentRsvp) {
-      setCurrentRsvp({ ...currentRsvp, hasRsvped: true });
-    }
-  }
-  function handleRsvpNo() {
-    if (currentRsvp) {
-      const updatedGuests: Guest[] = currentRsvp.guests.map((guest) => {
-        return { ...guest, isAttending: false };
-      });
-      setCurrentRsvp({ ...currentRsvp, guests: updatedGuests });
-    }
-  }
-
-  function handleCheckboxChange(
-    e: React.ChangeEvent<HTMLInputElement>,
-    index: number
-  ) {
-    if (currentRsvp) {
-      const updatedCurrentRsvp = { ...currentRsvp };
-      updatedCurrentRsvp.guests[index].isAttending = e.target.checked;
-
-      setCurrentRsvp(updatedCurrentRsvp);
-    }
-  }
-
   function handleDetailSubmit(e: FormEvent) {
     e.preventDefault();
     // TODO: Add queries for updating rsvp
+  }
+
+  function hasRsvped(): boolean {
+    return !!currentRsvp && !!currentRsvp.hasRsvped;
+  }
+
+  function hasRsvpedNo(): boolean {
+    return (
+      !!currentRsvp && !!currentRsvp.hasRsvped && !currentRsvp.isFamilyAttending
+    );
+  }
+
+  function handleRsvpNoSubmit(): void {
+    console.log("rsvped no");
   }
 
   return (
@@ -119,115 +78,48 @@ export const Rsvp: FunctionComponent = () => {
         >
           <h1>RSVP</h1>
         </div>
+        {/* TODO: These classes may be incorrect might need to conditionally render small/large depending on step */}
         <div className={"page-body small"}>
+          {/* Find your RSVP form */}
           {!currentRsvp && (
-            <>
-              <h3>
-                Please enter your first and last name as they appear on your
-                invitation
-              </h3>
-              <form
-                onSubmit={handleSubmit}
-                style={{ display: "flex", flexDirection: "column" }}
-              >
-                <TextField
-                  value={formData.firstName}
-                  id="standard-basic"
-                  label="First Name"
-                  variant="standard"
-                  onChange={({ target }) =>
-                    setFormData({ ...formData, firstName: target.value })
-                  }
-                />
-                <TextField
-                  value={formData.lastName}
-                  id="standard-basic"
-                  label="Last Name"
-                  variant="standard"
-                  onChange={({ target }) =>
-                    setFormData({ ...formData, lastName: target.value })
-                  }
-                />
-                <Button type="submit" name="submit">
-                  Submit
-                </Button>
-              </form>
-            </>
+            <RsvpSearchForm rsvps={rsvps} setCurrentRsvp={setCurrentRsvp} />
           )}
 
+          {/* Select if party is attending */}
           {currentRsvp && (
-            <>
-              <h3>{`Hello ${currentRsvp.addressLabel}!`}</h3>
-              <h4>Will you be attending?</h4>
-              <div className="response-buttons">
-                <Paper
-                  className="response-button"
-                  elevation={3}
-                  onClick={handleRsvpYes}
-                >
-                  {currentRsvp.guests.length > 1
-                    ? "We joyfully accept the intivation!"
-                    : "I joyfully accept the invitation!"}
-                </Paper>
-                <Paper
-                  className="response-button"
-                  elevation={3}
-                  onClick={handleRsvpNo}
-                >
-                  {currentRsvp.guests.length > 1
-                    ? "We must regretfully decline."
-                    : "I must regretfully decline."}
-                </Paper>
-              </div>
-            </>
+            <RsvpIsAttendingTiles
+              currentRsvp={currentRsvp}
+              setCurrentRsvp={setCurrentRsvp}
+            />
           )}
 
-          {currentRsvp && currentRsvp.hasRsvped && (
+          {/* Fields for attending parties */}
+          {currentRsvp && currentRsvp.isFamilyAttending && (
             <FormGroup onSubmit={handleDetailSubmit}>
-              <FormLabel>Who will be attending?</FormLabel>
-              {currentRsvp?.guests?.map((guest, index) => (
-                <FormControlLabel
-                  label={guest.name}
-                  control={
-                    <Checkbox
-                      color="primary"
-                      checked={guest.isAttending}
-                      onChange={(e) => handleCheckboxChange(e, index)}
-                    />
-                  }
-                />
-              ))}
+              {/* Select which guests will be attending */}
+              <RsvpGuestSelector
+                currentRsvp={currentRsvp}
+                setCurrentRsvp={setCurrentRsvp}
+              />
 
-              <FormLabel>Please provide some additional information:</FormLabel>
-              <TextField
-                value={currentRsvp?.emailAddress}
-                id="standard-basic"
-                label="Email address"
-                variant="standard"
-                onChange={({ target }) =>
-                  setCurrentRsvp({ ...currentRsvp, emailAddress: target.value })
-                }
+              {/* Provide extra details */}
+              <RsvpAdditionalDetails
+                currentRsvp={currentRsvp}
+                setCurrentRsvp={setCurrentRsvp}
               />
-              <TextField
-                value={currentRsvp?.dietaryRestrictions}
-                id="standard-basic"
-                label="Dietary restrictions"
-                variant="standard"
-                onChange={({ target }) =>
-                  setCurrentRsvp({
-                    ...currentRsvp,
-                    dietaryRestrictions: target.value,
-                  })
-                }
-                multiline
-              />
+
               <Button type="submit" name="submit">
                 Submit
               </Button>
             </FormGroup>
           )}
+
+          {/* Fields for RSVP No */}
+          {hasRsvpedNo() && (
+            <Button onClick={handleRsvpNoSubmit}>Submit</Button>
+          )}
         </div>
-        <Footer pageSize="small" />
+        <Footer pageSize={hasRsvped() ? "large" : "small"} />
       </div>
     </div>
   );

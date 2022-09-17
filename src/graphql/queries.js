@@ -18,6 +18,7 @@ export const getRsvp = /* GraphQL */ `
       city
       state
       zipCode
+      isFamilyAttending
       createdAt
       updatedAt
     }
@@ -45,6 +46,7 @@ export const listRsvps = /* GraphQL */ `
         city
         state
         zipCode
+        isFamilyAttending
         createdAt
         updatedAt
       }

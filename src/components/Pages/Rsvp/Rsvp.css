@@ -13,3 +13,11 @@
   justify-content: center;
   margin: 0em 1em;
 }
+
+.response-button:hover {
+  background-color: #e9dfd7;
+}
+
+.response-button.selected {
+  background-color: #e9dfd7;
+}

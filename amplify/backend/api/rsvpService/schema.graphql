@@ -17,6 +17,7 @@ type Rsvp
   city: String
   state: String
   zipCode: String
+  isFamilyAttending: Boolean
 }
 
 type Guest {

@@ -18,6 +18,7 @@ export const onCreateRsvp = /* GraphQL */ `
       city
       state
       zipCode
+      isFamilyAttending
       createdAt
       updatedAt
     }
@@ -40,6 +41,7 @@ export const onUpdateRsvp = /* GraphQL */ `
       city
       state
       zipCode
+      isFamilyAttending
       createdAt
       updatedAt
     }
@@ -62,6 +64,7 @@ export const onDeleteRsvp = /* GraphQL */ `
       city
       state
       zipCode
+      isFamilyAttending
       createdAt
       updatedAt
     }
