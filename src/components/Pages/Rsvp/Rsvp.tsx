@@ -15,8 +15,8 @@ import { RsvpIsAttendingTiles } from "./RsvpIsAttendingTiles";
 import { RsvpGuestSelector } from "./RsvpGuestSelector";
 import { RsvpAdditionalDetails } from "./RsvpAdditionalDetails";
 import { useParams } from "react-router-dom";
-// import { createRsvp } from "../../../graphql/mutations";
-// import { seedRsvps } from "../../Model/rsvpinitial.const";
+import { MainTheme } from "../../../MainTheme";
+import { ThemeProvider } from "@emotion/react";
 
 interface RsvpResponse {
   data: {
@@ -64,55 +64,57 @@ export const Rsvp: FunctionComponent = () => {
   }
 
   return (
-    <div className="page-container">
-      <Header />
-      <div className="real-page-body">
-        <div
-          className="sub-header"
-          style={{
-            backgroundImage: `url("https://the-schaguilars.s3.us-east-2.amazonaws.com/backgroundImage.jpeg")`,
-          }}
-        >
-          <h1>RSVP</h1>
-        </div>
-        {/* TODO: These classes may be incorrect might need to conditionally render small/large depending on step */}
-        <div className={"page-body small"}>
-          {/* Select if party is attending */}
-          {currentRsvp && (
-            <RsvpIsAttendingTiles
-              currentRsvp={currentRsvp}
-              setCurrentRsvp={setCurrentRsvp}
-            />
-          )}
-
-          {/* Fields for attending parties */}
-          {currentRsvp && currentRsvp.isFamilyAttending && (
-            <FormGroup onSubmit={handleDetailSubmit}>
-              {/* Select which guests will be attending */}
-              <RsvpGuestSelector
+    <ThemeProvider theme={MainTheme}>
+      <div className="page-container">
+        <Header />
+        <div className="real-page-body">
+          <div
+            className="sub-header"
+            style={{
+              backgroundImage: `url("https://the-schaguilars.s3.us-east-2.amazonaws.com/backgroundImage.jpeg")`,
+            }}
+          >
+            <h1>RSVP</h1>
+          </div>
+          {/* TODO: These classes may be incorrect might need to conditionally render small/large depending on step */}
+          <div className={"page-body small"}>
+            {/* Select if party is attending */}
+            {currentRsvp && (
+              <RsvpIsAttendingTiles
                 currentRsvp={currentRsvp}
                 setCurrentRsvp={setCurrentRsvp}
               />
+            )}
 
-              {/* Provide extra details */}
-              <RsvpAdditionalDetails
-                currentRsvp={currentRsvp}
-                setCurrentRsvp={setCurrentRsvp}
-              />
+            {/* Fields for attending parties */}
+            {currentRsvp && currentRsvp.isFamilyAttending && (
+              <FormGroup onSubmit={handleDetailSubmit}>
+                {/* Select which guests will be attending */}
+                <RsvpGuestSelector
+                  currentRsvp={currentRsvp}
+                  setCurrentRsvp={setCurrentRsvp}
+                />
 
-              <Button type="submit" name="submit">
-                Submit
-              </Button>
-            </FormGroup>
-          )}
+                {/* Provide extra details */}
+                <RsvpAdditionalDetails
+                  currentRsvp={currentRsvp}
+                  setCurrentRsvp={setCurrentRsvp}
+                />
 
-          {/* Fields for RSVP No */}
-          {hasRsvpedNo() && (
-            <Button onClick={handleRsvpNoSubmit}>Submit</Button>
-          )}
+                <Button type="submit" name="submit">
+                  Submit
+                </Button>
+              </FormGroup>
+            )}
+
+            {/* Fields for RSVP No */}
+            {hasRsvpedNo() && (
+              <Button onClick={handleRsvpNoSubmit}>Submit</Button>
+            )}
+          </div>
+          <Footer pageSize={hasRsvped() ? "large" : "small"} />
         </div>
-        <Footer pageSize={hasRsvped() ? "large" : "small"} />
       </div>
-    </div>
+    </ThemeProvider>
   );
 };

@@ -21,3 +21,36 @@
 .response-button.selected {
   background-color: #e9dfd7;
 }
+
+.rsvp-tiles {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+}
+
+.rsvp-tile {
+  cursor: pointer;
+  height: 12em;
+  width: 20em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0em 1em;
+}
+
+.rsvp-tile:hover {
+  background-color: #e9dfd7;
+}
+
+.rsvp-tile h4 {
+  text-transform: none;
+  font-size: 1em;
+  margin-bottom: 0em;
+  margin-top: 1em;
+}
+
+.rsvp-tile p {
+  line-height: 0.5em;
+  margin-bottom: 0;
+}
