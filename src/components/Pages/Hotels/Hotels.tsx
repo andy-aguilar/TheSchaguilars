@@ -71,7 +71,12 @@ export const Hotels: FunctionComponent = () => {
                 hotel has set aside rooms for our guests at a special rate, so
                 please be sure to use this unique link to book your room.
               </p>
-              <a className="directions-link" href="/">
+              <a
+                className="directions-link"
+                target="_blank"
+                rel="noreferrer"
+                href="https://bit.ly/kristinandandy-phh"
+              >
                 <span>Book Here</span>
               </a>
             </div>

@@ -25,9 +25,9 @@ export const RsvpGuestSelector: FunctionComponent<Props> = ({
 
   function getGuestName(guest: Guest): string {
     if (guest.middleName) {
-      return guest.firstName + guest.middleName + guest.lastName;
+      return guest.firstName + " " + guest.middleName + " " + guest.lastName;
     } else {
-      return guest.firstName + guest.lastName;
+      return guest.firstName + " " + guest.lastName;
     }
   }
 

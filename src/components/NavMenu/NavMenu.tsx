@@ -20,7 +20,7 @@ const links: Link[] = [
   { displayName: "Hotels", url: "/hotels", class: "nav-hotels" },
   { displayName: "About Antigua", url: "/about-antigua", class: "nav-antigua" },
   { displayName: "Registry", url: "/registry", class: "nav-registry" },
-  // { displayName: "RSVP", url: "/rsvp", class: "nav-rsvp" },
+  { displayName: "RSVP", url: "/rsvp", class: "nav-rsvp" },
   { displayName: "FAQs", url: "/faqs", class: "nav-faqs" },
   { displayName: "Kristin and Andy", url: "/about-us", class: "nav-about-us" },
 ];
