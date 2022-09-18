@@ -18,6 +18,7 @@
   align-items: center;
   justify-content: center;
   border-bottom: solid 1px #d2c8b8;
+  padding-bottom: 30px;
 }
 
 .event-hotel img {
@@ -36,7 +37,7 @@
 
 .other-hotels {
   width: 100%;
-  max-width: 1440px;
+  max-width: 900px;
 }
 
 .hotel-cards {
