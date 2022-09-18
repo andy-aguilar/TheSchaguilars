@@ -46,7 +46,6 @@ export const Rsvp: FunctionComponent = () => {
 
   function handleDetailSubmit(e: FormEvent) {
     e.preventDefault();
-    // TODO: Add queries for updating rsvp
   }
 
   function hasRsvped(): boolean {
