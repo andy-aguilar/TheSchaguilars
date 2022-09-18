@@ -75,50 +75,45 @@ export const Rsvp: FunctionComponent = () => {
           >
             <h1>RSVP</h1>
           </div>
-          <div className="page-body small">
-            <h1>Coming Soon</h1>
+          <div className={"page-body small"}>
+            {/* Select if party is attending */}
+            {currentRsvp && (
+              <RsvpIsAttendingTiles
+                currentRsvp={currentRsvp}
+                setCurrentRsvp={setCurrentRsvp}
+              />
+            )}
+
+            {/* Fields for attending parties */}
+            {currentRsvp && currentRsvp.isFamilyAttending && (
+              <FormGroup onSubmit={handleDetailSubmit}>
+                {/* Select which guests will be attending */}
+                <RsvpGuestSelector
+                  currentRsvp={currentRsvp}
+                  setCurrentRsvp={setCurrentRsvp}
+                />
+
+                {/* Provide extra details */}
+                <RsvpAdditionalDetails
+                  currentRsvp={currentRsvp}
+                  setCurrentRsvp={setCurrentRsvp}
+                />
+
+                <Button type="submit" name="submit">
+                  Submit
+                </Button>
+              </FormGroup>
+            )}
+
+            {/* Fields for RSVP No */}
+            {hasRsvpedNo() && (
+              <Button onClick={handleRsvpNoSubmit}>Submit</Button>
+            )}
           </div>
+
           <Footer pageSize={hasRsvped() ? "large" : "small"} />
         </div>
       </div>
     </ThemeProvider>
   );
 };
-
-// RSVP page code for V1
-
-//   <div className={"page-body small"}>
-//   {/* Select if party is attending */}
-//   {currentRsvp && (
-//     <RsvpIsAttendingTiles
-//       currentRsvp={currentRsvp}
-//       setCurrentRsvp={setCurrentRsvp}
-//     />
-//   )}
-
-//   {/* Fields for attending parties */}
-//   {currentRsvp && currentRsvp.isFamilyAttending && (
-//     <FormGroup onSubmit={handleDetailSubmit}>
-//       {/* Select which guests will be attending */}
-//       <RsvpGuestSelector
-//         currentRsvp={currentRsvp}
-//         setCurrentRsvp={setCurrentRsvp}
-//       />
-
-//       {/* Provide extra details */}
-//       <RsvpAdditionalDetails
-//         currentRsvp={currentRsvp}
-//         setCurrentRsvp={setCurrentRsvp}
-//       />
-
-//       <Button type="submit" name="submit">
-//         Submit
-//       </Button>
-//     </FormGroup>
-//   )}
-
-//   {/* Fields for RSVP No */}
-//   {hasRsvpedNo() && (
-//     <Button onClick={handleRsvpNoSubmit}>Submit</Button>
-//   )}
-// </div>
