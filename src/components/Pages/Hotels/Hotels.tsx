@@ -62,7 +62,7 @@ export const Hotels: FunctionComponent = () => {
           <div className="hotels-container">
             <div className={"event-hotel"}>
               <img
-                src="https://the-schaguilars.s3.us-east-2.amazonaws.com/event-hotel.jpeg"
+                src="https://the-schaguilars.s3.us-east-2.amazonaws.com/pensativo2.jpeg"
                 alt="pensativo house hotel"
               />
               <h1>Event Hotel</h1>
