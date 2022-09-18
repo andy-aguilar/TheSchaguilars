@@ -27,7 +27,8 @@ export const Hotels: FunctionComponent = () => {
         "https://the-schaguilars.s3.us-east-2.amazonaws.com/posada-del-angel.jpeg",
       description:
         "Posada del Angel is a boutique hotel offering just seven rooms. It is directly next door to Pensativo House, making it a very convenient option for anyone who would like to stay there.",
-      reserveUrl: "/",
+      reserveUrl:
+        "https://direct-book.com/properties/gua311?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD&checkInDate=2023-03-09&checkOutDate=2023-03-12&trackPage=yes",
     },
   ];
 
