@@ -34,7 +34,7 @@ export const Hotels: FunctionComponent = () => {
 
   function renderHotels(): ReactNode {
     return hotels.map((hotel) => (
-      <div className={"hotel-card"}>
+      <div className={"hotel-card"} key={hotel.name}>
         <img
           className={"hotel-image"}
           src={hotel.imageUrl}
