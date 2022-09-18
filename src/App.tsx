@@ -8,7 +8,7 @@ import { Menu } from "./components/Menu/Menu";
 import { TheWedding } from "./components/Pages/TheWedding/TheWedding";
 import { Events } from "./components/Pages/Events/Events";
 import { Faqs } from "./components/Pages/Faqs/faqs";
-import { Rsvp } from "./components/Pages/Rsvp/Rsvp";
+// import { Rsvp } from "./components/Pages/Rsvp/Rsvp";
 import { TravelInformation } from "./components/Pages/TravelInformation/TravelInformation";
 import { AboutAntigua } from "./components/Pages/AboutAntigua/AboutAntigua";
 import { Registry } from "./components/Pages/Registry/registry";
@@ -16,7 +16,7 @@ import { Hotels } from "./components/Pages/Hotels/Hotels";
 import { ThingsToDo } from "./components/Pages/ThingsToDo/ThingsToDo";
 import { AboutUs } from "./components/Pages/About Us/AboutUs";
 import { useLocation } from "react-router-dom";
-import { RsvpSearchForm } from "./components/Pages/Rsvp/RsvpSearchForm";
+// import { RsvpSearchForm } from "./components/Pages/Rsvp/RsvpSearchForm";
 import { RsvpComingSoon } from "./components/Pages/Rsvp/RsvpComingSoon";
 
 export const App: FunctionComponent = () => {
@@ -54,7 +54,7 @@ export const App: FunctionComponent = () => {
         <Route path={"/registry"} element={<Registry />} />
         {/* <Route path={"/rsvp"} element={<RsvpSearchForm />} /> */}
         <Route path={"/rsvp"} element={<RsvpComingSoon />} />
-        <Route path={"/rsvp/:rsvpId"} element={<Rsvp />} />
+        {/* <Route path={"/rsvp/:rsvpId"} element={<Rsvp />} /> */}
         <Route path={"/faqs"} element={<Faqs />} />
         <Route path={"/things-to-do"} element={<ThingsToDo />} />
         <Route path={"/about-us"} element={<AboutUs />} />
