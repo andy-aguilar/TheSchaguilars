@@ -147,26 +147,24 @@ export const Faqs: FunctionComponent = () => {
 
           <h4>Are there any COVID precautions that I should be aware of?</h4>
           <p>
-            <b>
-              To enter Guatemala, travelers aged 12 and over must have evidence
-              of receiving a complete two-dose COVID-19 vaccination course (or
-              one dose for Johnson {"&"} Johnson)
-            </b>
-            , with the final dose being administered at least 2 weeks before
-            your arrival.
-          </p>
-          <p>
-            Travelers aged 10 and over require proof of a negative COVID-19 PCR
-            or antigen test from a certified lab conducted no more than 3 days
-            prior to check in at the airport or arrival at the land border.
+            The Government of Guatemala no longer requires passengers arriving
+            by air to present proof of a negative COVID test or proof of a
+            complete COVID vaccine course to enter Guatemala.
           </p>
           <p>
             Mask wearing in Guatemala is still widespread and common in places
             even where it is not required.
           </p>
           <p>
-            We will continue to monitor the COVID-19 precautions in Guatemala
-            and provide the most up-to-date information here.
+            The most up-to-date information regarding COVID restrictions on
+            travel from the U.S. to Guatemala can be found{" "}
+            <a
+              href="https://gt.usembassy.gov/alert-covid-19-2/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              here
+            </a>
           </p>
 
           <h4>What is the emergency contact number in Guatemala?</h4>

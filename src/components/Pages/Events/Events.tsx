@@ -30,7 +30,7 @@ const events: EventInterface[] = [
     name: "the ceremony",
     date: "03 11 23",
     location: "Convento Santa Clara",
-    time: "Four o'clock",
+    time: "Three o'clock",
     attire: "Formal Attire",
     imgUrl:
       "https://the-schaguilars.s3.us-east-2.amazonaws.com/santa-clara.jpeg",
@@ -41,7 +41,7 @@ const events: EventInterface[] = [
     name: "the reception",
     date: "03 11 23",
     location: "Pensativo House Hotel",
-    time: "Six o'clock",
+    time: "Five o'clock",
     attire: "Formal Attire",
     imgUrl: "https://the-schaguilars.s3.us-east-2.amazonaws.com/pensativo.jpeg",
     directionsUrl:
