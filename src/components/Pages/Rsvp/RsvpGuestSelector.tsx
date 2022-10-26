@@ -1,5 +1,5 @@
 import { Checkbox, FormControlLabel, FormLabel } from "@mui/material";
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactNode } from "react";
 import { Rsvp, Guest } from "../../Model/Rsvp.interface";
 
 export interface Props {
@@ -23,16 +23,16 @@ export const RsvpGuestSelector: FunctionComponent<Props> = ({
     }
   }
 
-  function getGuestName(guest: Guest): string {
-    if (guest.middleName) {
-      return guest.firstName + " " + guest.middleName + " " + guest.lastName;
-    } else {
-      return guest.firstName + " " + guest.lastName;
-    }
+  function getGuestName(guest: Guest): ReactNode {
+    const guestName: string = guest.middleName
+      ? guest.firstName + " " + guest.middleName + " " + guest.lastName
+      : guest.firstName + " " + guest.lastName;
+
+    return <p className="checkbox-label">{guestName}</p>;
   }
 
   return (
-    <>
+    <div className="rsvp-field">
       <FormLabel>Who will be attending?</FormLabel>
       {currentRsvp?.guests?.map((guest, index) => (
         <FormControlLabel
@@ -47,6 +47,6 @@ export const RsvpGuestSelector: FunctionComponent<Props> = ({
           }
         />
       ))}
-    </>
+    </div>
   );
 };

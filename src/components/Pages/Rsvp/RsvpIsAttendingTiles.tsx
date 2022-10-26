@@ -46,7 +46,7 @@ export const RsvpIsAttendingTiles: FunctionComponent<Props> = ({
 
   return (
     <>
-      <h3>{`Hello ${currentRsvp.addressLabel}!`}</h3>
+      <h2>{`Hello ${currentRsvp.addressLabel}!`}</h2>
       <h4>Will you be attending?</h4>
       <div className="response-buttons">
         <Paper
@@ -58,9 +58,11 @@ export const RsvpIsAttendingTiles: FunctionComponent<Props> = ({
           elevation={3}
           onClick={handleRsvpYes}
         >
-          {currentRsvp.guests.length > 1
-            ? "We joyfully accept the intivation!"
-            : "I joyfully accept the invitation!"}
+          <p>
+            {currentRsvp.guests.length > 1
+              ? "We joyfully accept the intivation!"
+              : "I joyfully accept the invitation!"}
+          </p>
         </Paper>
         <Paper
           className={
@@ -71,9 +73,11 @@ export const RsvpIsAttendingTiles: FunctionComponent<Props> = ({
           elevation={3}
           onClick={handleRsvpNo}
         >
-          {currentRsvp.guests.length > 1
-            ? "We must regretfully decline."
-            : "I must regretfully decline."}
+          <p>
+            {currentRsvp.guests.length > 1
+              ? "We must regretfully decline."
+              : "I must regretfully decline."}
+          </p>
         </Paper>
       </div>
     </>

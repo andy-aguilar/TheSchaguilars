@@ -14,12 +14,16 @@
   margin: 0em 1em;
 }
 
+h2 {
+  text-transform: none;
+}
+
 .response-button:hover {
-  background-color: #e9dfd7;
+  background-color: #f6f1ed;
 }
 
 .response-button.selected {
-  background-color: #e9dfd7;
+  background-color: #f6f1ed;
 }
 
 .rsvp-tiles {
@@ -40,7 +44,7 @@
 }
 
 .rsvp-tile:hover {
-  background-color: #e9dfd7;
+  background-color: #f6f1ed;
 }
 
 .rsvp-tile h4 {
@@ -53,4 +57,41 @@
 .rsvp-tile p {
   line-height: 0.5em;
   margin-bottom: 0;
+}
+
+.page-body form {
+  margin-top: 1em;
+  width: 25em;
+}
+
+.response-button p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 0;
+  font-size: 17px;
+  text-align: center;
+  line-height: 30px;
+  max-width: 90%;
+}
+
+.response-button:hover p {
+  color: #185945;
+}
+
+.response-button.selected p {
+  color: #185945;
+}
+
+.rsvp-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-label {
+  margin: 0;
+}
+
+.rsvp.text-field input {
+  color: #4b4745;
 }

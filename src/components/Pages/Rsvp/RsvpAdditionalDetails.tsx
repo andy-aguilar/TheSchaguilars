@@ -1,4 +1,4 @@
-import { FormLabel, TextField } from "@mui/material";
+import { FormLabel, Stack, TextField } from "@mui/material";
 import React, { FunctionComponent } from "react";
 import { Rsvp } from "../../Model/Rsvp.interface";
 
@@ -12,30 +12,33 @@ export const RsvpAdditionalDetails: FunctionComponent<Props> = ({
   setCurrentRsvp,
 }) => {
   return (
-    <>
-      <FormLabel>Please provide some additional information:</FormLabel>
-      <TextField
-        value={currentRsvp?.emailAddress}
-        id="standard-basic"
-        label="Email address"
-        variant="standard"
-        onChange={({ target }) =>
-          setCurrentRsvp({ ...currentRsvp, emailAddress: target.value })
-        }
-      />
-      <TextField
-        value={currentRsvp?.dietaryRestrictions}
-        id="standard-basic"
-        label="Dietary restrictions"
-        variant="standard"
-        onChange={({ target }) =>
-          setCurrentRsvp({
-            ...currentRsvp,
-            dietaryRestrictions: target.value,
-          })
-        }
-        multiline
-      />
-    </>
+    <div className="rsvp-field">
+      <Stack spacing={2}>
+        <FormLabel>Please provide some additional information:</FormLabel>
+        <TextField
+          value={currentRsvp?.emailAddress}
+          id="standard-basic"
+          label="Email address"
+          color="primary"
+          onChange={({ target }) =>
+            setCurrentRsvp({ ...currentRsvp, emailAddress: target.value })
+          }
+        />
+        <TextField
+          value={currentRsvp?.dietaryRestrictions}
+          id="standard-basic"
+          label="Dietary restrictions"
+          color="primary"
+          onChange={({ target }) =>
+            setCurrentRsvp({
+              ...currentRsvp,
+              dietaryRestrictions: target.value,
+            })
+          }
+          multiline
+          minRows={4}
+        />
+      </Stack>
+    </div>
   );
 };

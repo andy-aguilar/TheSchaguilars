@@ -1,4 +1,4 @@
-import { Button, Paper, Snackbar, TextField } from "@mui/material";
+import { Button, Paper, Snackbar, Stack, TextField } from "@mui/material";
 import React, {
   FormEvent,
   FunctionComponent,
@@ -132,33 +132,37 @@ export const RsvpSearchForm: FunctionComponent = () => {
           </div>
 
           <div className={"page-body small"}>
-            <h3>Please enter your first and last name</h3>
+            <h2>Please enter your first and last name</h2>
 
             <form
               onSubmit={handleSubmit}
               style={{ display: "flex", flexDirection: "column" }}
             >
-              <TextField
-                value={formData.firstName}
-                id="standard-basic"
-                label="First Name"
-                variant="standard"
-                onChange={({ target }) =>
-                  setFormData({ ...formData, firstName: target.value })
-                }
-              />
-              <TextField
-                value={formData.lastName}
-                id="standard-basic"
-                label="Last Name"
-                variant="standard"
-                onChange={({ target }) =>
-                  setFormData({ ...formData, lastName: target.value })
-                }
-              />
-              <Button type="submit" name="submit" color="primary">
-                Submit
-              </Button>
+              <Stack spacing={4}>
+                <Stack spacing={3}>
+                  <TextField
+                    value={formData.firstName}
+                    id="standard-basic"
+                    className="rsvp text-field"
+                    label={"First Name"}
+                    onChange={({ target }) =>
+                      setFormData({ ...formData, firstName: target.value })
+                    }
+                  />
+                  <TextField
+                    value={formData.lastName}
+                    id="standard-basic"
+                    className="rsvp text-field"
+                    label="Last Name"
+                    onChange={({ target }) =>
+                      setFormData({ ...formData, lastName: target.value })
+                    }
+                  />
+                </Stack>
+                <Button type="submit" name="submit" color="primary">
+                  Submit
+                </Button>
+              </Stack>
             </form>
 
             {multipleFoundRsvps.length > 0 && (
@@ -189,9 +193,7 @@ export const RsvpSearchForm: FunctionComponent = () => {
             anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           />
 
-          <Footer
-            pageSize={multipleFoundRsvps.length > 0 ? "large" : "small"}
-          />
+          <Footer pageSize={"large"} />
         </div>
       </div>
     </ThemeProvider>

@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./Rsvp.css";
-import { Button, FormGroup } from "@mui/material";
+import { Button, FormGroup, Stack } from "@mui/material";
 import React, {
   FormEvent,
   FunctionComponent,
@@ -48,10 +49,6 @@ export const Rsvp: FunctionComponent = () => {
     e.preventDefault();
   }
 
-  function hasRsvped(): boolean {
-    return !!currentRsvp && !!currentRsvp.hasRsvped;
-  }
-
   function hasRsvpedNo(): boolean {
     return (
       !!currentRsvp && !!currentRsvp.hasRsvped && !currentRsvp.isFamilyAttending
@@ -77,41 +74,49 @@ export const Rsvp: FunctionComponent = () => {
           </div>
           {/* TODO: These classes may be incorrect might need to conditionally render small/large depending on step */}
           <div className={"page-body small"}>
-            {/* Select if party is attending */}
-            {currentRsvp && (
-              <RsvpIsAttendingTiles
-                currentRsvp={currentRsvp}
-                setCurrentRsvp={setCurrentRsvp}
-              />
-            )}
-
-            {/* Fields for attending parties */}
-            {currentRsvp && currentRsvp.isFamilyAttending && (
-              <FormGroup onSubmit={handleDetailSubmit}>
-                {/* Select which guests will be attending */}
-                <RsvpGuestSelector
+            <Stack
+              spacing={4}
+              alignItems={"center"}
+              justifyContent={"flex-start"}
+            >
+              {/* Select if party is attending */}
+              {currentRsvp && (
+                <RsvpIsAttendingTiles
                   currentRsvp={currentRsvp}
                   setCurrentRsvp={setCurrentRsvp}
                 />
+              )}
 
-                {/* Provide extra details */}
-                <RsvpAdditionalDetails
-                  currentRsvp={currentRsvp}
-                  setCurrentRsvp={setCurrentRsvp}
-                />
+              {/* Fields for attending parties */}
+              {currentRsvp && currentRsvp.isFamilyAttending && (
+                <FormGroup onSubmit={handleDetailSubmit}>
+                  <Stack spacing={3}>
+                    {/* Select which guests will be attending */}
+                    <RsvpGuestSelector
+                      currentRsvp={currentRsvp}
+                      setCurrentRsvp={setCurrentRsvp}
+                    />
 
-                <Button type="submit" name="submit">
-                  Submit
-                </Button>
-              </FormGroup>
-            )}
+                    {/* Provide extra details */}
+                    <RsvpAdditionalDetails
+                      currentRsvp={currentRsvp}
+                      setCurrentRsvp={setCurrentRsvp}
+                    />
 
-            {/* Fields for RSVP No */}
-            {hasRsvpedNo() && (
-              <Button onClick={handleRsvpNoSubmit}>Submit</Button>
-            )}
+                    <Button type="submit" name="submit">
+                      Submit
+                    </Button>
+                  </Stack>
+                </FormGroup>
+              )}
+
+              {/* Fields for RSVP No */}
+              {hasRsvpedNo() && (
+                <Button onClick={handleRsvpNoSubmit}>Submit</Button>
+              )}
+            </Stack>
           </div>
-          <Footer pageSize={hasRsvped() ? "large" : "small"} />
+          <Footer pageSize={"large"} />
         </div>
       </div>
     </ThemeProvider>
