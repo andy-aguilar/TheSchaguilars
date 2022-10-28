@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import "./Rsvp.css";
-import { Button, FormGroup, Stack } from "@mui/material";
+import { Button, MobileStepper, Paper } from "@mui/material";
 import React, {
   FormEvent,
   FunctionComponent,
+  ReactNode,
   useEffect,
   useState,
 } from "react";
@@ -18,6 +19,7 @@ import { RsvpAdditionalDetails } from "./RsvpAdditionalDetails";
 import { useParams } from "react-router-dom";
 import { MainTheme } from "../../../MainTheme";
 import { ThemeProvider } from "@emotion/react";
+import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 
 interface RsvpResponse {
   data: {
@@ -28,7 +30,17 @@ interface RsvpResponse {
 export const Rsvp: FunctionComponent = () => {
   const { rsvpId } = useParams();
 
+  // State
   const [currentRsvp, setCurrentRsvp] = useState<RsvpInterface | null>(null);
+  const [activeStep, setActiveStep] = useState<number>(0);
+
+  function handleNext(): void {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  }
+
+  function handleBack(): void {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  }
 
   useEffect(() => {
     if (rsvpId) {
@@ -55,8 +67,65 @@ export const Rsvp: FunctionComponent = () => {
     );
   }
 
-  function handleRsvpNoSubmit(): void {
+  function handleRsvpNoSubmit(rsvp: RsvpInterface): void {
+    setCurrentRsvp(rsvp);
+    handleNext();
     console.log("rsvped no");
+  }
+
+  function shouldDisableNext(): boolean {
+    if (activeStep >= getSteps().length - 1) {
+      return true;
+    } else if (activeStep === 0) {
+      return !currentRsvp?.isFamilyAttending;
+    } else if (activeStep === 1) {
+      return !!currentRsvp?.guests.every((guest) => !guest.isAttending);
+    } else {
+      return false;
+    }
+  }
+
+  function getSteps(): ReactNode[] {
+    if (currentRsvp && currentRsvp.isFamilyAttending === null) {
+      return [
+        <RsvpIsAttendingTiles
+          currentRsvp={currentRsvp}
+          setCurrentRsvp={setCurrentRsvp}
+          advanceStepper={handleNext}
+          handleRsvpNoSubmit={handleRsvpNoSubmit}
+        />,
+      ];
+    } else if (currentRsvp && currentRsvp.isFamilyAttending) {
+      return [
+        <RsvpIsAttendingTiles
+          currentRsvp={currentRsvp}
+          setCurrentRsvp={setCurrentRsvp}
+          advanceStepper={handleNext}
+          handleRsvpNoSubmit={handleRsvpNoSubmit}
+        />,
+        <RsvpGuestSelector
+          currentRsvp={currentRsvp}
+          setCurrentRsvp={setCurrentRsvp}
+        />,
+        <RsvpAdditionalDetails
+          currentRsvp={currentRsvp}
+          setCurrentRsvp={setCurrentRsvp}
+        />,
+      ];
+    } else if (currentRsvp && !currentRsvp.isFamilyAttending) {
+      return [
+        <RsvpIsAttendingTiles
+          currentRsvp={currentRsvp}
+          setCurrentRsvp={setCurrentRsvp}
+          advanceStepper={handleNext}
+          handleRsvpNoSubmit={handleRsvpNoSubmit}
+        />,
+        <div className="regrets">
+          <h5>Thank you for letting us know. You will be missed!</h5>
+        </div>,
+      ];
+    }
+    return [];
   }
 
   return (
@@ -73,48 +142,46 @@ export const Rsvp: FunctionComponent = () => {
             <h1>RSVP</h1>
           </div>
           {/* TODO: These classes may be incorrect might need to conditionally render small/large depending on step */}
-          <div className={"page-body small"}>
-            <Stack
-              spacing={4}
-              alignItems={"center"}
-              justifyContent={"flex-start"}
-            >
-              {/* Select if party is attending */}
+          <div className={"page-body large rsvp-page"}>
+            <Paper elevation={0} className="rsvp field-container">
               {currentRsvp && (
-                <RsvpIsAttendingTiles
-                  currentRsvp={currentRsvp}
-                  setCurrentRsvp={setCurrentRsvp}
+                <h2 className="address-label">{currentRsvp.addressLabel}</h2>
+              )}
+              <div className="stepper-content">{getSteps()[activeStep]}</div>
+              {getSteps().length > 1 && (
+                <MobileStepper
+                  variant="dots"
+                  steps={getSteps().length}
+                  position="static"
+                  activeStep={activeStep}
+                  sx={{
+                    minWidth: "275px",
+                    maxWidth: "700px",
+                    flexGrow: 1,
+                  }}
+                  nextButton={
+                    <Button
+                      size="small"
+                      onClick={handleNext}
+                      disabled={shouldDisableNext()}
+                    >
+                      Next
+                      <KeyboardArrowRight />
+                    </Button>
+                  }
+                  backButton={
+                    <Button
+                      size="small"
+                      onClick={handleBack}
+                      disabled={activeStep === 0}
+                    >
+                      <KeyboardArrowLeft />
+                      Back
+                    </Button>
+                  }
                 />
               )}
-
-              {/* Fields for attending parties */}
-              {currentRsvp && currentRsvp.isFamilyAttending && (
-                <FormGroup onSubmit={handleDetailSubmit}>
-                  <Stack spacing={3}>
-                    {/* Select which guests will be attending */}
-                    <RsvpGuestSelector
-                      currentRsvp={currentRsvp}
-                      setCurrentRsvp={setCurrentRsvp}
-                    />
-
-                    {/* Provide extra details */}
-                    <RsvpAdditionalDetails
-                      currentRsvp={currentRsvp}
-                      setCurrentRsvp={setCurrentRsvp}
-                    />
-
-                    <Button type="submit" name="submit">
-                      Submit
-                    </Button>
-                  </Stack>
-                </FormGroup>
-              )}
-
-              {/* Fields for RSVP No */}
-              {hasRsvpedNo() && (
-                <Button onClick={handleRsvpNoSubmit}>Submit</Button>
-              )}
-            </Stack>
+            </Paper>
           </div>
           <Footer pageSize={"large"} />
         </div>

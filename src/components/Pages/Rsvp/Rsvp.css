@@ -95,3 +95,41 @@ h2 {
 .rsvp.text-field input {
   color: #4b4745;
 }
+
+.address-label {
+  font-size: 2em;
+}
+
+.rsvp.field-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1em;
+}
+
+.stepper-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 20em;
+}
+
+.rsvp-page h4 {
+  margin: 1em;
+}
+
+.regrets {
+  display: flex;
+  flex-direction: column;
+}
+
+.regrets h5 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5em;
+}
+
+.regret-button {
+  margin: 2em 0 0.5em 0;
+}
