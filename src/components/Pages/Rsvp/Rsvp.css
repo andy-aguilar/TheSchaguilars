@@ -113,23 +113,28 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 20em;
+  min-height: 22em;
 }
 
 .rsvp-page h4 {
   margin: 1em;
 }
 
-.regrets {
+.submitted {
   display: flex;
   flex-direction: column;
 }
 
-.regrets h5 {
+.submitted h5 {
   font-family: "Playfair Display", serif;
-  font-size: 1.5em;
+  font-size: 2.5em;
 }
 
 .regret-button {
   margin: 2em 0 0.5em 0;
+}
+
+.rsvp-field .form-label {
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
 }

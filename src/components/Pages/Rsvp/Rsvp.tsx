@@ -57,14 +57,9 @@ export const Rsvp: FunctionComponent = () => {
     }
   }
 
-  function handleDetailSubmit(e: FormEvent) {
-    e.preventDefault();
-  }
-
-  function hasRsvpedNo(): boolean {
-    return (
-      !!currentRsvp && !!currentRsvp.hasRsvped && !currentRsvp.isFamilyAttending
-    );
+  function handleDetailSubmit() {
+    handleNext();
+    console.log("submitted rsvp");
   }
 
   function handleRsvpNoSubmit(rsvp: RsvpInterface): void {
@@ -80,6 +75,8 @@ export const Rsvp: FunctionComponent = () => {
       return !currentRsvp?.isFamilyAttending;
     } else if (activeStep === 1) {
       return !!currentRsvp?.guests.every((guest) => !guest.isAttending);
+    } else if (activeStep === 2) {
+      return true;
     } else {
       return false;
     }
@@ -110,7 +107,15 @@ export const Rsvp: FunctionComponent = () => {
         <RsvpAdditionalDetails
           currentRsvp={currentRsvp}
           setCurrentRsvp={setCurrentRsvp}
+          handleSubmit={handleDetailSubmit}
         />,
+        <div className="submitted">
+          <h5>
+            Awesome!
+            <br />
+            Let's "I do" this shit!
+          </h5>
+        </div>,
       ];
     } else if (currentRsvp && !currentRsvp.isFamilyAttending) {
       return [
@@ -120,7 +125,7 @@ export const Rsvp: FunctionComponent = () => {
           advanceStepper={handleNext}
           handleRsvpNoSubmit={handleRsvpNoSubmit}
         />,
-        <div className="regrets">
+        <div className="submitted">
           <h5>Thank you for letting us know. You will be missed!</h5>
         </div>,
       ];

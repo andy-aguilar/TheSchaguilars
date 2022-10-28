@@ -33,7 +33,7 @@ export const RsvpGuestSelector: FunctionComponent<Props> = ({
 
   return (
     <div className="rsvp-field">
-      <FormLabel>Who will be attending?</FormLabel>
+      <FormLabel className="form-label">Who will be attending?</FormLabel>
       {currentRsvp?.guests?.map((guest, index) => (
         <FormControlLabel
           key={guest.firstName}
