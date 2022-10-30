@@ -12,7 +12,7 @@ import { Header } from "../../ReusableComponents/Header";
 import { API } from "aws-amplify";
 import { listRsvps } from "../../../graphql/queries";
 import { useNavigate } from "react-router-dom";
-// import { createRsvp } from "../../../graphql/mutations";
+// import { createRsvp, updateRsvp } from "../../../graphql/mutations";
 // import { seedRsvps } from "../../Model/rsvpinitial.const";
 import { MainTheme } from "../../../MainTheme";
 import { ThemeProvider } from "@emotion/react";
@@ -63,7 +63,7 @@ export const RsvpSearchForm: FunctionComponent = () => {
   //     fetchRsvps();
   //   }
 
-  function handleSubmit(e: FormEvent): void {
+  function handleSearchSubmit(e: FormEvent): void {
     e.preventDefault();
 
     findCurrentRsvp(formData);
@@ -135,7 +135,7 @@ export const RsvpSearchForm: FunctionComponent = () => {
             <h2>Please enter your first and last name</h2>
 
             <form
-              onSubmit={handleSubmit}
+              onSubmit={handleSearchSubmit}
               style={{ display: "flex", flexDirection: "column" }}
             >
               <Stack spacing={4}>

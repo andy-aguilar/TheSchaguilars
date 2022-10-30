@@ -138,3 +138,10 @@ h2 {
   font-size: 1.3em;
   margin-bottom: 0.5em;
 }
+
+.loading-spinner {
+  height: 10em;
+  display: flex;
+  justify-content: center;
+  padding-top: 4em;
+}

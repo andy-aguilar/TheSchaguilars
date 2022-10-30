@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import "./Rsvp.css";
-import { Button, MobileStepper, Paper } from "@mui/material";
+import { Button, CircularProgress, MobileStepper, Paper } from "@mui/material";
 import React, {
-  FormEvent,
   FunctionComponent,
   ReactNode,
+  useContext,
   useEffect,
   useState,
 } from "react";
@@ -16,10 +16,13 @@ import { Rsvp as RsvpInterface } from "../../Model/Rsvp.interface";
 import { RsvpIsAttendingTiles } from "./RsvpIsAttendingTiles";
 import { RsvpGuestSelector } from "./RsvpGuestSelector";
 import { RsvpAdditionalDetails } from "./RsvpAdditionalDetails";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { MainTheme } from "../../../MainTheme";
 import { ThemeProvider } from "@emotion/react";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import { RsvpConfirmed } from "./RsvpConfirmed";
+import { updateRsvp } from "../../../graphql/mutations";
+import { ErrorContext } from "../../../App";
 
 interface RsvpResponse {
   data: {
@@ -29,10 +32,19 @@ interface RsvpResponse {
 
 export const Rsvp: FunctionComponent = () => {
   const { rsvpId } = useParams();
+  const navigate = useNavigate();
 
   // State
   const [currentRsvp, setCurrentRsvp] = useState<RsvpInterface | null>(null);
   const [activeStep, setActiveStep] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { errorMessages, setErrorMessages } = useContext(ErrorContext);
+
+  useEffect(() => {
+    if (rsvpId) {
+      fetchRsvp();
+    }
+  }, [rsvpId]);
 
   function handleNext(): void {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -42,23 +54,53 @@ export const Rsvp: FunctionComponent = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   }
 
-  useEffect(() => {
-    if (rsvpId) {
-      fetchRsvp();
-    }
-  }, [rsvpId]);
-
   async function fetchRsvp(): Promise<void> {
     if (rsvpId) {
-      const apiData = (await API.graphql(
-        graphqlOperation(getRsvp, { id: rsvpId })
-      )) as RsvpResponse;
-      setCurrentRsvp(apiData.data.getRsvp);
+      try {
+        setIsLoading(true);
+        const apiData = (await API.graphql(
+          graphqlOperation(getRsvp, { id: rsvpId })
+        )) as RsvpResponse;
+        if (apiData?.data?.getRsvp) {
+          console.log(apiData);
+          setIsLoading(false);
+          setCurrentRsvp(apiData.data.getRsvp);
+        } else {
+          setIsLoading(false);
+          setErrorMessages([
+            ...errorMessages,
+            "Could not load guest info. Please try again.",
+          ]);
+          navigate("/rsvp");
+        }
+      } catch (error) {
+        setErrorMessages([
+          ...errorMessages,
+          "Could not load guest info. Please try again.",
+        ]);
+      }
     }
   }
 
-  function handleDetailSubmit() {
-    handleNext();
+  async function submitRsvp(rsvp: RsvpInterface): Promise<void> {
+    setIsLoading(true);
+    const rsvpResponse: any = await API.graphql({
+      query: updateRsvp,
+      variables: { input: rsvp },
+    });
+    if (rsvpResponse) {
+      console.log(rsvpResponse);
+      return rsvpResponse;
+    }
+  }
+
+  async function handleDetailSubmit(): Promise<void> {
+    if (currentRsvp) {
+      submitRsvp(currentRsvp).then((resp) => {
+        console.log(resp);
+        handleNext();
+      });
+    }
     console.log("submitted rsvp");
   }
 
@@ -109,13 +151,7 @@ export const Rsvp: FunctionComponent = () => {
           setCurrentRsvp={setCurrentRsvp}
           handleSubmit={handleDetailSubmit}
         />,
-        <div className="submitted">
-          <h5>
-            Awesome!
-            <br />
-            Let's "I do" this shit!
-          </h5>
-        </div>,
+        <RsvpConfirmed />,
       ];
     } else if (currentRsvp && !currentRsvp.isFamilyAttending) {
       return [
@@ -146,48 +182,57 @@ export const Rsvp: FunctionComponent = () => {
           >
             <h1>RSVP</h1>
           </div>
-          {/* TODO: These classes may be incorrect might need to conditionally render small/large depending on step */}
-          <div className={"page-body large rsvp-page"}>
-            <Paper elevation={0} className="rsvp field-container">
-              {currentRsvp && (
-                <h2 className="address-label">{currentRsvp.addressLabel}</h2>
-              )}
-              <div className="stepper-content">{getSteps()[activeStep]}</div>
-              {getSteps().length > 1 && (
-                <MobileStepper
-                  variant="dots"
-                  steps={getSteps().length}
-                  position="static"
-                  activeStep={activeStep}
-                  sx={{
-                    minWidth: "275px",
-                    maxWidth: "700px",
-                    flexGrow: 1,
-                  }}
-                  nextButton={
-                    <Button
-                      size="small"
-                      onClick={handleNext}
-                      disabled={shouldDisableNext()}
-                    >
-                      Next
-                      <KeyboardArrowRight />
-                    </Button>
-                  }
-                  backButton={
-                    <Button
-                      size="small"
-                      onClick={handleBack}
-                      disabled={activeStep === 0}
-                    >
-                      <KeyboardArrowLeft />
-                      Back
-                    </Button>
-                  }
-                />
-              )}
-            </Paper>
-          </div>
+          {/* Loading Spinner */}
+          {isLoading && (
+            <div className="loading-spinner">
+              <CircularProgress size={80} />
+            </div>
+          )}
+
+          {/* Rsvp form */}
+          {!isLoading && (
+            <div className={"page-body large rsvp-page"}>
+              <Paper elevation={0} className="rsvp field-container">
+                {currentRsvp && (
+                  <h2 className="address-label">{currentRsvp.addressLabel}</h2>
+                )}
+                <div className="stepper-content">{getSteps()[activeStep]}</div>
+                {getSteps().length > 1 && (
+                  <MobileStepper
+                    variant="dots"
+                    steps={getSteps().length}
+                    position="static"
+                    activeStep={activeStep}
+                    sx={{
+                      minWidth: "275px",
+                      maxWidth: "700px",
+                      flexGrow: 1,
+                    }}
+                    nextButton={
+                      <Button
+                        size="small"
+                        onClick={handleNext}
+                        disabled={shouldDisableNext()}
+                      >
+                        Next
+                        <KeyboardArrowRight />
+                      </Button>
+                    }
+                    backButton={
+                      <Button
+                        size="small"
+                        onClick={handleBack}
+                        disabled={activeStep === 0}
+                      >
+                        <KeyboardArrowLeft />
+                        Back
+                      </Button>
+                    }
+                  />
+                )}
+              </Paper>
+            </div>
+          )}
           <Footer pageSize={"large"} />
         </div>
       </div>

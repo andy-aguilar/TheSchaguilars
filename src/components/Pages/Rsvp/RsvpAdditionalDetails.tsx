@@ -5,7 +5,7 @@ import { Rsvp } from "../../Model/Rsvp.interface";
 export interface Props {
   currentRsvp: Rsvp;
   setCurrentRsvp: (rsvp: Rsvp) => void;
-  handleSubmit: () => void;
+  handleSubmit: () => Promise<void>;
 }
 
 export const RsvpAdditionalDetails: FunctionComponent<Props> = ({
