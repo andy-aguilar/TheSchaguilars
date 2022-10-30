@@ -5,7 +5,7 @@ export interface Rsvp {
   hasRsvped: boolean;
   dietaryRestrictions?: string;
   addressLabel: string;
-  streetAddress: string;
+  streetAddress?: string;
   streetAddressLineTwo?: string;
   city: string;
   state: string;

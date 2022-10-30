@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button, Paper, Snackbar, Stack, TextField } from "@mui/material";
 import React, {
   FormEvent,
   FunctionComponent,
   ReactNode,
+  useContext,
   useEffect,
   useState,
 } from "react";
@@ -16,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 // import { seedRsvps } from "../../Model/rsvpinitial.const";
 import { MainTheme } from "../../../MainTheme";
 import { ThemeProvider } from "@emotion/react";
+import { ErrorContext } from "../../../App";
 
 const initialFormState = {
   firstName: "",
@@ -33,6 +36,7 @@ export const RsvpSearchForm: FunctionComponent = () => {
   const [rsvps, setRsvps] = useState<Rsvp[]>([]);
   const [shouldShowNotFound, setShouldShowNotFound] = useState<boolean>(false);
   const [multipleFoundRsvps, setMultipleFoundRsvps] = useState<Rsvp[]>([]);
+  const { errorMessages, setErrorMessages } = useContext(ErrorContext);
 
   const navigate = useNavigate();
 
@@ -42,7 +46,14 @@ export const RsvpSearchForm: FunctionComponent = () => {
 
   async function fetchRsvps() {
     const apiData = (await API.graphql({ query: listRsvps })) as rsvpResponse;
-    setRsvps(apiData.data.listRsvps.items);
+    if (apiData?.data?.listRsvps?.items) {
+      setRsvps(apiData.data.listRsvps.items);
+    } else {
+      setErrorMessages([
+        ...errorMessages,
+        "Something went wrong. Please try again.",
+      ]);
+    }
   }
 
   // USED FOR SEEDING DATABASE, DO NOT DELETE

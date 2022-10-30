@@ -41,7 +41,7 @@ export const RsvpGuestSelector: FunctionComponent<Props> = ({
           control={
             <Checkbox
               color="primary"
-              checked={guest.isAttending}
+              checked={!!guest.isAttending}
               onChange={(e) => handleCheckboxChange(e, index)}
             />
           }

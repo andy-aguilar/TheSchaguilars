@@ -62,7 +62,6 @@ export const Rsvp: FunctionComponent = () => {
           graphqlOperation(getRsvp, { id: rsvpId })
         )) as RsvpResponse;
         if (apiData?.data?.getRsvp) {
-          console.log(apiData);
           setIsLoading(false);
           setCurrentRsvp(apiData.data.getRsvp);
         } else {
@@ -84,20 +83,41 @@ export const Rsvp: FunctionComponent = () => {
 
   async function submitRsvp(rsvp: RsvpInterface): Promise<void> {
     setIsLoading(true);
-    const rsvpResponse: any = await API.graphql({
-      query: updateRsvp,
-      variables: { input: rsvp },
-    });
-    if (rsvpResponse) {
-      console.log(rsvpResponse);
-      return rsvpResponse;
+    try {
+      const rsvpResponse: any = await API.graphql({
+        query: updateRsvp,
+        variables: { input: prepareRsvpForSubmission(rsvp) },
+      });
+      if (rsvpResponse) {
+        console.log(rsvpResponse);
+        return rsvpResponse;
+      }
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
     }
+  }
+
+  function prepareRsvpForSubmission(rsvp: RsvpInterface): RsvpInterface {
+    return {
+      id: rsvp.id,
+      emailAddress: rsvp.emailAddress,
+      guests: rsvp.guests,
+      hasRsvped: rsvp.hasRsvped,
+      dietaryRestrictions: rsvp.dietaryRestrictions,
+      addressLabel: rsvp.addressLabel,
+      city: rsvp.city,
+      state: rsvp.state,
+      zipCode: rsvp.zipCode,
+      isFamilyAttending: rsvp.isFamilyAttending,
+    };
   }
 
   async function handleDetailSubmit(): Promise<void> {
     if (currentRsvp) {
       submitRsvp(currentRsvp).then((resp) => {
         console.log(resp);
+        setIsLoading(false);
         handleNext();
       });
     }
