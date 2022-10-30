@@ -14,8 +14,6 @@ import { Header } from "../../ReusableComponents/Header";
 import { API } from "aws-amplify";
 import { listRsvps } from "../../../graphql/queries";
 import { useNavigate } from "react-router-dom";
-// import { createRsvp, updateRsvp } from "../../../graphql/mutations";
-// import { seedRsvps } from "../../Model/rsvpinitial.const";
 import { MainTheme } from "../../../MainTheme";
 import { ThemeProvider } from "@emotion/react";
 import { ErrorContext } from "../../../App";
@@ -55,24 +53,6 @@ export const RsvpSearchForm: FunctionComponent = () => {
       ]);
     }
   }
-
-  // USED FOR SEEDING DATABASE, DO NOT DELETE
-  //   async function createRsvpFromList(rsvp: Rsvp) {
-  //     const rsvpResponse: any = await API.graphql({
-  //       query: createRsvp,
-  //       variables: { input: rsvp },
-  //     });
-  //     if (rsvpResponse) {
-  //       console.log(rsvpResponse);
-  //       //   fetchRsvps()
-  //     }
-  //   }
-
-  //   async function createRsvps() {
-  //     const result = await seedRsvps.forEach(createRsvpFromList);
-  //     console.log(result);
-  //     fetchRsvps();
-  //   }
 
   function handleSearchSubmit(e: FormEvent): void {
     e.preventDefault();
