@@ -5,13 +5,18 @@ import { Rsvp, Guest } from "../../Model/Rsvp.interface";
 export interface Props {
   currentRsvp: Rsvp;
   setCurrentRsvp: (rsvp: Rsvp) => void;
+  advanceStepper: () => void;
+  handleRsvpNoSubmit: (rsvp: Rsvp) => void;
 }
 
 export const RsvpIsAttendingTiles: FunctionComponent<Props> = ({
   currentRsvp,
   setCurrentRsvp,
+  advanceStepper,
+  handleRsvpNoSubmit,
 }) => {
   function handleRsvpYes(): void {
+    advanceStepper();
     if (currentRsvp) {
       setCurrentRsvp({
         ...currentRsvp,
@@ -26,14 +31,12 @@ export const RsvpIsAttendingTiles: FunctionComponent<Props> = ({
       return { ...guest, isAttending: false };
     });
 
-    if (currentRsvp) {
-      setCurrentRsvp({
-        ...currentRsvp,
-        isFamilyAttending: false,
-        hasRsvped: true,
-        guests: updatedGuests,
-      });
-    }
+    handleRsvpNoSubmit({
+      ...currentRsvp,
+      isFamilyAttending: false,
+      hasRsvped: true,
+      guests: updatedGuests,
+    });
   }
 
   function isCurrentRsvpSelected(isSelected: boolean): boolean {
@@ -46,7 +49,6 @@ export const RsvpIsAttendingTiles: FunctionComponent<Props> = ({
 
   return (
     <>
-      <h3>{`Hello ${currentRsvp.addressLabel}!`}</h3>
       <h4>Will you be attending?</h4>
       <div className="response-buttons">
         <Paper
@@ -58,9 +60,11 @@ export const RsvpIsAttendingTiles: FunctionComponent<Props> = ({
           elevation={3}
           onClick={handleRsvpYes}
         >
-          {currentRsvp.guests.length > 1
-            ? "We joyfully accept the intivation!"
-            : "I joyfully accept the invitation!"}
+          <p>
+            {currentRsvp.guests.length > 1
+              ? "We joyfully accept the intivation!"
+              : "I joyfully accept the invitation!"}
+          </p>
         </Paper>
         <Paper
           className={
@@ -71,9 +75,11 @@ export const RsvpIsAttendingTiles: FunctionComponent<Props> = ({
           elevation={3}
           onClick={handleRsvpNo}
         >
-          {currentRsvp.guests.length > 1
-            ? "We must regretfully decline."
-            : "I must regretfully decline."}
+          <p>
+            {currentRsvp.guests.length > 1
+              ? "We must regretfully decline."
+              : "I must regretfully decline."}
+          </p>
         </Paper>
       </div>
     </>

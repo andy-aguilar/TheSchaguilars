@@ -1,4 +1,10 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, {
+  FunctionComponent,
+  useEffect,
+  useState,
+  createContext,
+  ReactElement,
+} from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { HomePage } from "./components/Pages/HomePage/HomePage";
@@ -16,49 +22,80 @@ import { Hotels } from "./components/Pages/Hotels/Hotels";
 import { ThingsToDo } from "./components/Pages/ThingsToDo/ThingsToDo";
 import { AboutUs } from "./components/Pages/About Us/AboutUs";
 import { useLocation } from "react-router-dom";
-// import { RsvpSearchForm } from "./components/Pages/Rsvp/RsvpSearchForm";
-import { RsvpComingSoon } from "./components/Pages/Rsvp/RsvpComingSoon";
+import { RsvpSearchForm } from "./components/Pages/Rsvp/RsvpSearchForm";
+import { Alert, Snackbar } from "@mui/material";
+import { Rsvp } from "./components/Pages/Rsvp/Rsvp";
+
+export const ErrorContext = createContext({
+  errorMessages: [""],
+  setErrorMessages: (error: string[]) => {},
+});
 
 export const App: FunctionComponent = () => {
+  // State
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [errorMessages, setErrorMessages] = useState<string[]>([]);
+
   const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
 
+  function getErrorMessages(): ReactElement[] {
+    return errorMessages.map((message, index) => (
+      <Alert severity="error" key={index}>
+        {message}
+      </Alert>
+    ));
+  }
+
   return (
-    <div className="App">
-      {!isMenuOpen && (
-        <header>
-          {/* Menu Icon: */}
-          <MenuIcon
-            fontSize="large"
-            className="header-icon"
-            onClick={() => setIsMenuOpen(true)}
+    <ErrorContext.Provider value={{ errorMessages, setErrorMessages }}>
+      <div className="App">
+        {!isMenuOpen && (
+          <header>
+            {/* Menu Icon: */}
+            <MenuIcon
+              fontSize="large"
+              className="header-icon"
+              onClick={() => setIsMenuOpen(true)}
+            />
+          </header>
+        )}
+
+        {/* Menu */}
+        {isMenuOpen && <Menu setIsMenuOpen={setIsMenuOpen} />}
+
+        {/* Error Messages */}
+
+        <Snackbar
+          open={errorMessages.length > 0}
+          autoHideDuration={6000}
+          onClose={() => setErrorMessages([])}
+        >
+          <div>{getErrorMessages()}</div>
+        </Snackbar>
+
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage setIsMenuOpen={setIsMenuOpen} />}
           />
-        </header>
-      )}
+          <Route path="/wedding" element={<TheWedding />} />
+          <Route path="/the-weekend" element={<Events />} />
+          <Route path={"/travel-information"} element={<TravelInformation />} />
 
-      {/* Menu */}
-      {isMenuOpen && <Menu setIsMenuOpen={setIsMenuOpen} />}
-
-      <Routes>
-        <Route path="/" element={<HomePage setIsMenuOpen={setIsMenuOpen} />} />
-        <Route path="/wedding" element={<TheWedding />} />
-        <Route path="/the-weekend" element={<Events />} />
-        <Route path={"/travel-information"} element={<TravelInformation />} />
-
-        <Route path={"/hotels"} element={<Hotels />} />
-        <Route path={"/about-antigua"} element={<AboutAntigua />} />
-        <Route path={"/registry"} element={<Registry />} />
-        {/* <Route path={"/rsvp"} element={<RsvpSearchForm />} /> */}
-        <Route path={"/rsvp"} element={<RsvpComingSoon />} />
-        {/* <Route path={"/rsvp/:rsvpId"} element={<Rsvp />} /> */}
-        <Route path={"/faqs"} element={<Faqs />} />
-        <Route path={"/things-to-do"} element={<ThingsToDo />} />
-        <Route path={"/about-us"} element={<AboutUs />} />
-      </Routes>
-    </div>
+          <Route path={"/hotels"} element={<Hotels />} />
+          <Route path={"/about-antigua"} element={<AboutAntigua />} />
+          <Route path={"/registry"} element={<Registry />} />
+          <Route path={"/rsvp"} element={<RsvpSearchForm />} />
+          <Route path={"/rsvp/:rsvpId"} element={<Rsvp />} />
+          <Route path={"/faqs"} element={<Faqs />} />
+          <Route path={"/things-to-do"} element={<ThingsToDo />} />
+          <Route path={"/about-us"} element={<AboutUs />} />
+        </Routes>
+      </div>
+    </ErrorContext.Provider>
   );
 };

@@ -23,7 +23,6 @@ export const Menu: FunctionComponent<Props> = ({ setIsMenuOpen }) => {
   }
 
   function handleClose(e: React.MouseEvent): void {
-    console.log("HIT THE BUTTON");
     e.stopPropagation();
     setShouldShowDivs(false);
   }

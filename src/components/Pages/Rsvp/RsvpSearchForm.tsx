@@ -1,8 +1,10 @@
-import { Button, Paper, Snackbar, TextField } from "@mui/material";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { Button, Paper, Snackbar, Stack, TextField } from "@mui/material";
 import React, {
   FormEvent,
   FunctionComponent,
   ReactNode,
+  useContext,
   useEffect,
   useState,
 } from "react";
@@ -12,10 +14,11 @@ import { Header } from "../../ReusableComponents/Header";
 import { API } from "aws-amplify";
 import { listRsvps } from "../../../graphql/queries";
 import { useNavigate } from "react-router-dom";
-// import { createRsvp } from "../../../graphql/mutations";
+// import { createRsvp, updateRsvp } from "../../../graphql/mutations";
 // import { seedRsvps } from "../../Model/rsvpinitial.const";
 import { MainTheme } from "../../../MainTheme";
 import { ThemeProvider } from "@emotion/react";
+import { ErrorContext } from "../../../App";
 
 const initialFormState = {
   firstName: "",
@@ -33,6 +36,7 @@ export const RsvpSearchForm: FunctionComponent = () => {
   const [rsvps, setRsvps] = useState<Rsvp[]>([]);
   const [shouldShowNotFound, setShouldShowNotFound] = useState<boolean>(false);
   const [multipleFoundRsvps, setMultipleFoundRsvps] = useState<Rsvp[]>([]);
+  const { errorMessages, setErrorMessages } = useContext(ErrorContext);
 
   const navigate = useNavigate();
 
@@ -42,7 +46,14 @@ export const RsvpSearchForm: FunctionComponent = () => {
 
   async function fetchRsvps() {
     const apiData = (await API.graphql({ query: listRsvps })) as rsvpResponse;
-    setRsvps(apiData.data.listRsvps.items);
+    if (apiData?.data?.listRsvps?.items) {
+      setRsvps(apiData.data.listRsvps.items);
+    } else {
+      setErrorMessages([
+        ...errorMessages,
+        "Something went wrong. Please try again.",
+      ]);
+    }
   }
 
   // USED FOR SEEDING DATABASE, DO NOT DELETE
@@ -63,7 +74,7 @@ export const RsvpSearchForm: FunctionComponent = () => {
   //     fetchRsvps();
   //   }
 
-  function handleSubmit(e: FormEvent): void {
+  function handleSearchSubmit(e: FormEvent): void {
     e.preventDefault();
 
     findCurrentRsvp(formData);
@@ -132,33 +143,37 @@ export const RsvpSearchForm: FunctionComponent = () => {
           </div>
 
           <div className={"page-body small"}>
-            <h3>Please enter your first and last name</h3>
+            <h2>Please enter your first and last name</h2>
 
             <form
-              onSubmit={handleSubmit}
+              onSubmit={handleSearchSubmit}
               style={{ display: "flex", flexDirection: "column" }}
             >
-              <TextField
-                value={formData.firstName}
-                id="standard-basic"
-                label="First Name"
-                variant="standard"
-                onChange={({ target }) =>
-                  setFormData({ ...formData, firstName: target.value })
-                }
-              />
-              <TextField
-                value={formData.lastName}
-                id="standard-basic"
-                label="Last Name"
-                variant="standard"
-                onChange={({ target }) =>
-                  setFormData({ ...formData, lastName: target.value })
-                }
-              />
-              <Button type="submit" name="submit" color="primary">
-                Submit
-              </Button>
+              <Stack spacing={4}>
+                <Stack spacing={3}>
+                  <TextField
+                    value={formData.firstName}
+                    id="standard-basic"
+                    className="rsvp text-field"
+                    label={"First Name"}
+                    onChange={({ target }) =>
+                      setFormData({ ...formData, firstName: target.value })
+                    }
+                  />
+                  <TextField
+                    value={formData.lastName}
+                    id="standard-basic"
+                    className="rsvp text-field"
+                    label="Last Name"
+                    onChange={({ target }) =>
+                      setFormData({ ...formData, lastName: target.value })
+                    }
+                  />
+                </Stack>
+                <Button type="submit" name="submit" color="primary">
+                  Submit
+                </Button>
+              </Stack>
             </form>
 
             {multipleFoundRsvps.length > 0 && (
@@ -189,9 +204,7 @@ export const RsvpSearchForm: FunctionComponent = () => {
             anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           />
 
-          <Footer
-            pageSize={multipleFoundRsvps.length > 0 ? "large" : "small"}
-          />
+          <Footer pageSize={"large"} />
         </div>
       </div>
     </ThemeProvider>
