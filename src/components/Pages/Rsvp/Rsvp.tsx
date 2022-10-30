@@ -66,7 +66,7 @@ export const Rsvp: FunctionComponent = () => {
           setIsLoading(false);
           setCurrentRsvp(apiData.data.getRsvp);
           setHasSubmitted(true);
-        } else if (apiData?.data?.getRsvp?.hasRsvped) {
+        } else if (apiData?.data?.getRsvp) {
           setIsLoading(false);
           setCurrentRsvp(apiData.data.getRsvp);
         } else {
@@ -126,13 +126,16 @@ export const Rsvp: FunctionComponent = () => {
         handleNext();
       });
     }
-    console.log("submitted rsvp");
   }
 
   function handleRsvpNoSubmit(rsvp: RsvpInterface): void {
-    setCurrentRsvp(rsvp);
-    handleNext();
-    console.log("rsvped no");
+    if (rsvp) {
+      submitRsvp(rsvp).then(() => {
+        setIsLoading(false);
+        setCurrentRsvp(rsvp);
+        handleNext();
+      });
+    }
   }
 
   function shouldDisableNext(): boolean {
