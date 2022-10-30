@@ -1026,8 +1026,32 @@ export const seedRsvps: Rsvp[] = [
     hasRsvped: false,
     dietaryRestrictions: "",
   },
+  {
+    guests: [{ firstName: "Kait", lastName: "Lee" }],
+    addressLabel: "Ms. Kait Lee",
+    streetAddress: "",
+    city: "",
+    state: "",
+    zipCode: "",
+    emailAddress: "",
+    hasRsvped: false,
+    dietaryRestrictions: "",
+  },
+  {
+    guests: [
+      {
+        firstName: "Sean",
+        lastName: "Tay",
+      },
+    ],
+    addressLabel: "Mr. Sean Tay",
+    streetAddress: "1300 Massachsetts Ave NW ",
+    streetAddressLineTwo: "Apt 103",
+    city: "Washington",
+    state: "DC",
+    zipCode: "20005",
+    emailAddress: "",
+    hasRsvped: false,
+    dietaryRestrictions: "",
+  },
 ];
-
-/* TODO: 
-- Update entries for Kait, and Sean
-*/
