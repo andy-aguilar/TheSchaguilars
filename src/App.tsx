@@ -25,7 +25,6 @@ import { useLocation } from "react-router-dom";
 import { RsvpSearchForm } from "./components/Pages/Rsvp/RsvpSearchForm";
 import { Alert, Snackbar } from "@mui/material";
 import { Rsvp } from "./components/Pages/Rsvp/Rsvp";
-import { SeederComponent } from "./components/Util/seeder";
 
 export const ErrorContext = createContext({
   errorMessages: [""],
@@ -95,7 +94,6 @@ export const App: FunctionComponent = () => {
           <Route path={"/faqs"} element={<Faqs />} />
           <Route path={"/things-to-do"} element={<ThingsToDo />} />
           <Route path={"/about-us"} element={<AboutUs />} />
-          <Route path={"/database"} element={<SeederComponent />} />
         </Routes>
       </div>
     </ErrorContext.Provider>
