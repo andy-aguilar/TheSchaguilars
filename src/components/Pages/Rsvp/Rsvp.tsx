@@ -38,6 +38,7 @@ export const Rsvp: FunctionComponent = () => {
   const [currentRsvp, setCurrentRsvp] = useState<RsvpInterface | null>(null);
   const [activeStep, setActiveStep] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [hasSubmitted, setHasSubmitted] = useState<boolean>(false);
   const { errorMessages, setErrorMessages } = useContext(ErrorContext);
 
   useEffect(() => {
@@ -61,7 +62,11 @@ export const Rsvp: FunctionComponent = () => {
         const apiData = (await API.graphql(
           graphqlOperation(getRsvp, { id: rsvpId })
         )) as RsvpResponse;
-        if (apiData?.data?.getRsvp) {
+        if (apiData?.data?.getRsvp.hasRsvped) {
+          setIsLoading(false);
+          setCurrentRsvp(apiData.data.getRsvp);
+          setHasSubmitted(true);
+        } else if (apiData?.data?.getRsvp?.hasRsvped) {
           setIsLoading(false);
           setCurrentRsvp(apiData.data.getRsvp);
         } else {
@@ -216,39 +221,54 @@ export const Rsvp: FunctionComponent = () => {
                 {currentRsvp && (
                   <h2 className="address-label">{currentRsvp.addressLabel}</h2>
                 )}
-                <div className="stepper-content">{getSteps()[activeStep]}</div>
-                {getSteps().length > 1 && (
-                  <MobileStepper
-                    variant="dots"
-                    steps={getSteps().length}
-                    position="static"
-                    activeStep={activeStep}
-                    sx={{
-                      minWidth: "275px",
-                      maxWidth: "700px",
-                      flexGrow: 1,
-                    }}
-                    nextButton={
-                      <Button
-                        size="small"
-                        onClick={handleNext}
-                        disabled={shouldDisableNext()}
-                      >
-                        Next
-                        <KeyboardArrowRight />
-                      </Button>
-                    }
-                    backButton={
-                      <Button
-                        size="small"
-                        onClick={handleBack}
-                        disabled={activeStep === 0}
-                      >
-                        <KeyboardArrowLeft />
-                        Back
-                      </Button>
-                    }
-                  />
+                {hasSubmitted && (
+                  <>
+                    <p>
+                      Looks like you've already RSVPed. Do you want to update
+                      your rsvp?
+                    </p>
+                    <Button onClick={() => setHasSubmitted(false)}>Yes</Button>
+                  </>
+                )}
+                {!hasSubmitted && (
+                  <>
+                    <div className="stepper-content">
+                      {getSteps()[activeStep]}
+                    </div>
+                    {getSteps().length > 1 && (
+                      <MobileStepper
+                        variant="dots"
+                        steps={getSteps().length}
+                        position="static"
+                        activeStep={activeStep}
+                        sx={{
+                          minWidth: "275px",
+                          maxWidth: "700px",
+                          flexGrow: 1,
+                        }}
+                        nextButton={
+                          <Button
+                            size="small"
+                            onClick={handleNext}
+                            disabled={shouldDisableNext()}
+                          >
+                            Next
+                            <KeyboardArrowRight />
+                          </Button>
+                        }
+                        backButton={
+                          <Button
+                            size="small"
+                            onClick={handleBack}
+                            disabled={activeStep === 0}
+                          >
+                            <KeyboardArrowLeft />
+                            Back
+                          </Button>
+                        }
+                      />
+                    )}
+                  </>
                 )}
               </Paper>
             </div>
