@@ -1,5 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Button, Paper, Snackbar, Stack, TextField } from "@mui/material";
+import {
+  Button,
+  Paper,
+  Snackbar,
+  Stack,
+  TextField,
+  useMediaQuery,
+} from "@mui/material";
 import React, {
   FormEvent,
   FunctionComponent,
@@ -114,7 +121,7 @@ export const RsvpSearchForm: FunctionComponent = () => {
         <Header />
         <div className="real-page-body">
           <div
-            className="sub-header"
+            className="sub-header rsvp"
             style={{
               backgroundImage: `url("https://the-schaguilars.s3.us-east-2.amazonaws.com/backgroundImage.jpeg")`,
             }}
@@ -123,7 +130,9 @@ export const RsvpSearchForm: FunctionComponent = () => {
           </div>
 
           <div className={"page-body small"}>
-            <h2>Please enter your first and last name</h2>
+            <h2 className={"rsvp name-label"}>
+              Please enter your first and last name
+            </h2>
 
             <form
               onSubmit={handleSearchSubmit}
@@ -184,7 +193,7 @@ export const RsvpSearchForm: FunctionComponent = () => {
             anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           />
 
-          <Footer pageSize={"large"} />
+          <Footer pageSize={"small"} />
         </div>
       </div>
     </ThemeProvider>

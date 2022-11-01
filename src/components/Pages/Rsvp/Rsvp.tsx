@@ -203,7 +203,7 @@ export const Rsvp: FunctionComponent = () => {
         <Header />
         <div className="real-page-body">
           <div
-            className="sub-header"
+            className="sub-header rsvp"
             style={{
               backgroundImage: `url("https://the-schaguilars.s3.us-east-2.amazonaws.com/backgroundImage.jpeg")`,
             }}
@@ -276,7 +276,7 @@ export const Rsvp: FunctionComponent = () => {
               </Paper>
             </div>
           )}
-          <Footer pageSize={"large"} />
+          <Footer pageSize={activeStep === 2 ? "large" : "small"} />
         </div>
       </div>
     </ThemeProvider>

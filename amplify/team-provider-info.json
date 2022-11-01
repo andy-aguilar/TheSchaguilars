@@ -1,4 +1,17 @@
 {
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifyd52bd8b709374-staging-143155-authRole",
+      "UnauthRoleArn": "arn:aws:iam::003286840921:role/amplify-amplifyd52bd8b709374-staging-143155-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::003286840921:role/amplify-amplifyd52bd8b709374-staging-143155-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-amplifyd52bd8b709374-staging-143155-deployment",
+      "UnauthRoleName": "amplify-amplifyd52bd8b709374-staging-143155-unauthRole",
+      "StackName": "amplify-amplifyd52bd8b709374-staging-143155",
+      "StackId": "arn:aws:cloudformation:us-east-2:003286840921:stack/amplify-amplifyd52bd8b709374-staging-143155/7cbe7230-31de-11ed-a983-02f8ebe9a9f4",
+      "AmplifyAppId": "dmmrlcko1m1jz"
+    }
+  },
   "prod": {
     "awscloudformation": {
       "AuthRoleName": "amplify-theschaguilars-prod-123629-authRole",

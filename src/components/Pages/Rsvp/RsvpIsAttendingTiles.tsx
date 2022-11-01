@@ -54,8 +54,8 @@ export const RsvpIsAttendingTiles: FunctionComponent<Props> = ({
         <Paper
           className={
             isCurrentRsvpSelected(true)
-              ? "response-button selected"
-              : "response-button"
+              ? "response-button selected rsvp"
+              : "response-button rsvp"
           }
           elevation={3}
           onClick={handleRsvpYes}
@@ -69,8 +69,8 @@ export const RsvpIsAttendingTiles: FunctionComponent<Props> = ({
         <Paper
           className={
             isCurrentRsvpSelected(false)
-              ? "response-button selected"
-              : "response-button"
+              ? "response-button selected rsvp"
+              : "response-button rsvp"
           }
           elevation={3}
           onClick={handleRsvpNo}

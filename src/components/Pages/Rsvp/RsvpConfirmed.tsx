@@ -1,3 +1,4 @@
+import { Link } from "@mui/material";
 import { FunctionComponent } from "react";
 
 export const RsvpConfirmed: FunctionComponent = () => {
@@ -10,7 +11,7 @@ export const RsvpConfirmed: FunctionComponent = () => {
       </h5>
       <p>
         Remember to book your shuttle from Guatemala City to Antigua{" "}
-        <a href={"/travel-information"}>here</a>
+        <Link href={"/travel-information"}>here</Link>
       </p>
     </div>
   );
