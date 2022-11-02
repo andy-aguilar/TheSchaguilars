@@ -1,12 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {
-  Button,
-  Paper,
-  Snackbar,
-  Stack,
-  TextField,
-  useMediaQuery,
-} from "@mui/material";
+import { Button, Paper, Snackbar, Stack, TextField } from "@mui/material";
 import React, {
   FormEvent,
   FunctionComponent,
@@ -29,7 +22,7 @@ const initialFormState = {
   firstName: "",
   lastName: "",
 };
-interface rsvpResponse {
+export interface rsvpResponse {
   data: {
     listRsvps: { items: Rsvp[] };
   };

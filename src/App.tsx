@@ -23,6 +23,7 @@ import { useLocation } from "react-router-dom";
 import { RsvpSearchForm } from "./components/Pages/Rsvp/RsvpSearchForm";
 import { Alert, Snackbar } from "@mui/material";
 import { Rsvp } from "./components/Pages/Rsvp/Rsvp";
+import { AdminComponent } from "./components/Admin/Admin";
 
 export const ErrorContext = createContext({
   errorMessages: [""],
@@ -92,6 +93,10 @@ export const App: FunctionComponent = () => {
           <Route path={"/faqs"} element={<Faqs />} />
           <Route path={"/things-to-do"} element={<ThingsToDo />} />
           <Route path={"/about-us"} element={<AboutUs />} />
+          <Route
+            path={"/los-schaguilares/admin"}
+            element={<AdminComponent />}
+          />
         </Routes>
       </div>
     </ErrorContext.Provider>
