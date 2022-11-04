@@ -41,7 +41,7 @@ export const TheWedding: FunctionComponent = () => {
               <p>
                 Pensativo House Hotel
                 <br />
-                Reception begins at six o'clock
+                Reception begins at five o'clock
               </p>
             </div>
           </div>
