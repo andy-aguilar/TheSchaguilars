@@ -24,6 +24,8 @@ import {
 } from "@mui/material";
 import { TabPanel } from "./TabPanel";
 import "./Admin.css";
+import { MainTheme } from "../../MainTheme";
+import { ThemeProvider } from "@mui/private-theming";
 
 export const AdminComponent: FunctionComponent = () => {
   const [rsvps, setRsvps] = useState<Rsvp[]>([]);
@@ -159,57 +161,59 @@ export const AdminComponent: FunctionComponent = () => {
   }
 
   return (
-    <div className={"admin-body"}>
-      {isLoading && <CircularProgress />}
-      {!isLoading && (
-        <Grid container spacing={2}>
-          <Grid xs={12} md={4} sx={{ margin: "1em" }}>
-            <TableContainer sx={{ maxWidth: 450 }} component={Paper}>
-              <Table aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>RSVP Details</TableCell>
-                    <TableCell></TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>{generateTableRows()}</TableBody>
-              </Table>
-            </TableContainer>
+    <ThemeProvider theme={MainTheme}>
+      <div className={"admin-body"}>
+        {isLoading && <CircularProgress />}
+        {!isLoading && (
+          <Grid container spacing={2}>
+            <Grid xs={12} md={4} sx={{ margin: "1em" }}>
+              <TableContainer sx={{ maxWidth: 450 }} component={Paper}>
+                <Table aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>RSVP Details</TableCell>
+                      <TableCell></TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>{generateTableRows()}</TableBody>
+                </Table>
+              </TableContainer>
+            </Grid>
+            <Grid xs={12} md={4} component={Paper} sx={{ margin: "1em" }}>
+              <Tabs
+                sx={{ padding: ".5em" }}
+                value={currentTab}
+                onChange={(_, newTab) => setCurrentTab(newTab)}
+              >
+                <Tab label="Attendees" />
+                <Tab label="Outstanding" />
+                <Tab label="Not Attending" />
+              </Tabs>
+              <TabPanel value={currentTab} index={0}>
+                <TableContainer sx={{ width: "100%" }}>
+                  <Table>
+                    <TableBody>{getIndividualAttendeeRows()}</TableBody>
+                  </Table>
+                </TableContainer>
+              </TabPanel>
+              <TabPanel value={currentTab} index={1}>
+                <TableContainer sx={{ width: "100%" }}>
+                  <Table>
+                    <TableBody>{getOutstandingRsvps()}</TableBody>
+                  </Table>
+                </TableContainer>
+              </TabPanel>
+              <TabPanel value={currentTab} index={2}>
+                <TableContainer sx={{ width: "100%" }}>
+                  <Table>
+                    <TableBody>{getHasRsvpedNoRows()}</TableBody>
+                  </Table>
+                </TableContainer>
+              </TabPanel>
+            </Grid>
           </Grid>
-          <Grid xs={12} md={4} component={Paper} sx={{ margin: "1em" }}>
-            <Tabs
-              sx={{ padding: ".5em" }}
-              value={currentTab}
-              onChange={(_, newTab) => setCurrentTab(newTab)}
-            >
-              <Tab label="Attendees" />
-              <Tab label="Outstanding" />
-              <Tab label="Not Attending" />
-            </Tabs>
-            <TabPanel value={currentTab} index={0}>
-              <TableContainer sx={{ width: "100%" }}>
-                <Table>
-                  <TableBody>{getIndividualAttendeeRows()}</TableBody>
-                </Table>
-              </TableContainer>
-            </TabPanel>
-            <TabPanel value={currentTab} index={1}>
-              <TableContainer sx={{ width: "100%" }}>
-                <Table>
-                  <TableBody>{getOutstandingRsvps()}</TableBody>
-                </Table>
-              </TableContainer>
-            </TabPanel>
-            <TabPanel value={currentTab} index={2}>
-              <TableContainer sx={{ width: "100%" }}>
-                <Table>
-                  <TableBody>{getHasRsvpedNoRows()}</TableBody>
-                </Table>
-              </TableContainer>
-            </TabPanel>
-          </Grid>
-        </Grid>
-      )}
-    </div>
+        )}
+      </div>
+    </ThemeProvider>
   );
 };
