@@ -33,7 +33,7 @@ export const TheWedding: FunctionComponent = () => {
               <p>
                 Convento Santa Clara
                 <br />
-                Ceremony begins at four o'clock
+                Ceremony begins at three o'clock
               </p>
             </div>
             <div className="wedding-event" style={{ borderBottom: "none" }}>
