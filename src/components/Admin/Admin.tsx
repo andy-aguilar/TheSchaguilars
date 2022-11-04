@@ -104,13 +104,25 @@ export const AdminComponent: FunctionComponent = () => {
   }
 
   function getHasRsvpedNoRows(): ReactNode[] {
-    return rsvps
-      .filter((rsvp) => rsvp.hasRsvped && !rsvp.isFamilyAttending)
-      .map((rsvp) => (
-        <TableRow key={rsvp.id}>
-          <TableCell>{rsvp.addressLabel}</TableCell>
-        </TableRow>
-      ));
+    const init: Guest[] = [];
+    const notAttending: Guest[] = rsvps.reduce((prev, curr) => {
+      if (!curr.hasRsvped) {
+        return prev;
+      }
+
+      const nos = curr.guests.filter((guest) => !guest.isAttending);
+      if (nos.length > 0) {
+        return [...prev, ...nos];
+      } else {
+        return prev;
+      }
+    }, init);
+
+    return notAttending.map((guest, index) => (
+      <TableRow key={index}>
+        <TableCell>{`${guest.firstName} ${guest.lastName}`}</TableCell>
+      </TableRow>
+    ));
   }
 
   function getOutstandingRsvps(): ReactElement[] {
@@ -151,7 +163,7 @@ export const AdminComponent: FunctionComponent = () => {
       {isLoading && <CircularProgress />}
       {!isLoading && (
         <Grid container spacing={2}>
-          <Grid xs={4}>
+          <Grid xs={12} md={4} sx={{ margin: "1em" }}>
             <TableContainer sx={{ maxWidth: 450 }} component={Paper}>
               <Table aria-label="simple table">
                 <TableHead>
@@ -164,7 +176,7 @@ export const AdminComponent: FunctionComponent = () => {
               </Table>
             </TableContainer>
           </Grid>
-          <Grid xs={4} component={Paper}>
+          <Grid xs={12} md={4} component={Paper} sx={{ margin: "1em" }}>
             <Tabs
               sx={{ padding: ".5em" }}
               value={currentTab}
