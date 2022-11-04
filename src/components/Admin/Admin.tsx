@@ -1,13 +1,34 @@
-import { FunctionComponent, ReactElement, useEffect, useState } from "react";
-import { Rsvp } from "../Model/Rsvp.interface";
+import {
+  FunctionComponent,
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useState,
+} from "react";
+import { Guest, Rsvp } from "../Model/Rsvp.interface";
 import { API } from "aws-amplify";
 import { listRsvps } from "../../graphql/queries";
 import { rsvpResponse } from "../Pages/Rsvp/RsvpSearchForm";
-import { CircularProgress } from "@mui/material";
+import {
+  CircularProgress,
+  Grid,
+  Paper,
+  Tab,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Tabs,
+} from "@mui/material";
+import { TabPanel } from "./TabPanel";
+import "./Admin.css";
 
 export const AdminComponent: FunctionComponent = () => {
   const [rsvps, setRsvps] = useState<Rsvp[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [currentTab, setCurrentTab] = useState<number>(0);
 
   useEffect(() => {
     fetchRsvps();
@@ -64,38 +85,118 @@ export const AdminComponent: FunctionComponent = () => {
     }, 0);
   }
 
+  function getIndividualAttendeeRows(): ReactNode[] {
+    const init: Guest[] = [];
+    const individualAttendees: Guest[] = rsvps.reduce((prev, curr) => {
+      const yeses: Guest[] = curr.guests.filter((guest) => guest.isAttending);
+      if (yeses.length > 0) {
+        return [...prev, ...yeses];
+      } else {
+        return prev;
+      }
+    }, init);
+
+    return individualAttendees.map((guest, index) => (
+      <TableRow key={index}>
+        <TableCell>{`${guest.firstName} ${guest.lastName}`}</TableCell>
+      </TableRow>
+    ));
+  }
+
+  function getHasRsvpedNoRows(): ReactNode[] {
+    return rsvps
+      .filter((rsvp) => rsvp.hasRsvped && !rsvp.isFamilyAttending)
+      .map((rsvp) => (
+        <TableRow key={rsvp.id}>
+          <TableCell>{rsvp.addressLabel}</TableCell>
+        </TableRow>
+      ));
+  }
+
   function getOutstandingRsvps(): ReactElement[] {
     return rsvps
       .filter((rsvp) => !rsvp.hasRsvped)
-      .map((rsvp) => <li key={rsvp.id}>{rsvp.addressLabel}</li>);
+      .map((rsvp) => (
+        <TableRow key={rsvp.id}>
+          <TableCell>{rsvp.addressLabel}</TableCell>
+        </TableRow>
+      ));
+  }
+
+  const rows: { name: string; data: number }[] = [
+    { name: "Responses received:", data: getFamiliesResponded() },
+    { name: "Outstanding invites:", data: getFamiliesNotResponded() },
+    { name: "Attending (Individual):", data: getIndividualRsvpYeses() },
+    { name: "Not Attending (Individual):", data: getIndividualRsvpNos() },
+    { name: "Attending (Families):", data: getFamilyRsvpYeses() },
+    { name: "Not Attending (Families):", data: getFamilyRsvpNos() },
+  ];
+
+  function generateTableRows(): ReactNode[] {
+    return rows.map((row) => (
+      <TableRow
+        key={row.name}
+        sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+      >
+        <TableCell component="th" scope="row">
+          {row.name}
+        </TableCell>
+        <TableCell>{row.data}</TableCell>
+      </TableRow>
+    ));
   }
 
   return (
-    <div>
+    <div className={"admin-body"}>
       {isLoading && <CircularProgress />}
       {!isLoading && (
-        <div>
-          <h1># of Families that have responded:</h1>
-          <p>{getFamiliesResponded()}</p>
-
-          <h1># of Families that have not responded:</h1>
-          <p>{getFamiliesNotResponded()}</p>
-
-          <h1># of Familes that have said yes</h1>
-          <p>{getFamilyRsvpYeses()}</p>
-
-          <h1># ofFamiles that have said no</h1>
-          <p>{getFamilyRsvpNos()}</p>
-
-          <h1># of individual attendees</h1>
-          <p>{getIndividualRsvpYeses()}</p>
-
-          <h1># of individual declinees</h1>
-          <p>{getIndividualRsvpNos()}</p>
-
-          <h1>Still waiting on rsvps from</h1>
-          <ul>{getOutstandingRsvps()}</ul>
-        </div>
+        <Grid container spacing={2}>
+          <Grid xs={4}>
+            <TableContainer sx={{ maxWidth: 450 }} component={Paper}>
+              <Table aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>RSVP Details</TableCell>
+                    <TableCell></TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>{generateTableRows()}</TableBody>
+              </Table>
+            </TableContainer>
+          </Grid>
+          <Grid xs={4} component={Paper}>
+            <Tabs
+              sx={{ padding: ".5em" }}
+              value={currentTab}
+              onChange={(_, newTab) => setCurrentTab(newTab)}
+            >
+              <Tab label="Attendees" />
+              <Tab label="Outstanding" />
+              <Tab label="Not Attending" />
+            </Tabs>
+            <TabPanel value={currentTab} index={0}>
+              <TableContainer sx={{ width: "100%" }}>
+                <Table>
+                  <TableBody>{getIndividualAttendeeRows()}</TableBody>
+                </Table>
+              </TableContainer>
+            </TabPanel>
+            <TabPanel value={currentTab} index={1}>
+              <TableContainer sx={{ width: "100%" }}>
+                <Table>
+                  <TableBody>{getOutstandingRsvps()}</TableBody>
+                </Table>
+              </TableContainer>
+            </TabPanel>
+            <TabPanel value={currentTab} index={2}>
+              <TableContainer sx={{ width: "100%" }}>
+                <Table>
+                  <TableBody>{getHasRsvpedNoRows()}</TableBody>
+                </Table>
+              </TableContainer>
+            </TabPanel>
+          </Grid>
+        </Grid>
       )}
     </div>
   );
