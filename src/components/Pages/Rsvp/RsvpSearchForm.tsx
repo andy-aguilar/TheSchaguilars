@@ -57,7 +57,12 @@ export const RsvpSearchForm: FunctionComponent = () => {
   function handleSearchSubmit(e: FormEvent): void {
     e.preventDefault();
 
-    findCurrentRsvp(formData);
+    const preparedData: { firstName: string; lastName: string } = {
+      firstName: formData.firstName.trim(),
+      lastName: formData.lastName.trim(),
+    };
+
+    findCurrentRsvp(preparedData);
   }
 
   function findCurrentRsvp(formData: { firstName: string; lastName: string }) {
