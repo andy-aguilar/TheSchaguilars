@@ -8,11 +8,12 @@ import {
 import { Guest, Rsvp } from "../Model/Rsvp.interface";
 import { API } from "aws-amplify";
 import { listRsvps } from "../../graphql/queries";
-import { rsvpResponse } from "../Pages/Rsvp/RsvpSearchForm";
+import { rsvpResponse, RsvpSearchForm } from "../Pages/Rsvp/RsvpSearchForm";
 import {
   CircularProgress,
   Grid,
   Paper,
+  responsiveFontSizes,
   Tab,
   Table,
   TableBody,
@@ -127,14 +128,41 @@ export const AdminComponent: FunctionComponent = () => {
     ));
   }
 
-  function getOutstandingRsvps(): ReactElement[] {
-    return rsvps
-      .filter((rsvp) => !rsvp.hasRsvped)
-      .map((rsvp) => (
-        <TableRow key={rsvp.id}>
-          <TableCell>{rsvp.addressLabel}</TableCell>
-        </TableRow>
-      ));
+  // function getOutstandingRsvps(): ReactElement[] {
+  //   return rsvps
+  //     .filter((rsvp) => !rsvp.hasRsvped)
+  //     .map((rsvp) => (
+  //       <TableRow key={rsvp.id}>
+  //         <TableCell>{rsvp.addressLabel}</TableCell>
+  //       </TableRow>
+  //     ));
+  // }
+
+  function getOutstandingIndividualRsvps(): ReactElement[] {
+    // get all outstanding rsvps
+    const outstandingFamilyRsvps: Rsvp[] = rsvps.filter(
+      (rsvp) => !rsvp.hasRsvped
+    );
+
+    // get individuals from rsvps
+    const individualOutstandingRsvps: Guest[] = [];
+
+    outstandingFamilyRsvps.forEach((rsvp) => {
+      rsvp.guests.forEach((guest) => {
+        individualOutstandingRsvps.push(guest);
+      });
+    });
+
+    individualOutstandingRsvps.sort((a, b) =>
+      a.lastName > b.lastName ? 1 : -1
+    );
+
+    return individualOutstandingRsvps.map((guest) => (
+      <TableRow>
+        <TableCell>{guest.firstName}</TableCell>
+        <TableCell>{guest.lastName}</TableCell>
+      </TableRow>
+    ));
   }
 
   const rows: { name: string; data: number }[] = [
@@ -199,7 +227,13 @@ export const AdminComponent: FunctionComponent = () => {
               <TabPanel value={currentTab} index={1}>
                 <TableContainer sx={{ width: "100%" }}>
                   <Table>
-                    <TableBody>{getOutstandingRsvps()}</TableBody>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>First Name</TableCell>
+                        <TableCell>Last Name</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>{getOutstandingIndividualRsvps()}</TableBody>
                   </Table>
                 </TableContainer>
               </TabPanel>
