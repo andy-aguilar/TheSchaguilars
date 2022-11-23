@@ -113,7 +113,7 @@ export const AdminComponent: FunctionComponent = () => {
         return prev;
       }
 
-      const nos = curr.guests.filter((guest) => !guest.isAttending);
+      const nos: Guest[] = curr.guests.filter((guest) => !guest.isAttending);
       if (nos.length > 0) {
         return [...prev, ...nos];
       } else {
@@ -168,6 +168,10 @@ export const AdminComponent: FunctionComponent = () => {
   const rows: { name: string; data: number }[] = [
     { name: "Responses received:", data: getFamiliesResponded() },
     { name: "Outstanding invites:", data: getFamiliesNotResponded() },
+    {
+      name: "Outstanding (Individual):",
+      data: getOutstandingIndividualRsvps().length,
+    },
     { name: "Attending (Individual):", data: getIndividualRsvpYeses() },
     { name: "Not Attending (Individual):", data: getIndividualRsvpNos() },
     { name: "Attending (Families):", data: getFamilyRsvpYeses() },
