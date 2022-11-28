@@ -11,6 +11,8 @@ export interface Rsvp {
   state: string;
   zipCode: string;
   isFamilyAttending?: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface Guest {

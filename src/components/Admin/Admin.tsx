@@ -8,12 +8,11 @@ import {
 import { Guest, Rsvp } from "../Model/Rsvp.interface";
 import { API } from "aws-amplify";
 import { listRsvps } from "../../graphql/queries";
-import { rsvpResponse, RsvpSearchForm } from "../Pages/Rsvp/RsvpSearchForm";
+import { rsvpResponse } from "../Pages/Rsvp/RsvpSearchForm";
 import {
   CircularProgress,
   Grid,
   Paper,
-  responsiveFontSizes,
   Tab,
   Table,
   TableBody,
@@ -90,7 +89,14 @@ export const AdminComponent: FunctionComponent = () => {
 
   function getIndividualAttendeeRows(): ReactNode[] {
     const init: Guest[] = [];
-    const individualAttendees: Guest[] = rsvps.reduce((prev, curr) => {
+    const sortedRsvps: Rsvp[] = rsvps.sort((a, b) => {
+      if (!a.updatedAt || !b.updatedAt) {
+        return 0;
+      } else {
+        return a.updatedAt > b.updatedAt ? -1 : 1;
+      }
+    });
+    const individualAttendees: Guest[] = sortedRsvps.reduce((prev, curr) => {
       const yeses: Guest[] = curr.guests.filter((guest) => guest.isAttending);
       if (yeses.length > 0) {
         return [...prev, ...yeses];
