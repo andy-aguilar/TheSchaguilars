@@ -2,7 +2,7 @@ ul {
   margin-left: 20px;
 }
 
-li {
+li.nav-li {
   display: block;
   text-align: left;
   color: #224339;
@@ -64,7 +64,7 @@ li {
   align-items: center;
 }
 
-li:after {
+li.nav-li:after {
   content: "";
   display: block;
   margin: auto;
@@ -78,7 +78,7 @@ li:after {
   transition: width 0.5s ease, background-color 0.5s ease;
 }
 
-li:hover:after {
+li.nav-li:hover:after {
   width: 100%;
   background: #afa898;
 }

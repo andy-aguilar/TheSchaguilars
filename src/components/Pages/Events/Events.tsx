@@ -7,7 +7,7 @@ import "./event.css";
 export interface EventInterface {
   name: string;
   date: string;
-  location: string;
+  location: ReactNode;
   time: string;
   attire: string;
   imgUrl: string;
@@ -49,8 +49,8 @@ const events: EventInterface[] = [
   },
   {
     name: "volcano hike",
-    date: "03 09 23",
-    location: "Details coming soon",
+    date: "03 10 23",
+    location: <a href={"/volcano-hike"}>Click here for more info</a>,
     time: "",
     attire: "",
     imgUrl:

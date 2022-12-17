@@ -31,7 +31,7 @@ export interface Props {
 export const NavMenu: FunctionComponent<Props> = ({ onNavigate }) => {
   function generateNavLinks(): ReactNode[] {
     return links.map((link) => (
-      <li key={link.url}>
+      <li key={link.url} className={"nav-li"}>
         <NavLink
           className={({ isActive }) =>
             isActive ? `selected ${link.class}` : link.class
