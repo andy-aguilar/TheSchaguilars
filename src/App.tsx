@@ -20,7 +20,6 @@ import { Hotels } from "./components/Pages/Hotels/Hotels";
 import { ThingsToDo } from "./components/Pages/ThingsToDo/ThingsToDo";
 import { AboutUs } from "./components/Pages/About Us/AboutUs";
 import { useLocation } from "react-router-dom";
-import { RsvpSearchForm } from "./components/Pages/Rsvp/RsvpSearchForm";
 import { Alert, Snackbar } from "@mui/material";
 import { Rsvp } from "./components/Pages/Rsvp/Rsvp";
 import { AdminComponent } from "./components/Admin/Admin";
@@ -89,7 +88,7 @@ export const App: FunctionComponent = () => {
           <Route path={"/hotels"} element={<Hotels />} />
           <Route path={"/about-antigua"} element={<AboutAntigua />} />
           <Route path={"/registry"} element={<Registry />} />
-          <Route path={"/rsvp"} element={<RsvpSearchForm />} />
+          <Route path={"/rsvp"} element={<Rsvp />} />
           <Route path={"/rsvp/:rsvpId"} element={<Rsvp />} />
           <Route path={"/faqs"} element={<Faqs />} />
           <Route path={"/things-to-do"} element={<ThingsToDo />} />
