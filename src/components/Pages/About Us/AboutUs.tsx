@@ -112,6 +112,10 @@ export const AboutUs: FunctionComponent = () => {
       title: "Two birthdays and a boat",
       url: "https://www.youtube.com/embed/XM2X3uD9j70",
     },
+    {
+      title: "2022",
+      url: "https://www.youtube.com/embed/t7e6MfsqQI8",
+    },
   ];
 
   function renderVideoIFrames(): ReactNode {
